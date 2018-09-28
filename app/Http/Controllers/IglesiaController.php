@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Iglesia;
+use Illuminate\Http\Request;
 
 class IglesiaController extends Controller
 {
@@ -15,10 +15,20 @@ class IglesiaController extends Controller
     public function index()
     {
         $iglesias = Iglesia::paginate();
+        //dd($iglesias);
         return view('iglesias.index', compact('iglesias'));
     }
 
-    public function crearIglesia() {
+    public function create() {
         return view('iglesias.create');
+    }
+
+    function store(Request $request){
+        $data = request()->all();
+        //dd($data);
+
+        $iglesia  = new Iglesia($data);
+        $iglesia->save();
+        return redirect()->route('iglesias.index');
     }
 }

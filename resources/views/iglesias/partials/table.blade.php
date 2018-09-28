@@ -3,11 +3,13 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Dirección</th>      
+      <th scope="col">Dirección</th>  
+      <th scope="col">Teléfono</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($iglesias as $iglesia)
+    @forelse($iglesias as $iglesia)
       <tr data-id="{{ $iglesia->id }}">
         <td> {{ $iglesia->id }}</td>
         <td> {{ $iglesia->nombre }}</td>
@@ -17,6 +19,9 @@
           <a class="btn btn-primary" href="#">Editar</a>
         </td>
       </tr>
-    @endforeach
+      @empty
+
+      <td>No hay iglesias registradas</td>
+    @endforelse
   </tbody>
 </table>

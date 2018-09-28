@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('iglesias', function() {
-    return view('iglesias.index');
-});
+Route::resource('iglesias', 'IglesiaController' , ['only' => [
+    'index', 'create'
+]]);

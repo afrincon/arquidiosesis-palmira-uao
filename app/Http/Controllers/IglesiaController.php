@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Iglesia;
 
 class IglesiaController extends Controller
 {
@@ -13,6 +14,11 @@ class IglesiaController extends Controller
      */
     public function index()
     {
-        return view('iglesias.index');
+        $iglesias = Iglesia::paginate();
+        return view('iglesias.index', compact('iglesias'));
+    }
+
+    public function crearIglesia() {
+        return view('iglesias.create');
     }
 }

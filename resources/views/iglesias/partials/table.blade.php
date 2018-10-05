@@ -5,7 +5,9 @@
       <th scope="col">Nombre</th>
       <th scope="col">Dirección</th>  
       <th scope="col">Teléfono</th>
+      <th scope="col">Arquidiocesis principal</th>
       <th scope="col">Acciones</th>
+      <th scope="col">Parroco asociado</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +17,7 @@
         <td> {{ $iglesia->nombre }}</td>
         <td> {{ $iglesia->direccion }}</td>
         <td> {{ $iglesia->telefono }}</td>
+        <td> {{ $iglesia->arquidiocesis }}</td>
         <td>
           <a class="btn btn-primary" href="#">Editar</a>
         </td>

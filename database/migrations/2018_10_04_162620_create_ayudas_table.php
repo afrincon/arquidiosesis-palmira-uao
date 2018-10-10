@@ -17,15 +17,15 @@ class CreateAyudasTable extends Migration
             $table->increments('id_ayuda');
             $table->date('fecha_ayuda');
             
-            $table->numeric('id_tipoayuda', 10);
-            $table->foreign('id_tipoayuda')->references('id_tipoayuda')->an('ayudas');
+            $table->integer('id_tipoayuda')->unsigned();
+            #$table->foreign('id_tipoayuda')->references('id_tipoayuda')->an('ayudas');
 
-            $table->numeric('id_beneficiario', 10);
-            $table->foreign('id_beneficiario')->references('id_beneficiario')->an('beneficiarios');
+            $table->integer('id_beneficiario')->unsigned();
+            #$table->foreign('id_beneficiario')->references('id_beneficiario')->an('beneficiarios');
 
-            $table->numeric('id_iglesia', 10);
-            $table->foreign('id_iglesia')->references('id_iglesia')->an('iglesias');
-
+            $table->integer('id_iglesia')->unsigned();
+            $table->foreign('id_iglesia')->references('id')->on('iglesias');
+            
             $table->string('observaciones');
             
             $table->timestamps();

@@ -16,7 +16,7 @@ class IglesiaController extends Controller
     public function index()
     {
         $iglesias = Iglesia::paginate();
-        dd($iglesias);
+        #dd($iglesias);
         return view('iglesias.index', compact('iglesias'));
     }
 
@@ -26,7 +26,7 @@ class IglesiaController extends Controller
         return view('iglesias.create',compact('users'));
     }
 
-    function store(){
+    public function store(){
 
         $data = request()->validate([
             'nombre' => 'required',
@@ -34,13 +34,23 @@ class IglesiaController extends Controller
             'telefono' => 'required|max:10',
             'arquidiocesis' =>  'required',
             'user' => 'required',
+            'estado' => 'required',
         ]);
 
         #dd($data);
 
-
         $iglesia  = new Iglesia($data);
         $iglesia->save();
         return redirect()->route('iglesias.index');
+    }
+
+    public function edit($id) {
+        $iglesia = Iglesia::findOrFail($id);
+        #dd($iglesia);
+        return view('iglesias.edit', compact('iglesia'));
+    }
+
+    public function update($id) {
+
     }
 }

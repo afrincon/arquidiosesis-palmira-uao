@@ -15,5 +15,5 @@
       @include('iglesias.partials.fields')
     </div>
   </div>
-<div>
+</div>
 @endsection

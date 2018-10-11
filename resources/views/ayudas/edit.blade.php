@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="card" style="width: 60rem; margin: 0 auto;">
-        <h3 class="card-title">Creación de iglesias</h3>
+        <h3 class="card-title">Edición de ayuda</h3>
         <div class="card-body">
             <div class="col-sm-12">
                 @include('errors.errors')
@@ -12,8 +12,8 @@
                 </div>
             @endif
             <div class="col-sm-12">
-                @include('iglesias.partials.formulario')
+                @include('ayudas.partials.fieldsAyuda')
             </div>
         </div>
-    </div>
+        </div>
 @endsection

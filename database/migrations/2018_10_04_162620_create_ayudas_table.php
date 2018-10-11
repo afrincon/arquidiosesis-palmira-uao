@@ -16,19 +16,16 @@ class CreateAyudasTable extends Migration
         Schema::create('ayudas', function (Blueprint $table) {
             $table->increments('id_ayuda');
             $table->date('fecha_ayuda');
-            
             $table->integer('id_tipoayuda')->unsigned();
-            #$table->foreign('id_tipoayuda')->references('id_tipoayuda')->an('ayudas');
-
             $table->integer('id_beneficiario')->unsigned();
-            #$table->foreign('id_beneficiario')->references('id_beneficiario')->an('beneficiarios');
-
             $table->integer('id_iglesia')->unsigned();
-            $table->foreign('id_iglesia')->references('id')->on('iglesias');
-            
-            $table->string('observaciones');
-            
+            $table->string('observaciones')->nullable();
+
             $table->timestamps();
+
+            $table->foreign('id_tipoayuda')->references('id_tipoayuda')->on('tipodeayudas');
+            $table->foreign('id_beneficiario')->references('id_beneficiario')->on('beneficiarios');
+            $table->foreign('id_iglesia')->references('id')->on('iglesias');
         });
     }
 

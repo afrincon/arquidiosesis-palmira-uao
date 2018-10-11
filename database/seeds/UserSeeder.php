@@ -18,5 +18,11 @@ class UserSeeder extends Seeder
             'email' => 'andres_felipe.rincon@uao.edu.co',
             'password' => bcrypt('Autonoma18'),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Pepito Perez',
+            'email' => 'pepito.perez@uao.edu.co',
+            'password' => bcrypt('Autonoma18'),
+        ]);
     }
 }

@@ -1,6 +1,6 @@
 <form method="post" action="{{ url('iglesias') }}" >
   {{ csrf_field() }}
-  <div class="col-sm-12 col-md-12">
+    <div class="col-sm-12 col-md-12">
     <div class="form-group row">
       <label for="inputIglesia" class="col-sm-3 col-form-label">Nombre iglesia</label>
       <div class="col-sm-6">

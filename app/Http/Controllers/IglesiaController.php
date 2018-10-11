@@ -41,16 +41,30 @@ class IglesiaController extends Controller
 
         $iglesia  = new Iglesia($data);
         $iglesia->save();
-        return redirect()->route('iglesias.index');
+        return redirect()->route('iglesias.index')->with('success', 'Iglesia agregada correctamente');
     }
 
     public function edit($id) {
         $iglesia = Iglesia::findOrFail($id);
         #dd($iglesia);
-        return view('iglesias.edit', compact('iglesia'));
+        $users = User::all('id','name');
+        return view('iglesias.edit', compact('iglesia','users'));
     }
 
-    public function update($id) {
-
+    public function update(Request $request,$id) {
+        
+        #dd($iglesia);
+        $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required|max:10',
+            'arquidiocesis' =>  'required',
+            'user' => 'required',
+            'estado' => 'required',
+        ]);
+        $iglesia = Iglesia::findOrFail($id);
+        $iglesia->fill($request->all());
+        $iglesia->save();
+        return redirect()->route('iglesias.index')->with('success', 'Iglesia ha sido actualizada');;
     }
 }

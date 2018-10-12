@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/iglesias', 'IglesiaController')->only([
     'index', 'create', 'store', 'edit', 'update'
 ]);
+
+Route::resource('/usuarios', 'UsuarioController')->only([
+    'index', 'create', 'store', 'edit', 'update'
+]);

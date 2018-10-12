@@ -26,3 +26,7 @@ Route::resource('/iglesias', 'IglesiaController')->only([
 Route::resource('/usuarios', 'UsuarioController')->only([
     'index', 'create', 'store', 'edit', 'update'
 ]);
+
+Route::resource('/ayudas', 'AyudaController')->only([
+    'index', 'create', 'store', 'edit', 'update'
+]);

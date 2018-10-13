@@ -2,7 +2,7 @@
     {{ csrf_field() }}
     <div class="col-sm-12 col-md-12">
         <div class="form-group row">
-            <label for="inputUsuario" class="col-sm-3 col-form-label">Nombre usuario</label>
+            <label for="inputUsuario" class="col-sm-3 col-form-label">Nombre </label>
             <div class="col-sm-6">
                 <input type="text" class="form-control" name="name" id="inputUsuario" placeholder="Ingrese el nombre de usuario" autofocus value="{{ $usuario->name }}">
             </div>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-group row">
-            <label for="inputEstado" class="col-sm-3 col-form-label">Estado de la iglesia</label>
+            <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
             <div class="col-sm-6">
                 <select class="form-control" id="selectEstado" name="estado" value="{{ $usuario->estado }}">
                     <option value="Activo">Activo</option>
@@ -49,7 +49,16 @@
 
         </div>
 
+        <div class="form-group row">
+            <label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
+            <div class="col-sm-6">
+                <select class="form-control" id="selectPerfil" name="perfil" value="{{ $usuario->perfil }}">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario">Usuario</option>
+                </select>
+            </div>
 
+        </div>		
 
         <div class="form-group col-sm-12 col-md-8">
             <button type="submit" class="btn btn-primary">Guardar</button>

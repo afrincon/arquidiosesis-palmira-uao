@@ -25,6 +25,12 @@
         <input type="text" class="form-control" name="estado" value="{{ $usuario->estado }}" disabled>
       </div>
     </div>
+    <div class="form-group row">
+      <label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="perfil" value="{{ $usuario->perfil }}" disabled>
+      </div>
+    </div>	
 	<div class="col-sm-12 col-md-12" align="center">
 		<a class="btn btn-primary" href="{{ url('/usuarios') }}" role="button">Salir</a>
 	</div>	

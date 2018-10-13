@@ -50,11 +50,11 @@
     </div>
 	
     <div class="form-group row">
-      <label for="inputRol" class="col-sm-3 col-form-label">Rol</label>
+      <label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
       <div class="col-sm-6">
-        <select class="form-control" id="selectRol" name="rol" value="{{ old('rol') }}">
-            <option value="Admin">Administrador</option>          
-            <option value="User">Usuario</option>
+        <select class="form-control" id="selectPerfil" name="perfil" value="{{ old('perfil') }}">
+            <option value="Administrador">Administrador</option>          
+            <option value="Usuario">Usuario</option>
         </select>
       </div>  
 

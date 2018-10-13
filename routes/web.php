@@ -22,9 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);
 
-Route::resource('/usuarios', 'UsuarioController')->only([
-    'index', 'create', 'store', 'edit', 'update'
-]);
+Route::resource('/usuarios', 'UsuarioController',
+['except' => ['destroy']]);
+
 
 Route::resource('/ayudas', 'AyudaController')->only([
     'index', 'create', 'store', 'edit', 'update'

@@ -32,8 +32,8 @@
       <div class="col-sm-6">
         <select class="form-control" id="selectId_tipo_documento" name="id_tipo_documento" value="{{ old('id_tipo_documento') }}">
           <option value="">Seleccionar un tipo de documento</option>
-          @foreach($id_tipo_documento as $tipo_documento)
-            <option value="{{ $id_tipo_documento->id }}">{{ $id_tipo_documento->name }}</option>
+          @foreach($tipoDocumento as $tipo)
+            <option value="{{ $tipo->id }}">{{ $tipo->descripcion }}</option>
           @endforeach
         </select>
       </div>
@@ -85,7 +85,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="inputEstado" class="col-sm-3 col-form-label">Estado del beneficiario</label>
+      <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
           <option value="Activo">Activo</option>
@@ -95,7 +95,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="inputClasificacion" class="col-sm-3 col-form-label">Clasificacion del beneficiario</label>
+      <label for="inputClasificacion" class="col-sm-3 col-form-label">Clasificacion</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectClasificacion" name="clasificacion" value="{{ old('clasificacion') }}">
           <option value="Vulnerable N-1">Vulnerable N-1</option>

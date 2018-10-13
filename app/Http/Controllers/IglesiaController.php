@@ -25,8 +25,8 @@ class IglesiaController extends Controller
      */
     public function index()
     {
-        $iglesias = Iglesia::paginate();
-        #dd($iglesias);
+        $iglesias = Iglesia::with('userInfo')->get();
+        dd($iglesias);
         return view('iglesias.index', compact('iglesias'));
     }
 

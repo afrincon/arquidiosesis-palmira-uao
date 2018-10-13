@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
 
     public function  userIglesia(){
-        return $this->hasMany('App\Iglesia', 'id_user');
+        return $this->hasMany('App\Iglesia', 'id_user', 'id');
     }
 }

@@ -9,4 +9,8 @@ class iglesia extends Model
     protected $table = 'iglesias';
     public $timestamps = true;
     protected $fillable = array('nombre', 'direccion', 'telefono', 'user', 'arquidiocesis','estado');
+
+    public function userInfo(){
+        return $this->belongsTo('App\User');
+    }
 }

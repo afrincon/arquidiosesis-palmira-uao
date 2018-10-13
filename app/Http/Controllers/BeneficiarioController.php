@@ -13,7 +13,7 @@ class BeneficiarioController extends Controller
     public function index()
     {
         $beneficiarios = beneficiario::paginate();
-        dd($beneficiarios);
+        #dd($beneficiarios);
         return view('beneficiarios.index', compact('beneficiarios'));
     }
     public function create() {

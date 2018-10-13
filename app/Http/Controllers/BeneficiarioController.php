@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\beneficiario;
+use App\tipo_documento;
 use App\User;
 
 class BeneficiarioController extends Controller
@@ -19,7 +20,8 @@ class BeneficiarioController extends Controller
     public function create() {
         $users = User::all('id','name');
         #dd($users);
-        return view('beneficiarios.create',compact('users'));
+        $tipodocumento = tipo_documento::all();
+        return view('beneficiarios.create',compact('users','tipodocumento'));
     }
     function store(){
         $data = request()->validate([

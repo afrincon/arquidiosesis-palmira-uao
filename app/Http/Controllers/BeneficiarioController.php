@@ -20,12 +20,11 @@ class BeneficiarioController extends Controller
     public function create() {
         $users = User::all('id','name');
         #dd($users);
-        $tipodocumento = tipo_documento::all();
-        return view('beneficiarios.create',compact('users','tipodocumento'));
+        $tipoDocumento = tipo_documento::all();
+        return view('beneficiarios.create',compact('users','tipoDocumento'));
     }
     function store(){
         $data = request()->validate([
-            'id_beneficiario' => 'required',
             'documento' => 'required',
 			'id_tipo_documento' => 'required',
 			'nombre' => 'required',

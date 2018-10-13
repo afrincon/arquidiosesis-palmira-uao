@@ -12,7 +12,7 @@
     @forelse($usuarios as $usuario)
       <tr data-id="{{ $usuario->id }}">
         <td> {{ $usuario->id }}</td>
-        <td> {{ $usuario->name }}</td>
+        <td><a href="{{ url("usuarios/{$usuario->id}") }}"> {{ $usuario->name }} </a></td>		
         <td> {{ $usuario->email }}</td>
         <td> {{ $usuario->estado }}</td>
         <td>

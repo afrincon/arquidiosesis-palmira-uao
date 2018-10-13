@@ -16,7 +16,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = Usuario::paginate();
-        #dd($iglesias);
+        #dd($usuario);
         return view('usuarios.index', compact('usuarios'));
     }
 
@@ -73,4 +73,8 @@ class UsuarioController extends Controller
 
         return redirect()->route('usuarios.index');
     }
+	
+    public function show($id){
+        return view('usuarios.show', ['usuario' => usuario::findOrFail($id)]);
+    }	
 }

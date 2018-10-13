@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div class="col-sm-12 col-md-12">
   <div class="form-group row">
       <label for="inputIglesia" class="col-sm-3 col-form-label">Nombre iglesia</label>
@@ -46,3 +49,4 @@
 
     
   </div>
+@endsection

@@ -25,7 +25,6 @@ class BeneficiarioController extends Controller
     }
     function store(){
         $data = request()->validate([
-            'id_beneficiario' => 'required',
             'documento' => 'required',
 			'id_tipo_documento' => 'required',
 			'nombre' => 'required',

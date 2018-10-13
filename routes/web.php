@@ -19,16 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/ayudas/{id}/validar', 'AyudaController@validarFecha');
+
 Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);
 
 Route::resource('/usuarios', 'UsuarioController',
     ['except' => ['destroy']]);
 
-Route::get('/validar/{$id}','AyudaController@validarFecha');
-
 Route::resource('/ayudas', 'AyudaController',
     ['except' => ['destroy']]);
 
 Route::resource('/beneficiarios', 'BeneficiarioController',
     ['except' => ['destroy']]);
+
+   

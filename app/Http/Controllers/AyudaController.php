@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ayuda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AyudaController extends Controller
 {
@@ -61,8 +62,8 @@ class AyudaController extends Controller
     }
 
     public function validarFecha($id){
-        $validacion = DB::table('ayudas')->where('id_ayuda', '=', $id)->last();
-        dd($validacion);
+        $validacion = DB::table('ayudas')->where('id_beneficiario', '=', $id)->latest()->first();
+        #dd($validacion->fecha_ayuda);
         return $validacion->fecha_ayuda;
     }
 

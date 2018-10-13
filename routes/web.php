@@ -23,13 +23,11 @@ Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);
 
 Route::resource('/usuarios', 'UsuarioController',
-['except' => ['destroy']]);
+    ['except' => ['destroy']]);
 
 
-Route::resource('/ayudas', 'AyudaController')->only([
-    'index', 'create', 'store', 'edit', 'update'
-]);
+Route::resource('/ayudas', 'AyudaController',
+    ['except' => ['destroy']]);
 
-Route::resource('/beneficiario', 'BeneficiarioController')->only([
-    'index', 'create', 'store', 'edit', 'update'
-]);
+Route::resource('/beneficiarios', 'BeneficiarioController',
+    ['except' => ['destroy']]);

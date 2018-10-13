@@ -8,9 +8,7 @@
 		</div>
 		
 		<div class="col-2" align="left">
-			<span class="glyphicon glyphicon-plus" aria-hidden="true">fg</span>
-			
-			<a class="btn btn-primary" href="{{ url('/usuarios/crear') }}">Crear usuario</a>
+			<a class="btn btn-primary" href="{{ url('/usuarios/crear') }}">Crear</a>
         </div>
 
         @include('usuarios.partials.table')

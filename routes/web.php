@@ -25,6 +25,7 @@ Route::resource('/iglesias', 'IglesiaController',
 Route::resource('/usuarios', 'UsuarioController',
     ['except' => ['destroy']]);
 
+Route::get('/validar/{$id}','AyudaController@validarFecha');
 
 Route::resource('/ayudas', 'AyudaController',
     ['except' => ['destroy']]);

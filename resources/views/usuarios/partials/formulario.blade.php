@@ -2,9 +2,9 @@
   {{ csrf_field() }}
   <div class="col-sm-12 col-md-12">
     <div class="form-group row">
-      <label for="inputUsuario" class="col-sm-3 col-form-label">Nombre usuario</label>
+      <label for="inputUsuario" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="name" id="inputUsuario" placeholder="Ingrese el nombre de usuario" autofocus value="{{ old('name') }}">
+        <input type="text" class="form-control" name="name" id="inputUsuario" placeholder="Ingrese el nombre" autofocus value="{{ old('name') }}">
       </div>
 
       @if($errors->has('name'))
@@ -39,7 +39,7 @@
     </div>
 
     <div class="form-group row">
-      <label for="inputEstado" class="col-sm-3 col-form-label">Estado de la iglesia</label>
+      <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
             <option value="Activo">Activo</option>          
@@ -48,12 +48,27 @@
       </div>  
 
     </div>
+	
+    <div class="form-group row">
+      <label for="inputRol" class="col-sm-3 col-form-label">Rol</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="selectRol" name="rol" value="{{ old('rol') }}">
+            <option value="Admin">Administrador</option>          
+            <option value="User">Usuario</option>
+        </select>
+      </div>  
+
+    </div>	
 
 
-
-    <div class="form-group col-sm-12 col-md-8">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a class="btn btn-primary" href="{{ url('/usuarios') }}" role="button">Salir</a>
-    </div>
+	<div class="form-group row">
+		<div class="col-sm-6 col-md-6" align="right">
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</div>
+		
+		<div class="col-sm-6 col-md-6" align="left">
+			<a class="btn btn-primary" href="{{ url('/usuarios') }}" role="button">Salir</a>
+		</div>
+	</div>
   </div>
 </form>

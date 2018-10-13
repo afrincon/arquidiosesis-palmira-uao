@@ -23,8 +23,8 @@ class CreateAyudasTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('id_tipoayuda')->references('id_tipoayuda')->on('tipodeayudas');
-            $table->foreign('id_beneficiario')->references('id_beneficiario')->on('beneficiarios');
+            #$table->foreign('id_tipoayuda')->references('id_tipoayuda')->on('tipodeayudas');
+            #$table->foreign('id_beneficiario')->references('id_beneficiario')->on('beneficiarios');
             $table->foreign('id_iglesia')->references('id')->on('iglesias');
         });
     }

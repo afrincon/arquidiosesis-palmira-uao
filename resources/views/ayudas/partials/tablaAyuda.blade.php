@@ -20,7 +20,7 @@
           <td> {{ $ayuda->id_iglesia }}</td>
           <td> {{ $ayuda->observaciones }}</td>
           <td>
-              <a class="btn btn-primary" href="{{ url("ayudas/{$ayudas->id_ayuda}/editar") }}">Editar</a>
+              <a class="btn btn-primary" href="{{ url("ayudas/{$ayuda->id_ayuda}/editar") }}">Editar</a>
           </td>
         </tr>
         @empty

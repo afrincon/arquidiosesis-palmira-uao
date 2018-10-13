@@ -21,9 +21,8 @@ class AyudaController extends Controller
     }
 
     public function store(){
-
+        
         $data = request()->validate([
-            'id_ayuda' => 'required',
             'fecha_ayuda' => 'required',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
@@ -33,6 +32,7 @@ class AyudaController extends Controller
         #dd($data);
 
         $ayuda  = new Ayuda($data);
+        #dd($ayuda);
         $ayuda->save();
         return redirect()->route('ayudas.index')->with('success', 'Ayuda registrada correctamente');
     }

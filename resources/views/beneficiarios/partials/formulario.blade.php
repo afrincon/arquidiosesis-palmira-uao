@@ -2,7 +2,7 @@
   {{ csrf_field() }}
   <div class="col-sm-12 col-md-12">
     <div class="form-group row">
-      <label for="inputBeneficiario" class="col-sm-3 col-form-label">Nombre beneficiario</label>
+      <label for="inputBeneficiario" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-6">
         <input type="text" class="form-control" name="nombre" id="inputBeneficiario" placeholder="Ingrese el nombre del beneficiario" autofocus value="{{ old('nombre') }}">
       </div>
@@ -15,7 +15,7 @@
     </div>
 	
 	<div class="form-group row">
-	  <label for="inputBeneficiario" class="col-sm-3 col-form-label">Apellido beneficiario</label>
+	  <label for="inputBeneficiario" class="col-sm-3 col-form-label">Apellido</label>
       <div class="col-sm-6">
         <input type="text" class="form-control" name="apellido" id="inputBeneficiario" placeholder="Ingrese el apellido del beneficiario" autofocus value="{{ old('apellido') }}">
       </div>
@@ -27,17 +27,23 @@
       @endif
     </div>
 
-	    <div class="form-group row">
-      <label for="inputTipoDocumento" class="col-sm-3 col-form-label">TipoDocumento</label>
+    <div class="form-group row">
+      <label for="inputTipodocumento" class="col-sm-3 col-form-label">Tipo Documento</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="id_tipo_documento" id="inputTipoDocumento" placeholder="Ingrese el tipo de documento"  value="{{ old('id_tipo_documento') }}">
-      </div>
+        <select class="form-control" id="selectId_tipo_documento" name="id_tipo_documento" value="{{ old('id_tipo_documento') }}">
+          <option value="">Seleccionar un tipo de documento</option>
+          @foreach($id_tipo_documento as $id_tipo_documento)
+            <option value="{{ $id_tipo_documento->id }}">{{ $id_tipo_documento->name }}</option>
+          @endforeach
 
+        </select>
+      </div>
       @if($errors->has('id_tipo_documento'))
         <span class="help-block">
           <strong>{{ $errors->first('id_tipo_documento') }}</strong>
         </span>
       @endif
+
     </div>
 	
     <div class="form-group row">

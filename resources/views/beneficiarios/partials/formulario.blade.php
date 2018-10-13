@@ -32,18 +32,17 @@
       <div class="col-sm-6">
         <select class="form-control" id="selectId_tipo_documento" name="id_tipo_documento" value="{{ old('id_tipo_documento') }}">
           <option value="">Seleccionar un tipo de documento</option>
-          @foreach($id_tipo_documento as $id_tipo_documento)
+          @foreach($id_tipo_documento as $tipo_documento)
             <option value="{{ $id_tipo_documento->id }}">{{ $id_tipo_documento->name }}</option>
           @endforeach
-
         </select>
       </div>
+
       @if($errors->has('id_tipo_documento'))
         <span class="help-block">
           <strong>{{ $errors->first('id_tipo_documento') }}</strong>
         </span>
       @endif
-
     </div>
 	
     <div class="form-group row">

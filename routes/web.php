@@ -29,3 +29,7 @@ Route::resource('/usuarios', 'UsuarioController')->only([
 Route::resource('/ayudas', 'AyudaController')->only([
     'index', 'create', 'store', 'edit', 'update'
 ]);
+
+Route::resource('/beneficiario', 'BeneficiarioController')->only([
+    'index', 'create', 'store', 'edit', 'update'
+]);

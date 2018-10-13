@@ -1,10 +1,11 @@
-<form method="post" action="{{ url('iglesias') }}" >
-  {{ csrf_field() }}
-    <div class="col-sm-12 col-md-12">
-    <div class="form-group row">
+<form method="post" action="{{ route('iglesias.update', $iglesia->id) }}" >
+@method('put')
+{{ csrf_field() }}    
+  <div class="col-sm-12 col-md-12">
+  <div class="form-group row">
       <label for="inputIglesia" class="col-sm-3 col-form-label">Nombre iglesia</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="nombre" id="inputIglesia" placeholder="Ingrese el nombre de la iglesia" autofocus value="{{ old('nombre') }}">
+        <input type="text" class="form-control" name="nombre" id="inputIglesia" autofocus value="{{ old('nombre', $iglesia->nombre)  }}">
       </div>
 
       @if($errors->has('nombre'))
@@ -17,7 +18,7 @@
     <div class="form-group row">
       <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Ingrese la dirección de la iglesia"  value="{{ old('direccion') }}">
+        <input type="text" class="form-control" name="direccion" id="inputDireccion" value="{{ old('direccion', $iglesia->direccion) }}">
       </div>
 
       @if($errors->has('direccion'))
@@ -29,7 +30,7 @@
     <div class="form-group row">
       <label for="inputTelefono" class="col-sm-3 col-form-label">Teléfono</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="telefono" id="inputTelefono" placeholder="Ingrese el teléfono de la iglesia" value="{{ old('telefono') }}">
+        <input type="text" class="form-control" name="telefono" id="inputTelefono" value="{{ old('telefono', $iglesia->telefono) }}">
       </div>
       @if($errors->has('telefono'))
         <span class="help-block">
@@ -40,7 +41,7 @@
     <div class="form-group row">
       <label for="inputTelefono" class="col-sm-3 col-form-label">Arquidiocesis principal</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="arquidiocesis" id="inputArquidiocesis" placeholder="Ingrese la arquidiocesis a la que pertenece la iglesia" value="{{ old('arquidiocesis') }}">
+        <input type="text" class="form-control" name="arquidiocesis" id="inputArquidiocesis" value="{{ old('arquidiocesis', $iglesia->arquidiocesis) }}">
       </div>
       @if($errors->has('arquidiocesis'))
         <span class="help-block">
@@ -51,7 +52,7 @@
     <div class="form-group row">
       <label for="inputUser" class="col-sm-3 col-form-label">Parroco asociado</label>
       <div class="col-sm-6">
-        <select class="form-control" id="selectUser" name="user" value="{{ old('user') }}">
+        <select class="form-control" id="selectUser" name="user" >
             <option value="">Seleccionar un usuario</option>
           @foreach($users as $user)
             <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -70,15 +71,13 @@
     <div class="form-group row">
       <label for="inputEstado" class="col-sm-3 col-form-label">Estado de la iglesia</label>
       <div class="col-sm-6">
-        <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
+        <select class="form-control" id="selectEstado" name="estado" value="{{ $iglesia->estado }}">
             <option value="Activo">Activo</option>          
             <option value="Inactivo">Inactivo</option>
         </select>
       </div>  
 
     </div>
-
-
 
     <div class="form-group col-sm-12 col-md-8">
             <button type="submit" class="btn btn-primary">Guardar</button>

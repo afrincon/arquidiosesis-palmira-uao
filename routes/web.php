@@ -19,9 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/iglesias', 'IglesiaController')->only([
-    'index', 'create', 'store', 'edit', 'update'
-]);
+Route::resource('/iglesias', 'IglesiaController',
+        ['except' => ['destroy']]);
 
 Route::resource('/usuarios', 'UsuarioController')->only([
     'index', 'create', 'store', 'edit', 'update'

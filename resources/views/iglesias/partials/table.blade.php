@@ -15,7 +15,7 @@
     @forelse($iglesias as $iglesia)
       <tr data-id="{{ $iglesia->id }}">
         <td> {{ $iglesia->id }}</td>
-        <td> {{ $iglesia->nombre }}</td>
+        <td><a href="{{ url("iglesias/{$iglesia->id}") }}"> {{ $iglesia->nombre }} </a></td>
         <td> {{ $iglesia->direccion }}</td>
         <td> {{ $iglesia->telefono }}</td>
         <td> {{ $iglesia->arquidiocesis }}</td>

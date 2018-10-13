@@ -67,4 +67,8 @@ class IglesiaController extends Controller
         $iglesia->save();
         return redirect()->route('iglesias.index')->with('success', 'Iglesia ha sido actualizada');;
     }
+
+    public function show($id){
+        return view('iglesias.show', ['iglesia' => Iglesia::findOrFail($id)]);
+    }
 }

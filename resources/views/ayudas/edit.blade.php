@@ -15,5 +15,5 @@
                 @include('ayudas.partials.fieldsAyuda')
             </div>
         </div>
-        </div>
+    </div>
 @endsection

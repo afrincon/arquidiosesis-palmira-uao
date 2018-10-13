@@ -15,9 +15,9 @@ class AyudaController extends Controller
     }
 
     public function create() {
-        $users = User::all('id','name');
-        #dd($users);
-        return view('ayudas.create',compact('users'));
+        $ayudas = Ayuda::paginate();
+        #dd($ayudas);
+        return view('ayudas.create', compact('ayudas'));
     }
 
     public function store(){

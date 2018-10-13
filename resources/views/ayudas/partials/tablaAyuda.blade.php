@@ -14,7 +14,7 @@
       @forelse($ayudas as $ayuda)
         <tr data-id="{{ $ayuda->id_ayuda }}">
           <td> {{ $ayuda->id_ayuda }}</td>
-          <td> {{ $ayuda->Carbon::now() }}</td>
+          <td> {{ $ayuda->fecha_ayuda }}</td>
           <td> {{ $ayuda->id_tipoayuda }}</td>
           <td> {{ $ayuda->id_beneficiario }}</td>
           <td> {{ $ayuda->id_iglesia }}</td>

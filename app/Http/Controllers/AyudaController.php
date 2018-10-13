@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Ayuda;
+use App\iglesia;
+use App\TipoAyuda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class AyudaController extends Controller
 {
+    public function __construct()
+    {
+        #$this->middleware('auth');
+    }
+
     public function index()
     {
         $ayudas = Ayuda::paginate();
@@ -17,8 +25,10 @@ class AyudaController extends Controller
 
     public function create() {
         $ayudas = Ayuda::paginate();
+        $tiposAyuda = TipoAyuda::all();
+        $iglesias = iglesia::all();
         #dd($ayudas);
-        return view('ayudas.create', compact('ayudas'));
+        return view('ayudas.create', compact('ayudas','tiposAyuda', 'iglesias'));
     }
 
     public function store(){
@@ -49,7 +59,6 @@ class AyudaController extends Controller
 
         #dd($iglesia);
         $request->validate([
-            'id_ayuda' => 'required',
             'fecha_ayuda' => 'required',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',

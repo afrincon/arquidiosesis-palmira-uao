@@ -5,13 +5,19 @@
       <div class="form-group row">
         <label for="inputFecha" class="col-sm-3 col-form-label">Fecha de entrega</label>
         <div class="col-sm-9">
-          {{ \Carbon\Carbon::now() }}
+          <input type="date" class="form-control" name="fecha_ayuda" id="inputFecha" placeholder="Ingrese la fecha " autofocus value="{{ old('fecha_ayuda') }}">
         </div>
       </div>
       <div class="form-group row">
         <label for="inputAyuda" class="col-sm-3 col-form-label">Tipo de ayuda</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="id_tipoayuda" id="inputAyuda" placeholder="Ingrese el tipo de ayuda " autofocus value="{{ old('id_tipoayuda') }}">
+          <select class="form-control" id="selectTipoAyuda" name="tipo_ayuda" value="{{old('tipo_ayuda')}}" >
+            <option value="">Seleccionar una ayuda</option>
+            @foreach($tiposAyuda as $tipo_ayuda)
+              <option value="{{$tipo_ayuda->id_tipoayuda}}">{{$tipo_ayuda->descripcion}}</option>
+            @endforeach
+
+          </select>
         </div>
       </div>
       <div class="form-group row">
@@ -23,7 +29,13 @@
       <div class="form-group row">
         <label for="inputIglesia" class="col-sm-3 col-form-label">Iglesia</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="id_iglesia" id="inputTelefono" placeholder="Ingrese la iglesia donde se entrego" autofocus value="{{ old('id_iglesia') }}">
+          <select class="form-control" id="selectIglesia" name="iglesia" value="{{old('iglesia')}}" >
+            <option value="">Seleccionar una iglesia</option>
+            @foreach($iglesias as $iglesia)
+              <option value="{{$iglesia->id}}">{{$iglesia->nombre}}</option>
+            @endforeach
+
+          </select>
         </div>
       </div>
       <div class="form-group row">

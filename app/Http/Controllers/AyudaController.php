@@ -26,8 +26,9 @@ class AyudaController extends Controller
     public function create() {
         $ayudas = Ayuda::paginate();
         $tiposAyuda = TipoAyuda::all();
+        #dd($tiposAyuda);
         $iglesias = iglesia::all();
-        #dd($ayudas);
+        #dd($iglesias);
         return view('ayudas.create', compact('ayudas','tiposAyuda', 'iglesias'));
     }
 
@@ -40,7 +41,7 @@ class AyudaController extends Controller
             'id_iglesia' => 'required',
         ]);
 
-        #dd($data);
+        dd($data);
 
         $ayuda  = new Ayuda($data);
         #dd($ayuda);

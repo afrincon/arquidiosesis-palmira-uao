@@ -11,10 +11,10 @@
       <div class="form-group row">
         <label for="inputAyuda" class="col-sm-3 col-form-label">Tipo de ayuda</label>
         <div class="col-sm-9">
-          <select class="form-control" id="selectTipoAyuda" name="tipo_ayuda" value="{{old('tipo_ayuda')}}" >
+          <select class="form-control" id="selectTipoAyuda" name="id_tipoayuda" value="{{old('tipo_ayuda')}}" >
             <option value="">Seleccionar una ayuda</option>
             @foreach($tiposAyuda as $tipo_ayuda)
-              <option value="{{$tipo_ayuda->id_tipoayuda}}">{{$tipo_ayuda->descripcion}}</option>
+              <option value="{{$tipo_ayuda->id}}">{{$tipo_ayuda->descripcion}}</option>
             @endforeach
 
           </select>
@@ -29,7 +29,7 @@
       <div class="form-group row">
         <label for="inputIglesia" class="col-sm-3 col-form-label">Iglesia</label>
         <div class="col-sm-9">
-          <select class="form-control" id="selectIglesia" name="iglesia" value="{{old('iglesia')}}" >
+          <select class="form-control" id="selectIglesia" name="id_iglesia" value="{{old('iglesia')}}" >
             <option value="">Seleccionar una iglesia</option>
             @foreach($iglesias as $iglesia)
               <option value="{{$iglesia->id}}">{{$iglesia->nombre}}</option>

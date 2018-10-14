@@ -1,7 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Usuario
- * Date: 13/10/2018
- * Time: 04:24 PM
- */
+<form method="post" action="{{ route('beneficiarios.update', $beneficiario->id) }}" >
+@method('put')
+{{ csrf_field() }}

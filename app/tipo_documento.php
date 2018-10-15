@@ -11,4 +11,8 @@ class tipo_documento extends Model
     public function  tipo_documento_beneficiario(){
         return $this->hasMany('App\beneficiario', 'id_tipo_documento', 'id');
     }
+
+    public function beneficiarios() {
+        return $this->belongsTo('App\beneficiario');
+    }
 }

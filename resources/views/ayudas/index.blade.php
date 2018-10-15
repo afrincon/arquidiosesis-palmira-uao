@@ -15,4 +15,3 @@
         </div>
     </div>
 @endsection
-#Index inicial para crear

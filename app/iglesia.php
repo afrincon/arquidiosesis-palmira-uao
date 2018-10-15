@@ -13,4 +13,8 @@ class iglesia extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function ayudas() {
+        return $this->belongsTo('App\ayuda');
+    }
 }

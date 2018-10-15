@@ -12,12 +12,13 @@
     </thead>
     <tbody>
       @forelse($ayudas as $ayuda)
+     
         <tr data-id="{{ $ayuda->id_ayuda }}">
           <td> {{ $ayuda->id_ayuda }}</td>
           <td> {{ $ayuda->fecha_ayuda }}</td>
-          <td> {{ $ayuda->id_tipoayuda }}</td>
-          <td> {{ $ayuda->id_beneficiario }}</td>
-          <td> {{ $ayuda->id_iglesia }}</td>
+          <td> {{ $ayuda->tipoAyuda->descripcion }}</td>
+          <td> {{ $ayuda->beneficiario->documento }}</td>
+          <td> {{ $ayuda->iglesia->nombre }}</td>
           <td> {{ $ayuda->observaciones }}</td>
           <td>
               <a class="btn btn-primary" href="{{ url("ayudas/{$ayuda->id_ayuda}/editar") }}">Editar</a>
@@ -29,5 +30,3 @@
       @endforelse
     </tbody>
   </table>
-
-#Referencia sin cambios

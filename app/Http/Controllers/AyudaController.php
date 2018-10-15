@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-#Cambio Ayuda - ayuda
-use App\ayuda;
+
+use App\Ayuda;
+use App\beneficiario;
 use App\iglesia;
 use App\TipoAyuda;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class AyudaController extends Controller
         #dd($tiposAyuda);
         $iglesias = iglesia::all();
         #dd($iglesias);
-        return view('ayudas.create', compact('ayudas','tiposAyuda', 'iglesias'));
+        $beneficiarios = beneficiario::all();
+        return view('ayudas.create', compact('ayudas','tiposAyuda', 'iglesias', 'beneficiarios'));
     }
 
     public function store(){
@@ -49,11 +51,14 @@ class AyudaController extends Controller
         return redirect()->route('ayudas.index')->with('success', 'Ayuda registrada correctamente');
     }
 
-    public function edit($id_ayuda) {
-        $ayuda = Ayuda::findOrFail($id_ayuda);
+    public function edit($id) {
+        $ayuda = Ayuda::findOrFail($id);
         #dd($ayuda);
         $users = User::all('id','name');
-        return view('ayudas.edit', compact('ayuda'));
+        $iglesias = iglesia::all();
+        $tiposAyuda = TipoAyuda::all();
+        $beneficiarios = beneficiario::all();
+        return view('ayudas.edit', compact('ayuda', 'iglesias', 'tiposAyuda', 'beneficiarios'));
     }
 
     public function update(Request $request,$id) {

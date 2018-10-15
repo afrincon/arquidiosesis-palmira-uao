@@ -2,7 +2,7 @@
   {{ csrf_field() }}
   <div class="col-sm-12 col-md-12">
     <div class="form-group row">
-      <label for="inputBeneficiario" class="col-sm-3 col-form-label">Nombre</label>
+      <label for="inputNombre" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-6">
         <input type="text" class="form-control" name="nombre" id="inputBeneficiario" placeholder="Ingrese el nombre del beneficiario" autofocus value="{{ old('nombre') }}">
       </div>
@@ -15,7 +15,7 @@
     </div>
 	
 	<div class="form-group row">
-	  <label for="inputBeneficiario" class="col-sm-3 col-form-label">Apellido</label>
+	  <label for="inputApellido" class="col-sm-3 col-form-label">Apellido</label>
       <div class="col-sm-6">
         <input type="text" class="form-control" name="apellido" id="inputBeneficiario" placeholder="Ingrese el apellido del beneficiario" autofocus value="{{ old('apellido') }}">
       </div>

@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function  userIglesia(){
-        return $this->hasMany('App\Iglesia', 'id_user');
+    public function  iglesia(){
+        return $this->hasOne('App\Iglesia', 'id_user');
     }
 }

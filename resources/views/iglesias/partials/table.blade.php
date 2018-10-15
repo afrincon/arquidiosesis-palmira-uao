@@ -19,7 +19,7 @@
         <td> {{ $iglesia->direccion }}</td>
         <td> {{ $iglesia->telefono }}</td>
         <td> {{ $iglesia->arquidiocesis }}</td>
-        <td> {{ $iglesia->user }}</td>
+        <td> {{ $iglesia->user->name }}</td>
         <td> {{ $iglesia->estado }}</td>
         <td>
           <a class="btn btn-primary" href="{{ url("iglesias/{$iglesia->id}/editar") }}">Editar</a>

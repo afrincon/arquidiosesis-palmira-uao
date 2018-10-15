@@ -10489,3 +10489,11 @@ a.text-dark:focus {
   font-size: 2em;
 }
 
+.principal {
+  display: inline;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+

@@ -18,7 +18,7 @@ class BeneficiarioController extends Controller
         return view('beneficiarios.index', compact('beneficiarios'));
     }
     public function create() {
-        $users = User::all('id_beneficiario','nombre');
+        $users = User::all('id','name');
         #dd($users);
         $tipoDocumento = tipo_documento::all();
         return view('beneficiarios.create',compact('users','tipoDocumento'));

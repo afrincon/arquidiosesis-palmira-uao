@@ -19,7 +19,13 @@
         <div class="form-group row">
             <label for="inputAyuda" class="col-sm-3 col-form-label">Tipo de ayuda</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="id_tipoayuda" id="inputAyuda" value="{{ old('id_tipoayuda', $ayuda->id_tipoayuda) }}">
+                <select class="form-control" id="inputAyuda" name="id_tipoayuda" value="{{old('tipo_ayuda', $ayuda->id_tipoayuda)}}" >
+                    <option value="">Seleccionar una ayuda</option>
+                    @foreach($tiposAyuda as $tipo_ayuda)
+                        <option value="{{$tipo_ayuda->id}}">{{$tipo_ayuda->descripcion}}</option>
+                    @endforeach
+
+                </select>
             </div>
 
             @if($errors->has('id_tipoayuda'))
@@ -31,7 +37,13 @@
         <div class="form-group row">
             <label for="inputBeneficiario" class="col-sm-3 col-form-label">Identificacion del beneficiario</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="id_beneficiario" id="inputBeneficiario" value="{{ old('id_beneficiario', $ayuda->id_beneficiario) }}">
+                <select class="form-control" id="inputBeneficiario" name="id_beneficiario" value="{{old('id_beneficiario', $ayuda->id_beneficiario)}}" >
+                    <option value="">Seleccionar un beneficiario</option>
+                    @foreach($beneficiarios as $beneficiario)
+                        <option value="{{$beneficiario->id_beneficiario}}">{{$beneficiario->nombre}}</option>
+                    @endforeach
+
+                </select>
             </div>
             @if($errors->has('id_beneficiario'))
                 <span class="help-block">
@@ -42,7 +54,13 @@
         <div class="form-group row">
             <label for="inputIglesia" class="col-sm-3 col-form-label">Iglesia</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="id_iglesia" id="inputIglesia" value="{{ old('id_iglesia', $ayuda->id_iglesia) }}">
+                <select class="form-control" id="inputIglesia" name="id_iglesia" value="{{old('iglesia', $ayuda->id_iglesia)}}" >
+                    <option value="">Seleccionar una iglesia</option>
+                    @foreach($iglesias as $iglesia)
+                        <option value="{{$iglesia->id}}">{{$iglesia->nombre}}</option>
+                    @endforeach
+
+                </select>
             </div>
             @if($errors->has('id_iglesia'))
                 <span class="help-block">

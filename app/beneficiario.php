@@ -9,6 +9,6 @@ class beneficiario extends Model
     protected $fillable = array('documento', 'id_tipo_documento', 'nombre', 'apellido', 'estado', 'direccion', 'clasificacion', 'telefono');
 
     public function tipo_documento(){
-        return $this->hasOne('App\tipo_documento', 'id', 'id_tipo_documento');
+        return $this->hasOne('App\Tipo_documento', 'id', 'id_tipo_documento');
     }
 }

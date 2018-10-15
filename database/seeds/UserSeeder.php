@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Role;
 
 class UserSeeder extends Seeder
 {
@@ -13,16 +15,21 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('users')->insert([
-            'name' => 'Andrés Felipe Rincón',
-            'email' => 'andres_felipe.rincon@uao.edu.co',
-            'password' => bcrypt('Autonoma18'),
-        ]);
+        $role_user = Role::where('nombre', 'usuario')->first();
+        $role_admin = Role::where('nombre', 'admin')->first();
 
-        DB::table('users')->insert([
-            'name' => 'Pepito Perez',
-            'email' => 'pepito.perez@uao.edu.co',
-            'password' => bcrypt('Autonoma18'),
-        ]);
+        $user = new User();
+        $user->name = 'Andrés Felipe Rincón';
+        $user->email = 'andres_felipe.rincon@uao.edu.co';
+        $user->password = bcrypt('Autonoma18');
+        $user->save();
+        $user->roles()->attach($role_user);
+
+        $user = new User();
+        $user->name = 'Pepito Perez';
+        $user->email = 'pepito.perez@uao.edu.co';
+        $user->password = bcrypt('Autonoma18');
+        $user->save();
+        $user->roles()->attach($role_admin);
     }
 }

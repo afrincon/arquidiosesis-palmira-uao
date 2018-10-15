@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Ayuda;
+#Cambio Ayuda - ayuda
+use App\ayuda;
 use App\iglesia;
 use App\TipoAyuda;
 use Illuminate\Http\Request;
@@ -41,7 +41,7 @@ class AyudaController extends Controller
             'id_iglesia' => 'required',
         ]);
 
-        dd($data);
+        #dd($data);
 
         $ayuda  = new Ayuda($data);
         #dd($ayuda);
@@ -49,11 +49,11 @@ class AyudaController extends Controller
         return redirect()->route('ayudas.index')->with('success', 'Ayuda registrada correctamente');
     }
 
-    public function edit($id) {
-        $ayuda = Ayuda::findOrFail($id);
-        #dd($iglesia);
+    public function edit($id_ayuda) {
+        $ayuda = Ayuda::findOrFail($id_ayuda);
+        #dd($ayuda);
         $users = User::all('id','name');
-        return view('ayudas.edit', compact('ayuda','users'));
+        return view('ayudas.edit', compact('ayuda'));
     }
 
     public function update(Request $request,$id) {

@@ -64,3 +64,5 @@
         </div>
     </div>
 </form>
+
+#Vista con elementos de seleccion

@@ -44,7 +44,7 @@ class BeneficiarioController extends Controller
     public function edit($id) {
         $beneficiario = Beneficiario::findOrFail($id);
         #dd($iglesia);
-        $users = User::all('id_beneficiario','nombre');
+        $users = User::all('id','name');
         return view('beneficiarios.edit', compact('beneficiario','users'));
     }
 
@@ -77,6 +77,7 @@ class BeneficiarioController extends Controller
     }
 
     public function show($id){
+        #dd($id);   
         return view('beneficiarios.show', ['beneficiario' => beneficiario::findOrFail($id)]);
     }
 }

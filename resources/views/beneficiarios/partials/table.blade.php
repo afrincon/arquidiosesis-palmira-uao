@@ -14,9 +14,9 @@
   </thead>
   <tbody>
     @forelse($beneficiarios as $beneficiario)
-      <tr data-id="{{ $beneficiario->id }}">
-        <td> {{ $beneficiario->id }}</td>
-        <td><a href="{{ url("beneficiarios/{$beneficiario->id}") }}"> {{ $beneficiario->nombre }} </a></td>
+      <tr data-id="{{ $beneficiario->id_beneficiario }}">
+        <td> {{ $beneficiario->id_beneficiario }}</td>
+        <td><a href="{{ url("beneficiarios/{$beneficiario->id_beneficiario}") }}"> {{ $beneficiario->nombre }} </a></td>
         <td> {{ $beneficiario->apellido }}</td>
         <td> {{ $beneficiario->id_tipo_documento }}</td>
         <td> {{ $beneficiario->documento }}</td>
@@ -25,7 +25,7 @@
         <td> {{ $beneficiario->estado }}</td>
         <td> {{ $beneficiario->clasificacion }}</td>
         <td>
-          <a class="btn btn-primary" href="{{ url("beneficiarios/{$beneficiario->id}/editar") }}">Editar</a>
+          <a class="btn btn-primary" href="{{ url("beneficiarios/{$beneficiario->id_beneficiario}/editar") }}">Editar</a>
         </td>
       </tr>
       @empty

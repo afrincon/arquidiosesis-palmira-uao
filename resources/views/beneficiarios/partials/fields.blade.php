@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('beneficiarios.update', $beneficiario->id) }}" >
+<form method="post" action="{{ route('beneficiarios.update', $beneficiario->id_beneficiario) }}" >
 @method('put')
 {{ csrf_field() }}
     <div class="col-sm-12 col-md-12">

@@ -18,7 +18,7 @@
         <td> {{ $beneficiario->id_beneficiario }}</td>
         <td><a href="{{ url("beneficiarios/{$beneficiario->id_beneficiario}") }}"> {{ $beneficiario->nombre }} </a></td>
         <td> {{ $beneficiario->apellido }}</td>
-        <td> {{ $beneficiario->id_tipo_documento->descripcion }}</td>
+        <td> {{ $beneficiario->tipo_documento->descripcion }}</td>
         <td> {{ $beneficiario->documento }}</td>
         <td> {{ $beneficiario->telefono }}</td>
         <td> {{ $beneficiario->direccion }}</td>

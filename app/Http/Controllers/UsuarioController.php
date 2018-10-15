@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,14 +15,14 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::paginate();
-        #dd($usuario);
+        $usuarios = User::paginate();
+        #dd($User);
         return view('usuarios.index', compact('usuarios'));
     }
 
     public function create() {
-        $usuarios = Usuario::all('id','name');
-        #dd($usuarios);
+        $usuarios = User::all('id','name');
+        #dd($User);
         return view('usuarios.create',compact('usuarios'));
     }
 
@@ -30,8 +30,11 @@ class UsuarioController extends Controller
 
         $data = request()->validate([
             'name' => 'required',
+			'telefono' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+			'fecha_nacimiento' => 'required',
+			'fecha_ingreso' => 'required',
             'estado' => 'required',
 			'perfil' => 'required',
         ]);
@@ -40,44 +43,51 @@ class UsuarioController extends Controller
 
         #dd($data);
 
-        $usuario  = new Usuario($data);
-        $usuario->save();
+        $User  = new User($data);
+        $User->save();
         return redirect()->route('usuarios.index');
     }
 
     public function edit($id) {
-        $usuario = Usuario::findOrFail($id);
-        #dd($iglesia);
-        return view('usuarios.edit', compact('usuario'));
+        $User = User::findOrFail($id);
+        #dd($User);
+        return view('usuarios.edit', compact('User'));
     }
 
     public function update($id) {
         $data = request()->validate([
             'name' => 'required',
+			'telefono' => 'required',
             'email' => 'required|email',
+            'password' => 'required',
+			'fecha_nacimiento' => 'required',
+			'fecha_ingreso' => 'required',
             'estado' => 'required',
 			'perfil' => 'required',
         ]);
 
-        $usuario = Usuario::findOrFail($id);
+        $User = User::findOrFail($id);
 
         if (array_key_exists('password', $data)) {
             $data['password'] = Hash::make($data['password']);
         } else {
-            $data['password'] = $usuario->password;
+            $data['password'] = $User->password;
         }
 
-        $usuario->name = $data['name'];
-        $usuario->email = $data['email'];
-        $usuario->password = $data['password'];
-        $usuario->estado = $data['estado'];
-		$usuario->perfil = $data['perfil'];
-        $usuario->save();
+        $User->name = $data['name'];
+        $User->email = $data['email'];
+        $User->password = $data['password'];
+        $User->estado = $data['estado'];
+		$User->perfil = $data['perfil'];
+		$User->telefono = $data['telefono'];
+		$User->fecha_nacimiento = $data['fecha_nacimiento'];
+		$User->fecha_ingreso = $data['fecha_ingreso'];
+        $User->save();
 
         return redirect()->route('usuarios.index');
     }
 	
     public function show($id){
-        return view('usuarios.show', ['usuario' => usuario::findOrFail($id)]);
+        return view('usuarios.show', ['User' => User::findOrFail($id)]);
     }	
 }

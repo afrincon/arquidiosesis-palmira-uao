@@ -14,6 +14,21 @@
       @endif
 
     </div>
+	
+    <div class="form-group row">
+      <label for="inputTelefono" class="col-sm-3 col-form-label">Telefono</label>
+      <div class="col-sm-6">
+        <input type="number" class="form-control" name="telefono" id="inputTelefono" placeholder="Ingrese el telefono" autofocus value="{{ old('telefono') }}">
+      </div>
+
+      @if($errors->has('telefono'))
+        <span class="help-block">
+          <strong>{{ $errors->first('telefono') }}</strong>
+        </span>
+      @endif
+
+    </div>	
+	
     <div class="form-group row">
       <label for="inputEmail" class="col-sm-3 col-form-label">Correo electronico</label>
       <div class="col-sm-6">
@@ -26,6 +41,7 @@
         </span>
       @endif
     </div>
+	
     <div class="form-group row">
       <label for="inputPassword" class="col-sm-3 col-form-label">Contraseña</label>
       <div class="col-sm-6">
@@ -42,6 +58,7 @@
       <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
+			<option value="">Seleccione</option>
             <option value="Activo">Activo</option>          
             <option value="Inactivo">Inactivo</option>
         </select>
@@ -50,9 +67,38 @@
     </div>
 	
     <div class="form-group row">
+      <label for="inputFecnaci" class="col-sm-3 col-form-label">Fecha nacimiento</label>
+      <div class="col-sm-6">
+        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci"  autofocus value="{{ old('fecha_nacimiento') }}">
+      </div>
+
+      @if($errors->has('fecha_nacimiento'))
+        <span class="help-block">
+          <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
+        </span>
+      @endif
+
+    </div>	
+	
+    <div class="form-group row">
+      <label for="inputFecingre" class="col-sm-3 col-form-label">Fecha ingreso</label>
+      <div class="col-sm-6">
+        <input type="date" class="form-control" name="fecha_ingreso" id="inputFecingre"  autofocus value="{{ old('fecha_ingreso') }}">
+      </div>
+
+      @if($errors->has('fecha_ingreso'))
+        <span class="help-block">
+          <strong>{{ $errors->first('fecha_ingreso') }}</strong>
+        </span>
+      @endif
+
+    </div>	
+	
+    <div class="form-group row">
       <label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectPerfil" name="perfil" value="{{ old('perfil') }}">
+			<option value="">Seleccione</option>
             <option value="Administrador">Administrador</option>          
             <option value="Usuario">Usuario</option>
         </select>

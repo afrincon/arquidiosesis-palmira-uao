@@ -2,10 +2,15 @@
 
 /* Database config */
 
-$host = 'w29ifufy55ljjmzq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-$username = 'rdkhvluvithx1sh8';
-$password = 'qwlgy6eube3kifc7';
-$database = 'i67g5hvxb8ho8ijt';
+// $host = 'w29ifufy55ljjmzq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+// $username = 'rdkhvluvithx1sh8';
+// $password = 'qwlgy6eube3kifc7';
+// $database = 'i67g5hvxb8ho8ijt';
+
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'prueba';
 
 return [
 

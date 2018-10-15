@@ -25,8 +25,8 @@ class IglesiaController extends Controller
      */
     public function index()
     {
-        $iglesias = Iglesia::with('userInfo')->get();
-        dd($iglesias);
+        $iglesias = Iglesia::paginate();
+        #dd($iglesias);
         return view('iglesias.index', compact('iglesias'));
     }
 
@@ -43,7 +43,7 @@ class IglesiaController extends Controller
             'direccion' => 'required',
             'telefono' => 'required|max:10',
             'arquidiocesis' =>  'required',
-            'user' => 'required',
+            'user_id' => 'required',
             'estado' => 'required',
         ]);
 
@@ -69,7 +69,7 @@ class IglesiaController extends Controller
             'direccion' => 'required',
             'telefono' => 'required|max:10',
             'arquidiocesis' =>  'required',
-            'user' => 'required',
+            'user_id' => 'required',
             'estado' => 'required',
         ]);
         $iglesia = Iglesia::findOrFail($id);

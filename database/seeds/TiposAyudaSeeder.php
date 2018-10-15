@@ -12,7 +12,15 @@ class TiposAyudaSeeder extends Seeder
     public function run()
     {
         DB::table('tipo_ayudas')->insert([
-            'descripcion' => 'Alimentaria',
+            'descripcion' => 'Mercado',
+        ]);
+
+        DB::table('tipo_ayudas')->insert([
+            'descripcion' => 'Almuerzo',
+        ]);
+
+        DB::table('tipo_ayudas')->insert([
+            'descripcion' => 'Asistencia',
         ]);
     }
 }

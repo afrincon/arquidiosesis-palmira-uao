@@ -6,7 +6,7 @@
         <div class="form-group row">
             <label for="inputFecha" class="col-sm-3 col-form-label">Fecha de entrega</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="fecha_ayuda" id="inputFecha" autofocus value="{{ old('fecha_ayuda', $ayuda->fecha_ayuda)  }}">
+                <input type="date" class="form-control" name="fecha_ayuda" id="inputFecha" autofocus value="{{ old('fecha_ayuda', $ayuda->fecha_ayuda)  }}">
             </div>
 
             @if($errors->has('fecha_ayuda'))
@@ -64,3 +64,5 @@
         </div>
     </div>
 </form>
+
+#Vista con elementos de seleccion

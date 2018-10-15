@@ -10472,3 +10472,28 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.background-app {
+  background-color: #2e78e2;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.background-app img {
+  margin: 0 auto;
+}
+
+.background-app .title {
+  color: #fff;
+  font-size: 2em;
+}
+
+.principal {
+  display: inline;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+

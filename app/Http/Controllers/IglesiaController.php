@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class IglesiaController extends Controller
 {
     /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
+
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
@@ -33,7 +43,7 @@ class IglesiaController extends Controller
             'direccion' => 'required',
             'telefono' => 'required|max:10',
             'arquidiocesis' =>  'required',
-            'user' => 'required',
+            'user_id' => 'required',
             'estado' => 'required',
         ]);
 
@@ -59,7 +69,7 @@ class IglesiaController extends Controller
             'direccion' => 'required',
             'telefono' => 'required|max:10',
             'arquidiocesis' =>  'required',
-            'user' => 'required',
+            'user_id' => 'required',
             'estado' => 'required',
         ]);
         $iglesia = Iglesia::findOrFail($id);

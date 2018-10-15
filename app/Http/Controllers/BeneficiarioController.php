@@ -45,7 +45,8 @@ class BeneficiarioController extends Controller
         $beneficiario = Beneficiario::findOrFail($id);
         #dd($iglesia);
         $users = User::all('id','name');
-        return view('beneficiarios.edit', compact('beneficiario','users'));
+        $tipoDocumento = tipo_documento::all();
+        return view('beneficiarios.edit', compact('beneficiario','users', 'tipoDocumento'));
     }
 
     public function update($id)

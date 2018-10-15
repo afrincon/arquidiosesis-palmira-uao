@@ -33,6 +33,7 @@ class UsuarioController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'estado' => 'required',
+			'perfil' => 'required',
         ]);
 
         $data['password'] = Hash::make($data['password']);
@@ -55,6 +56,7 @@ class UsuarioController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'estado' => 'required',
+			'perfil' => 'required',
         ]);
 
         $usuario = Usuario::findOrFail($id);
@@ -69,6 +71,7 @@ class UsuarioController extends Controller
         $usuario->email = $data['email'];
         $usuario->password = $data['password'];
         $usuario->estado = $data['estado'];
+		$usuario->perfil = $data['perfil'];
         $usuario->save();
 
         return redirect()->route('usuarios.index');

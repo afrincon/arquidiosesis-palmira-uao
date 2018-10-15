@@ -5,6 +5,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Correo</th>
       <th scope="col">Estado</th>
+	  <th scope="col">Perfil</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
         <td><a href="{{ url("usuarios/{$usuario->id}") }}"> {{ $usuario->name }} </a></td>		
         <td> {{ $usuario->email }}</td>
         <td> {{ $usuario->estado }}</td>
+		<td> {{ $usuario->perfil }}</td>
         <td>
           <a class="btn btn-primary" href="{{ url("usuarios/{$usuario->id}/editar") }}">Editar</a>
         </td>

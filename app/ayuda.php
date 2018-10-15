@@ -14,4 +14,12 @@ class ayuda extends Model
     public function iglesia(){
         return $this->hasOne('App\Iglesia', 'id', 'id_iglesia');
     }
+    public function beneficiario(){
+        return $this->hasOne('App\Beneficiario', 'id_beneficiario', 'id_beneficiario');
+    }
+    public function tipoAyuda(){
+        return $this->hasOne('App\TipoAyuda', 'id', 'id_tipoayuda');
+    }
+
+
 }

@@ -23,7 +23,13 @@
       <div class="form-group row">
         <label for="inputBeneficiario" class="col-sm-3 col-form-label">Identificacion del beneficiario</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="id_beneficiario" id="inputBeneficiario" placeholder="Ingrese el numero de identificacion del beneficiario" autofocus value="{{ old('id_beneficiario') }}">
+          <select class="form-control" id="inputBeneficiario" name="id_beneficiario" value="{{old('id_beneficiario')}}" >
+            <option value="">Seleccionar un beneficiario</option>
+            @foreach($beneficiarios as $beneficiario)
+              <option value="{{$beneficiario->id_beneficiario}}">{{$beneficiario->nombre}}</option>
+            @endforeach
+
+          </select>
         </div>
       </div>
       <div class="form-group row">
@@ -52,4 +58,4 @@
 
     </div>
   </form>
-#Tabla con elementos de seleccion
+<!--Tabla con elementos de seleccion-->

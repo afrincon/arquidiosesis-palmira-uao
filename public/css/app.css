@@ -10490,9 +10490,7 @@ a.text-dark:focus {
 }
 
 .principal {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;

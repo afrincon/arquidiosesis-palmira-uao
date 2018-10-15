@@ -42,7 +42,7 @@
         <div class="form-group row">
             <label for="inputIglesia" class="col-sm-3 col-form-label">Iglesia</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="arquidiocesis" id="inputIglesia" value="{{ old('id_iglesia', $ayuda->id_iglesia) }}">
+                <input type="text" class="form-control" name="id_iglesia" id="inputIglesia" value="{{ old('id_iglesia', $ayuda->id_iglesia) }}">
             </div>
             @if($errors->has('id_iglesia'))
                 <span class="help-block">
@@ -64,5 +64,3 @@
         </div>
     </div>
 </form>
-
-#Vista con elementos de seleccion

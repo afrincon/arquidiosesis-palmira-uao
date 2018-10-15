@@ -15,14 +15,13 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate();
-        #dd($User);
+        $usuarios = User::all();
         return view('usuarios.index', compact('usuarios'));
     }
 
     public function create() {
         $usuarios = User::all('id','name');
-        #dd($User);
+        #dd($usuarios->roles()->nombre);
         return view('usuarios.create',compact('usuarios'));
     }
 

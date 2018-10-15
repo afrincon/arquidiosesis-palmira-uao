@@ -10489,3 +10489,13 @@ a.text-dark:focus {
   font-size: 2em;
 }
 
+.principal {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+

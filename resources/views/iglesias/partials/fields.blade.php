@@ -52,7 +52,7 @@
     <div class="form-group row">
       <label for="inputUser" class="col-sm-3 col-form-label">Parroco asociado</label>
       <div class="col-sm-6">
-        <select class="form-control" id="selectUser" name="user" >
+        <select class="form-control" id="selectUser" name="user_id" >
             <option value="">Seleccionar un usuario</option>
           @foreach($users as $user)
             <option value="{{ $user->id }}">{{ $user->name }}</option>

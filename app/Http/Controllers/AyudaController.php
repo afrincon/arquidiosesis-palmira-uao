@@ -82,5 +82,7 @@ class AyudaController extends Controller
         return $validacion->fecha_ayuda;
     }
 
-
+    public function show($id){
+        return view('ayudas.show', ['iglesia' => Iglesia::findOrFail($id)]);
+    }
 }

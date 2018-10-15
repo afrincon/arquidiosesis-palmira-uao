@@ -9,7 +9,7 @@
   <div class="form-group row">
       <label for="inputBeneficiario" class="col-sm-3 col-form-label">Nombre beneficiario</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="name" value="{{ $beneficiario->name  }}" disabled>
+        <input type="text" class="form-control" name="nombre" value="{{ $beneficiario->nombre  }}" disabled>
       </div>
     </div>
     <div class="col-sm-12 col-md-12">
@@ -24,7 +24,7 @@
   <div class="form-group row">
       <label for="inputTipodocumento" class="col-sm-3 col-form-label">tipo documento</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="id_tipo_documento" value="{{ $usuario->id_tipo_documento  }}" disabled>
+        <input type="text" class="form-control" name="id_tipo_documento" value="{{ $beneficiario->id_tipo_documento  }}" disabled>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
   <div class="form-group row">
       <label for="inputDocumento" class="col-sm-3 col-form-label">Documento</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="documento" value="{{ $usuario->documento  }}" disabled>
+        <input type="text" class="form-control" name="documento" value="{{ $beneficiario->documento  }}" disabled>
       </div>
     </div>
     <div class="form-group row">
@@ -47,7 +47,7 @@
   <div class="form-group row">
       <label for="inputDireccion" class="col-sm-3 col-form-label">Direccion</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="direccion" value="{{ $usuario->direccion  }}" disabled>
+        <input type="text" class="form-control" name="direccion" value="{{ $beneficiario->direccion  }}" disabled>
       </div>
     </div>
     <div class="form-group row">

@@ -13,13 +13,20 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::all();
-        return view('usuarios.index', compact('usuarios'));
+        /*if(isset($request)) {
+            return view('errors.401');
+        } else {
+            $request->user()->authorizeRoles(['admin']);*/
+            $usuarios = User::all();
+            return view('usuarios.index', compact('usuarios'));
+        #}
+        
     }
 
     public function create() {
+        #$request->user()->authorizeRoles(['admin']);
         $usuarios = User::all('id','name');
         return view('usuarios.create',compact('usuarios'));
     }
@@ -84,7 +91,7 @@ class UsuarioController extends Controller
 		$User->fecha_ingreso = $data['fecha_ingreso'];
 		
         $User->save();
-        $User->roles()->attach($data['perfil']);
+        $User->roles()->sync($data['perfil']);
 
         return redirect()->route('usuarios.index');
     }

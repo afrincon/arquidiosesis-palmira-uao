@@ -97,8 +97,8 @@
 		<label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
 		<div class="col-sm-6">
 			<select class="form-control" id="selectPerfil" name="perfil" value="{{ $User->perfil }}">
-				<option value="Administrador">Administrador</option>
-				<option value="Usuario">Usuario</option>
+				<option value="2">Administrador</option>
+				<option value="1">Usuario</option>
 			</select>
 		</div>
 

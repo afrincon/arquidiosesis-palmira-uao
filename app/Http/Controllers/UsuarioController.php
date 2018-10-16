@@ -65,6 +65,8 @@ class UsuarioController extends Controller
 			'perfil' => 'required',
         ]);
 
+        #dd($data);
+
         $User = User::findOrFail($id);
 
         if (array_key_exists('password', $data)) {
@@ -80,8 +82,9 @@ class UsuarioController extends Controller
 		$User->telefono = $data['telefono'];
 		$User->fecha_nacimiento = $data['fecha_nacimiento'];
 		$User->fecha_ingreso = $data['fecha_ingreso'];
-		$User->roles()->attach($data['perfil']);
+		
         $User->save();
+        $User->roles()->attach($data['perfil']);
 
         return redirect()->route('usuarios.index');
     }

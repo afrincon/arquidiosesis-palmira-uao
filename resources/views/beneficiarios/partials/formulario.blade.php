@@ -48,7 +48,7 @@
     <div class="form-group row">
       <label for="inputDocumento" class="col-sm-3 col-form-label">Documento</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="documento" id="inputDocumento" placeholder="Ingrese el N° de documento"  value="{{ old('documento') }}">
+        <input type="text" class="form-control" name="documento" id="inputDocumento" placeholder="Ingrese el N° de documento del beneficiario"  value="{{ old('documento') }}">
       </div>
 
       @if($errors->has('documento'))
@@ -74,7 +74,7 @@
     <div class="form-group row">
       <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Ingrese la direccion" value="{{ old('direccion') }}">
+        <input type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Ingrese la dirección del beneficiario" value="{{ old('direccion') }}">
       </div>
 
       @if($errors->has('direccion'))

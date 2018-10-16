@@ -23,15 +23,15 @@ class IglesiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $request->user()->authorizeRoles(['admin', 'usuario']);
         $iglesias = Iglesia::paginate();
         #dd($iglesias);
         return view('iglesias.index', compact('iglesias'));
     }
 
     public function create() {
+        
         $users = User::all('id','name');
         #dd($users);
         return view('iglesias.create',compact('users'));
@@ -42,7 +42,7 @@ class IglesiaController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',
@@ -68,7 +68,7 @@ class IglesiaController extends Controller
         $request->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',

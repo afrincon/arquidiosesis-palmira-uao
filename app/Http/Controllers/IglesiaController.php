@@ -23,8 +23,9 @@ class IglesiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin', 'usuario']);
         $iglesias = Iglesia::paginate();
         #dd($iglesias);
         return view('iglesias.index', compact('iglesias'));

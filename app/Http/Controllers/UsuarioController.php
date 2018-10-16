@@ -21,7 +21,6 @@ class UsuarioController extends Controller
 
     public function create() {
         $usuarios = User::all('id','name');
-        #dd($usuarios->roles()->nombre);
         return view('usuarios.create',compact('usuarios'));
     }
 
@@ -40,10 +39,11 @@ class UsuarioController extends Controller
 
         $data['password'] = Hash::make($data['password']);
 
-        #dd($data);
+        //dd($data);
 
         $User  = new User($data);
         $User->save();
+        $User->roles()->attach($data['perfil']);
         return redirect()->route('usuarios.index');
     }
 

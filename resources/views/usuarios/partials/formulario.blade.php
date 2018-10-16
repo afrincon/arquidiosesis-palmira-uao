@@ -99,8 +99,8 @@
       <div class="col-sm-6">
         <select class="form-control" id="selectPerfil" name="perfil" value="{{ old('perfil') }}">
 			<option value="">Seleccione</option>
-            <option value="Administrador">Administrador</option>          
-            <option value="Usuario">Usuario</option>
+            <option value="2">Administrador</option>          
+            <option value="1">Usuario</option>
         </select>
       </div>  
 

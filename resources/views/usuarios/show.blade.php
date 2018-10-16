@@ -52,12 +52,16 @@
         <input type="text" class="form-control" name="estado" value="{{ $User->estado }}" disabled>
       </div>
     </div>
+	
     <div class="form-group row">
       <label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="perfil" value="{{ $User->perfil }}" disabled>
+		@foreach($User->roles as $roles)
+        <input type="text" class="form-control" name="perfil" value="{{ $roles->nombre }}" disabled>
+		@endforeach
       </div>
     </div>	
+	
 	<div class="col-sm-8 col-md-8" align="center">
 		<a class="btn btn-primary" href="{{ url('/usuarios') }}" role="button">Salir</a>
 	</div>	

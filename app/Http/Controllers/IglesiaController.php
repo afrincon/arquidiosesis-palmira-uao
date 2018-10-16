@@ -42,7 +42,7 @@ class IglesiaController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',
@@ -68,7 +68,7 @@ class IglesiaController extends Controller
         $request->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',

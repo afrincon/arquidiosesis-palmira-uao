@@ -23,15 +23,15 @@ class IglesiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $request->user()->authorizeRoles(['admin', 'usuario']);
         $iglesias = Iglesia::paginate();
         #dd($iglesias);
         return view('iglesias.index', compact('iglesias'));
     }
 
     public function create() {
+        
         $users = User::all('id','name');
         #dd($users);
         return view('iglesias.create',compact('users'));

@@ -61,7 +61,7 @@
     <div class="form-group row">
       <label for="inputTelefono" class="col-sm-3 col-form-label">Teléfono</label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" name="telefono" id="inputTelefono" placeholder="Ingrese el teléfono de la iglesia" value="{{ old('telefono') }}">
+        <input type="text" class="form-control" name="telefono" id="inputTelefono" placeholder="Ingrese el teléfono del beneficiario" value="{{ old('telefono') }}">
       </div>
 
       @if($errors->has('telefono'))

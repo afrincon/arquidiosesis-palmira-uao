@@ -20,15 +20,21 @@ class UserSeeder extends Seeder
 
         $user = new User();
         $user->name = 'Andrés Felipe Rincón';
+        $user->telefono = "8893959";
         $user->email = 'andres_felipe.rincon@uao.edu.co';
         $user->password = bcrypt('Autonoma18');
+        $user->fecha_nacimiento = '1999-10-15';
+        $user->fecha_ingreso = '2009-12-14';
         $user->save();
         $user->roles()->attach($role_user);
 
         $user = new User();
         $user->name = 'Pepito Perez';
+        $user->telefono = "8893959";
         $user->email = 'pepito.perez@uao.edu.co';
         $user->password = bcrypt('Autonoma18');
+        $user->fecha_nacimiento = '1999-10-15';
+        $user->fecha_ingreso = '2009-12-14';
         $user->save();
         $user->roles()->attach($role_admin);
     }

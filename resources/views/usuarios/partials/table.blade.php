@@ -22,7 +22,9 @@
 		<td> {{ $usuario->fecha_nacimiento }}</td>
         <td> {{ $usuario->fecha_ingreso }}</td>
 		<td> {{ $usuario->estado }}</td>
-		<td> {{ $usuario->perfil }}</td>
+    @foreach($usuario->roles as $roles)
+    <td> {{ $roles->nombre }}</td>
+    @endforeach		
         <td>
           <a class="btn btn-primary" href="{{ url("usuarios/{$usuario->id}/editar") }}">Editar</a>
         </td>

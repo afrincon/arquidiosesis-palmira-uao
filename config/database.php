@@ -7,10 +7,10 @@ $username = 'rdkhvluvithx1sh8';
 $password = 'qwlgy6eube3kifc7';
 $database = 'i67g5hvxb8ho8ijt';
 
-// $host = 'localhost';
-// $username = 'root';
-// $password = '';
-// $database = 'prueba';
+//$host = 'localhost';
+//$username = 'root';
+//$password = '';
+//$database = 'prueba';
 
 return [
 

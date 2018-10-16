@@ -15,14 +15,12 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate();
-        #dd($User);
+        $usuarios = User::all();
         return view('usuarios.index', compact('usuarios'));
     }
 
     public function create() {
         $usuarios = User::all('id','name');
-        #dd($User);
         return view('usuarios.create',compact('usuarios'));
     }
 
@@ -41,10 +39,11 @@ class UsuarioController extends Controller
 
         $data['password'] = Hash::make($data['password']);
 
-        #dd($data);
+        //dd($data);
 
         $User  = new User($data);
         $User->save();
+        $User->roles()->attach($data['perfil']);
         return redirect()->route('usuarios.index');
     }
 

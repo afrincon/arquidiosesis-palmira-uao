@@ -17,7 +17,7 @@
           <td> {{ $ayuda->id_ayuda }}</td>
           <td> {{ $ayuda->fecha_ayuda }}</td>
           <td> {{ $ayuda->tipoAyuda->descripcion }}</td>
-          <td> {{ $ayuda->beneficiario->documento }}</td>
+          <td><a href="{{ url("beneficiarios/{$ayuda->beneficiario->id_beneficiario}") }}"> {{ $ayuda->beneficiario->documento }} </a></td>
           <td><a href="{{ url("iglesias/{$ayuda->iglesia->id}") }}"> {{ $ayuda->iglesia->nombre }} </a></td>
           <td> {{ $ayuda->observaciones }}</td>
           <td>

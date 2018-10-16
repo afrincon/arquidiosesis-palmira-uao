@@ -77,10 +77,10 @@ class UsuarioController extends Controller
         $User->email = $data['email'];
         $User->password = $data['password'];
         $User->estado = $data['estado'];
-		$User->perfil = $data['perfil'];
 		$User->telefono = $data['telefono'];
 		$User->fecha_nacimiento = $data['fecha_nacimiento'];
 		$User->fecha_ingreso = $data['fecha_ingreso'];
+		$User->roles()->attach($data['perfil']);
         $User->save();
 
         return redirect()->route('usuarios.index');

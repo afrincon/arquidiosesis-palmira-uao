@@ -15,7 +15,7 @@ class IglesiaController extends Controller
     */
     public function __construct()
     {
-      $this->middleware('auth');
+      #$this->middleware('auth');
     }
 
     /**
@@ -25,9 +25,9 @@ class IglesiaController extends Controller
      */
     public function index()
     {
-        $iglesias = Iglesia::paginate();
-        #dd($iglesias);
+        $iglesias = Iglesia::paginate(10);
         return view('iglesias.index', compact('iglesias'));
+        
     }
 
     public function create() {
@@ -81,5 +81,11 @@ class IglesiaController extends Controller
 
     public function show($id){
         return view('iglesias.show', ['iglesia' => Iglesia::findOrFail($id)]);
+    }
+
+    public function searchChurch(Request $request) {
+        $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        dd($iglesias);
+        return response()->json($iglesias);
     }
 }

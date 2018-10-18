@@ -85,7 +85,6 @@ class IglesiaController extends Controller
 
     public function searchChurch(Request $request) {
         $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
-        dd($iglesias);
         return response()->json($iglesias);
     }
 }

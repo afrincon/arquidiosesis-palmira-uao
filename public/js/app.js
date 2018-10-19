@@ -33185,7 +33185,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     watch: {
         nombre: function nombre(after, before) {
-            console.log(this.nombre);
             this.getIglesias();
         }
     },
@@ -33193,7 +33192,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getIglesias: function getIglesias() {
             var _this = this;
 
-            var url = 'informacion';
+            var url = 'iglesias/informacion';
             axios.get(url, { params: { nombre: this.nombre } }).then(function (response) {
                 _this.iglesias = response.data;
             });
@@ -33244,13 +33243,26 @@ var render = function() {
             return _c("tr", [
               _c("td", [_vm._v(_vm._s(iglesia.id))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(iglesia.nombre))]),
+              _c("td", [
+                _c("a", { attrs: { href: "/iglesia/" + iglesia.id } }, [
+                  _vm._v(_vm._s(iglesia.nombre))
+                ])
+              ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(iglesia.direccion))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(iglesia.telefono))]),
               _vm._v(" "),
-              _vm._m(1, true)
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: iglesia.id + "/editar" }
+                  },
+                  [_vm._v("Editar")]
+                )
+              ])
             ])
           })
         )
@@ -33274,16 +33286,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono")]),
         _vm._v(" "),
         _c("th", { attrs: { colspan: "2" } }, [_vm._v("   ")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-        _vm._v("Editar")
       ])
     ])
   }

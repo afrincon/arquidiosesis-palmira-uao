@@ -1,6 +1,6 @@
 <template>  
   <div id="crud" class="row">
-    <input type="text" v-model="nombre">
+    <input type="text" name="nombre" class="form-control" v-model="nombre">
     <br>
     <div class="col-md-12">
       <table class="table table-hover table-striped">
@@ -19,7 +19,7 @@
             <td>{{ iglesia.nombre }}</td>
             <td>{{ iglesia.direccion }}</td>
             <td>{{ iglesia.telefono }}</td>
-            <td><a href="#" class="btn btn-warning btn-sm"></a></td>
+            <td><a class="btn btn-primary" href="#">Editar</a></td>
           </tr>
         </tbody>
       </table>
@@ -40,14 +40,15 @@
             this.getIglesias();
         },
         watch: {
-            name(after,before) {
+            nombre(after,before) {
+                console.log(this.nombre);
                 this.getIglesias();
             }
         },
         methods: {
             getIglesias() {
-                var url = 'informacion';
-                axios.get(url, { params: { name: this.nombre }}).then(response => {
+                var url = 'informacion';                
+                axios.get(url, { params: { nombre: this.nombre }}).then(response => {
                     this.iglesias = response.data;
                 });
             }

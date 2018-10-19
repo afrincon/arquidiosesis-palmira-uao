@@ -33184,7 +33184,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     watch: {
-        name: function name(after, before) {
+        nombre: function nombre(after, before) {
+            console.log(this.nombre);
             this.getIglesias();
         }
     },
@@ -33193,7 +33194,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             var url = 'informacion';
-            axios.get(url, { params: { name: this.nombre } }).then(function (response) {
+            axios.get(url, { params: { nombre: this.nombre } }).then(function (response) {
                 _this.iglesias = response.data;
             });
         }
@@ -33218,7 +33219,8 @@ var render = function() {
           expression: "nombre"
         }
       ],
-      attrs: { type: "text" },
+      staticClass: "form-control",
+      attrs: { type: "text", name: "nombre" },
       domProps: { value: _vm.nombre },
       on: {
         input: function($event) {
@@ -33280,7 +33282,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", [
-      _c("a", { staticClass: "btn btn-warning btn-sm", attrs: { href: "#" } })
+      _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+        _vm._v("Editar")
+      ])
     ])
   }
 ]

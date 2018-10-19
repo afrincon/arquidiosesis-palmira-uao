@@ -24,10 +24,8 @@ class IglesiaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $iglesias = Iglesia::paginate(10);
-        return view('iglesias.index', compact('iglesias'));
-        
+    {    
+        return view('iglesias.index');        
     }
 
     public function create() {
@@ -84,6 +82,11 @@ class IglesiaController extends Controller
     }
 
     public function searchChurch(Request $request) {
+        $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();        
+        return response()->json($iglesias);
+    }
+
+    public function getIglesias(Request $request){
         $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
         return response()->json($iglesias);
     }

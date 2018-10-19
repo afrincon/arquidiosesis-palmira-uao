@@ -12,19 +12,7 @@
             </div>
         </div>
         
-        <div class="row">
-            <form action="" method="get">
-                <label class="sr-only" for="inLineName">Name</label>
-                <input type="text" class="form-control"  id="inLineName" name="nombre"  placeholder="Nombre de la iglesia">            
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-
-        @include('iglesias.partials.table')
-        
+        <iglesia></iglesia>        
     </div>
-
-    {{ $iglesias->links() }}
 </div>
 @endsection

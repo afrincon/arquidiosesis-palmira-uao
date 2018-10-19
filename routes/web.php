@@ -36,6 +36,7 @@ Route::get('/ayudas/{id}/validar', 'AyudaController@validarFecha');
 
 Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
 
+
 Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);
 

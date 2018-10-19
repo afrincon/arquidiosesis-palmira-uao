@@ -33244,7 +33244,7 @@ var render = function() {
               _c("td", [_vm._v(_vm._s(iglesia.id))]),
               _vm._v(" "),
               _c("td", [
-                _c("a", { attrs: { href: "/iglesia/" + iglesia.id } }, [
+                _c("a", { attrs: { href: "/iglesias/" + iglesia.id } }, [
                   _vm._v(_vm._s(iglesia.nombre))
                 ])
               ]),

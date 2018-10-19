@@ -16,7 +16,7 @@
         <tbody>
           <tr v-for="iglesia in iglesias">
             <td>{{ iglesia.id }}</td>            
-            <td><a :href="'/iglesia/' + iglesia.id">{{ iglesia.nombre }}</a></td>
+            <td><a :href="'/iglesias/' + iglesia.id">{{ iglesia.nombre }}</a></td>
             <td>{{ iglesia.direccion }}</td>
             <td>{{ iglesia.telefono }}</td>
             <td><a class="btn btn-primary" :href="iglesia.id + '/editar'">Editar</a></td>

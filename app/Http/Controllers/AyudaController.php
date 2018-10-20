@@ -39,6 +39,7 @@ class AyudaController extends Controller
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',
+            'validarFecha' => 'required',
         ]);
 
         #dd($data);
@@ -47,6 +48,7 @@ class AyudaController extends Controller
         #dd($ayuda);
         $ayuda->save();
         return redirect()->route('ayudas.index')->with('success', 'Ayuda registrada correctamente');
+
     }
 
     public function edit($id_ayuda) {
@@ -68,14 +70,14 @@ class AyudaController extends Controller
         $ayuda = Ayuda::findOrFail($id);
         $ayuda->fill($request->all());
         $ayuda->save();
-        return redirect()->route('ayudas.index')->with('success', 'La ayuda ha sido actualizada');;
+        return redirect()->route('ayudas.index')->with('success', 'La ayuda ha sido actualizada');
     }
 
     public function validarFecha($id){
         $validacion = DB::table('ayudas')->where('id_beneficiario', '=', $id)->latest()->first();
         #dd($validacion->fecha_ayuda);
         return $validacion->fecha_ayuda;
+
+
+        }
     }
-
-
-}

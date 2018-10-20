@@ -41,6 +41,9 @@ class UsuarioController extends Controller
 
         $usuario  = new Usuario($data);
         $usuario->save();
+
+        Flash::success("se ha registrado " . $usuario->name . " de forma exitosa!");
+
         return redirect()->route('usuarios.index');
     }
 
@@ -73,7 +76,6 @@ class UsuarioController extends Controller
 
         return redirect()->route('usuarios.index');
     }
-	
     public function show($id){
         return view('usuarios.show', ['usuario' => usuario::findOrFail($id)]);
     }	

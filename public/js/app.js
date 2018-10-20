@@ -33487,7 +33487,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { href: usuario.id + "/editar" }
+                    attrs: { href: "/usuarios/" + usuario.id + "/editar" }
                   },
                   [_vm._v("Editar")]
                 )

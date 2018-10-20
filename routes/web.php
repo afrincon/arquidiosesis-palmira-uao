@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/inicio', 'MainController@index')->name('inicio');
@@ -30,9 +30,13 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Route::get('/home', 'HomeController@index')->name('home');
+#Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/ayudas/{id}/validar', 'AyudaController@validarFecha');
+
+Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
+Route::get('/usuarios/informacion', 'UsuarioController@searchUser');
+
 
 Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);

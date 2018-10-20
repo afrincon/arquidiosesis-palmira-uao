@@ -78,8 +78,6 @@
 
     </div>
 
-
-
     <div class="form-group col-sm-12 col-md-8">
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a class="btn btn-primary" href="{{ url('/iglesias') }}" role="button">Salir</a>

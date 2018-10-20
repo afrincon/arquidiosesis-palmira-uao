@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-#Cambio Ayuda - ayuda
-use App\ayuda;
+
+use App\Ayuda;
+use App\beneficiario;
 use App\iglesia;
 use App\TipoAyuda;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class AyudaController extends Controller
         #dd($tiposAyuda);
         $iglesias = iglesia::all();
         #dd($iglesias);
-        return view('ayudas.create', compact('ayudas','tiposAyuda', 'iglesias'));
+        $beneficiarios = beneficiario::all();
+        return view('ayudas.create', compact('ayudas','tiposAyuda', 'iglesias', 'beneficiarios'));
     }
 
     public function store(){
@@ -39,7 +41,6 @@ class AyudaController extends Controller
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',
-            'validarFecha' => 'required',
         ]);
 
         #dd($data);
@@ -48,14 +49,16 @@ class AyudaController extends Controller
         #dd($ayuda);
         $ayuda->save();
         return redirect()->route('ayudas.index')->with('success', 'Ayuda registrada correctamente');
-
     }
 
-    public function edit($id_ayuda) {
-        $ayuda = Ayuda::findOrFail($id_ayuda);
+    public function edit($id) {
+        $ayuda = Ayuda::findOrFail($id);
         #dd($ayuda);
         $users = User::all('id','name');
-        return view('ayudas.edit', compact('ayuda'));
+        $iglesias = iglesia::all();
+        $tiposAyuda = TipoAyuda::all();
+        $beneficiarios = beneficiario::all();
+        return view('ayudas.edit', compact('ayuda', 'iglesias', 'tiposAyuda', 'beneficiarios'));
     }
 
     public function update(Request $request,$id) {
@@ -70,14 +73,16 @@ class AyudaController extends Controller
         $ayuda = Ayuda::findOrFail($id);
         $ayuda->fill($request->all());
         $ayuda->save();
-        return redirect()->route('ayudas.index')->with('success', 'La ayuda ha sido actualizada');
+        return redirect()->route('ayudas.index')->with('success', 'La ayuda ha sido actualizada');;
     }
 
     public function validarFecha($id){
         $validacion = DB::table('ayudas')->where('id_beneficiario', '=', $id)->latest()->first();
         #dd($validacion->fecha_ayuda);
         return $validacion->fecha_ayuda;
-
-
-        }
     }
+
+    public function show($id){
+        return view('ayudas.show', ['iglesia' => Iglesia::findOrFail($id)]);
+    }
+}

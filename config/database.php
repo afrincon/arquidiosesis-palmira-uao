@@ -2,10 +2,16 @@
 
 /* Database config */
 
-$host = 'w29ifufy55ljjmzq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+/*$host = 'w29ifufy55ljjmzq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
 $username = 'rdkhvluvithx1sh8';
 $password = 'qwlgy6eube3kifc7';
 $database = 'i67g5hvxb8ho8ijt';
+*/
+
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'prueba';
 
 return [
 
@@ -48,15 +54,15 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            //'host' => env('DB_HOST', '127.0.0.1'),
-            'host' => env('DB_HOST', $host),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            //'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', '3306'),
-            //'database' => env('DB_DATABASE', 'forge'),
-            'database'  => $database,
-            //'username' => env('DB_USERNAME', 'forge'),
-            'username'  => $username,
-            //'password' => env('DB_PASSWORD', ''),
-            'password'  => $password,
+            'database' => env('DB_DATABASE', 'forge'),
+            //'database'  => $database,
+            'username' => env('DB_USERNAME', 'forge'),
+            //'username'  => $username,
+            'password' => env('DB_PASSWORD', ''),
+            //'password'  => $password,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

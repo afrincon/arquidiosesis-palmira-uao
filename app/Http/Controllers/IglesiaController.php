@@ -15,7 +15,7 @@ class IglesiaController extends Controller
     */
     public function __construct()
     {
-      $this->middleware('auth');
+      #$this->middleware('auth');
     }
 
     /**
@@ -24,13 +24,12 @@ class IglesiaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $iglesias = Iglesia::paginate();
-        #dd($iglesias);
-        return view('iglesias.index', compact('iglesias'));
+    {    
+        return view('iglesias.index');        
     }
 
     public function create() {
+        
         $users = User::all('id','name');
         #dd($users);
         return view('iglesias.create',compact('users'));
@@ -39,9 +38,9 @@ class IglesiaController extends Controller
     public function store(){
 
         $data = request()->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'direccion' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',
@@ -67,7 +66,7 @@ class IglesiaController extends Controller
         $request->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|max:10',
+            'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',
@@ -80,5 +79,15 @@ class IglesiaController extends Controller
 
     public function show($id){
         return view('iglesias.show', ['iglesia' => Iglesia::findOrFail($id)]);
+    }
+
+    public function searchChurch(Request $request) {
+        $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();        
+        return response()->json($iglesias);
+    }
+
+    public function getIglesias(Request $request){
+        $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        return response()->json($iglesias);
     }
 }

@@ -15,7 +15,7 @@ class Beneficiarios extends Migration
     {
         Schema::create('beneficiarios', function (Blueprint $table) {
             $table->increments('id_beneficiario');
-            $table->string('documento',15);
+            $table->string('documento',15)->unique();
             $table->integer('id_tipo_documento')->unsigned();
             $table->string('nombre',50);
             $table->string('apellido',50);

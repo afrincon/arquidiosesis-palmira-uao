@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,16 +13,21 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = Usuario::paginate();
-        #dd($usuario);
-        return view('usuarios.index', compact('usuarios'));
+        /*if(isset($request)) {
+            return view('errors.401');
+        } else {
+            $request->user()->authorizeRoles(['admin']);*/
+            $usuarios = User::all();
+            return view('usuarios.index', compact('usuarios'));
+        #}
+        
     }
 
     public function create() {
-        $usuarios = Usuario::all('id','name');
-        #dd($usuarios);
+        #$request->user()->authorizeRoles(['admin']);
+        $usuarios = User::all('id','name');
         return view('usuarios.create',compact('usuarios'));
     }
 
@@ -30,53 +35,78 @@ class UsuarioController extends Controller
 
         $data = request()->validate([
             'name' => 'required',
+			'telefono' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+			'fecha_nacimiento' => 'required',
+			'fecha_ingreso' => 'required',
             'estado' => 'required',
+			'perfil' => 'required',
         ]);
 
         $data['password'] = Hash::make($data['password']);
 
-        #dd($data);
+        //dd($data);
 
-        $usuario  = new Usuario($data);
-        $usuario->save();
-
-        Flash::success("se ha registrado " . $usuario->name . " de forma exitosa!");
-
-        return redirect()->route('usuarios.index');
+        $User  = new User($data);
+        $User->save();
+        $User->roles()->attach($data['perfil']);
+        return redirect()->route('usuarios.index')->with('success', 'Usuario agregado correctamente');
     }
 
     public function edit($id) {
-        $usuario = Usuario::findOrFail($id);
-        #dd($iglesia);
-        return view('usuarios.edit', compact('usuario'));
+        $User = User::findOrFail($id);
+        #dd($User);
+        return view('usuarios.edit', compact('User'));
     }
 
     public function update($id) {
         $data = request()->validate([
             'name' => 'required',
+			'telefono' => 'required',
             'email' => 'required|email',
+            'password' => 'required',
+			'fecha_nacimiento' => 'required',
+			'fecha_ingreso' => 'required',
             'estado' => 'required',
+			'perfil' => 'required',
         ]);
 
-        $usuario = Usuario::findOrFail($id);
+        #dd($data);
+
+        $User = User::findOrFail($id);
 
         if (array_key_exists('password', $data)) {
             $data['password'] = Hash::make($data['password']);
         } else {
-            $data['password'] = $usuario->password;
+            $data['password'] = $User->password;
         }
 
-        $usuario->name = $data['name'];
-        $usuario->email = $data['email'];
-        $usuario->password = $data['password'];
-        $usuario->estado = $data['estado'];
-        $usuario->save();
+        $User->name = $data['name'];
+        $User->email = $data['email'];
+        $User->password = $data['password'];
+        $User->estado = $data['estado'];
+		$User->telefono = $data['telefono'];
+		$User->fecha_nacimiento = $data['fecha_nacimiento'];
+		$User->fecha_ingreso = $data['fecha_ingreso'];
+		
+        $User->save();
+        $User->roles()->sync($data['perfil']);
 
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('success', 'Usuario editado correctamente');
     }
+	
     public function show($id){
-        return view('usuarios.show', ['usuario' => usuario::findOrFail($id)]);
+        return view('usuarios.show', ['User' => User::findOrFail($id)]);
+    }	
+	
+    public function searchUser(Request $request) {
+        $User = Usuario::where('name', 'like', '%'.$request->input('name').'%')->get();        
+        return response()->json($User);
+    }
+
+    public function getUsuarios(Request $request){
+        $User = Usuario::where('name', 'like', '%'.$request->input('name').'%')->get();
+        return response()->json($User);
     }	
 }

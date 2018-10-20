@@ -1,6 +1,6 @@
 <template>  
   <div id="crud" class="row">
-    <input type="text" name="nombre" class="form-control" v-model="nombre">
+    <input type="text" name="name" class="form-control" v-model="name">
     <br>
     <div class="col-md-12">
       <table class="table table-hover table-striped">
@@ -41,22 +41,22 @@
         data() {
             return {
                 usuarios: [],
-                nombre: null,
+                name: null,
             }
         },
         created() {
             this.getUsuarios();
         },
         watch: {
-            nombre(after,before) {
-                console.log(this.nombre);
+            name(after,before) {
+                console.log(this.name);
                 this.getUsuarios();
             }
         },
         methods: {
             getUsuarios() {
                 var url = 'usuarios/informacion';                
-                axios.get(url, { params: { nombre: this.nombre }}).then(response => {
+                axios.get(url, { params: { name: this.name }}).then(response => {
                     this.usuarios = response.data;
                 });
             }

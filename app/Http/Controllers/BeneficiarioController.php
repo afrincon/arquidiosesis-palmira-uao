@@ -3,6 +3,9 @@ namespace App\Http\Controllers;
 use App\beneficiario;
 use App\tipo_documento;
 use App\User;
+use Illuminate\Validation\Rule;
+use Illiminate\Config\Repository;
+use Illuminate\Http\Request;
 
 class BeneficiarioController extends Controller
 {
@@ -33,10 +36,17 @@ class BeneficiarioController extends Controller
         $tipoDocumento = tipo_documento::all();
         return view('beneficiarios.create',compact('users','tipoDocumento'));
     }
-    function store(){
+
+   // function store(){
+    
+     function store(Request $request){
+       
         $data = request()->validate([
-            'documento' => 'required',
-			'id_tipo_documento' => 'required',
+
+               'documento' =>[ Rule::unique('beneficiarios')->where(function ($query) use ($request){
+                return $query->where('id_tipo_documento', $request->id_tipo_documento);
+            })],
+            'id_tipo_documento' => 'required',
 			'nombre' => 'required',
 			'apellido' => 'required',
 			'estado' => 'required',
@@ -44,7 +54,10 @@ class BeneficiarioController extends Controller
             'telefono' => 'required|max:10',
             'clasificacion' => 'required',
             //user' => 'required',
+
+
         ]);
+        
         #dd($data);
         $beneficiario  = new beneficiario($data);
         $beneficiario->save();

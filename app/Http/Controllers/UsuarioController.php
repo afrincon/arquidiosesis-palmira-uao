@@ -51,7 +51,7 @@ class UsuarioController extends Controller
         $User  = new User($data);
         $User->save();
         $User->roles()->attach($data['perfil']);
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('success', 'Usuario agregado correctamente');
     }
 
     public function edit($id) {
@@ -93,10 +93,20 @@ class UsuarioController extends Controller
         $User->save();
         $User->roles()->sync($data['perfil']);
 
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('success', 'Usuario editado correctamente');
     }
 	
     public function show($id){
         return view('usuarios.show', ['User' => User::findOrFail($id)]);
+    }	
+	
+    public function searchUser(Request $request) {
+        $User = Usuario::where('name', 'like', '%'.$request->input('nombre').'%')->get();        
+        return response()->json($User);
+    }
+
+    public function getUsuarios(Request $request){
+        $User = Usuario::where('name', 'like', '%'.$request->input('nombre').'%')->get();
+        return response()->json($User);
     }	
 }

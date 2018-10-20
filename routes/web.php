@@ -35,6 +35,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/ayudas/{id}/validar', 'AyudaController@validarFecha');
 
 Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
+Route::get('/usuarios/informacion', 'UsuarioController@searchUser');
 
 
 Route::resource('/iglesias', 'IglesiaController',

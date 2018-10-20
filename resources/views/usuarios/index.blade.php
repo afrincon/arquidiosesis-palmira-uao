@@ -8,13 +8,12 @@
 		</div>
 		
 		<div class="form-group row">
-		<div class="col-sm-2 col-md-2" align="left">
-			<a class="btn btn-primary" href="{{ url('/usuarios/crear') }}">Crear</a>
-        </div>
+			<div class="col-sm-2 col-md-2" align="left">
+				<a class="btn btn-primary" href="{{ url('/usuarios/crear') }}">Crear</a>
+			</div>
 		</div>
 		
-		
-        @include('usuarios.partials.table')
+        <usuario></usuario>
     </div>
 </div>
 @endsection

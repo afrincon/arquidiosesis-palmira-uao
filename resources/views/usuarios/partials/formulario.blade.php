@@ -18,7 +18,7 @@
     <div class="form-group row">
       <label for="inputTelefono" class="col-sm-3 col-form-label">Telefono</label>
       <div class="col-sm-6">
-        <input type="number" class="form-control" name="telefono" id="inputTelefono" placeholder="Ingrese el telefono" autofocus value="{{ old('telefono') }}">
+        <input type="text" class="form-control" name="telefono" id="inputTelefono" placeholder="Ingrese el telefono" autofocus value="{{ old('telefono') }}">
       </div>
 
       @if($errors->has('telefono'))

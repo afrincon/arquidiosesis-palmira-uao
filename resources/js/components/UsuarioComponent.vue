@@ -20,14 +20,14 @@
         <tbody>
           <tr v-for="usuario in usuarios">
             <td>{{ usuario.id }}</td>            
-            <td>{{ usuario.name }}</td>
+            <td><a :href="'/usuarios/' + usuario.id">{{ usuario.name }}</a></td>
             <td>{{ usuario.telefono }}</td>
             <td>{{ usuario.email }}</td>
 			<td>{{ usuario.fecha_nacimiento }}</td>
 			<td>{{ usuario.fecha_ingreso }}</td>
 			<td>{{ usuario.estado }}</td>
 			<td>{{ roles.nombre }}</td>
-            <td><a class="btn btn-primary" href="#">Editar</a></td>
+            <td><a class="btn btn-primary" :href="usuario.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>
       </table>
@@ -55,7 +55,7 @@
         },
         methods: {
             getUsuarios() {
-                var url = 'informacion';                
+                var url = 'usuarios/informacion';                
                 axios.get(url, { params: { nombre: this.nombre }}).then(response => {
                     this.usuarios = response.data;
                 });

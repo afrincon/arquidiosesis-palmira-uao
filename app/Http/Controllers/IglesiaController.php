@@ -38,7 +38,7 @@ class IglesiaController extends Controller
     public function store(){
 
         $data = request()->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'direccion' => 'required',
             'telefono' => 'required|max:10|numeric',
             'arquidiocesis' =>  'required',

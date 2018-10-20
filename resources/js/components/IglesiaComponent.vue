@@ -16,10 +16,10 @@
         <tbody>
           <tr v-for="iglesia in iglesias">
             <td>{{ iglesia.id }}</td>            
-            <td>{{ iglesia.nombre }}</td>
+            <td><a :href="'/iglesias/' + iglesia.id">{{ iglesia.nombre }}</a></td>
             <td>{{ iglesia.direccion }}</td>
             <td>{{ iglesia.telefono }}</td>
-            <td><a class="btn btn-primary" href="#">Editar</a></td>
+            <td><a class="btn btn-primary" :href="iglesia.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>
       </table>
@@ -41,13 +41,12 @@
         },
         watch: {
             nombre(after,before) {
-                console.log(this.nombre);
                 this.getIglesias();
             }
         },
         methods: {
             getIglesias() {
-                var url = 'informacion';                
+                var url = 'iglesias/informacion';                
                 axios.get(url, { params: { nombre: this.nombre }}).then(response => {
                     this.iglesias = response.data;
                 });

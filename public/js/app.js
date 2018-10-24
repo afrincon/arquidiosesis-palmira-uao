@@ -33396,7 +33396,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             usuarios: [],
-            nombre: null
+            name: null
         };
     },
     created: function created() {
@@ -33404,8 +33404,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     watch: {
-        nombre: function nombre(after, before) {
-            console.log(this.nombre);
+        name: function name(after, before) {
+            console.log(this.name);
             this.getUsuarios();
         }
     },
@@ -33413,8 +33413,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getUsuarios: function getUsuarios() {
             var _this = this;
 
-            var url = 'informacion';
-            axios.get(url, { params: { nombre: this.nombre } }).then(function (response) {
+            var url = 'usuarios/informacion';
+            axios.get(url, { params: { name: this.name } }).then(function (response) {
                 _this.usuarios = response.data;
             });
         }
@@ -33440,7 +33440,7 @@ var render = function() {
         }
       ],
       staticClass: "form-control",
-      attrs: { type: "text", name: "nombre" },
+      attrs: { type: "text", name: "name" },
       domProps: { value: _vm.name },
       on: {
         input: function($event) {
@@ -33464,7 +33464,11 @@ var render = function() {
             return _c("tr", [
               _c("td", [_vm._v(_vm._s(usuario.id))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.$usuario.name))]),
+              _c("td", [
+                _c("a", { attrs: { href: "/usuarios/" + usuario.id } }, [
+                  _vm._v(_vm._s(usuario.name))
+                ])
+              ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(usuario.telefono))]),
               _vm._v(" "),
@@ -33476,9 +33480,18 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(usuario.estado))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.roles.nombre))]),
+              _c("td", [_vm._v(_vm._s(usuario.role))]),
               _vm._v(" "),
-              _vm._m(1, true)
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: "/usuarios/" + usuario.id + "/editar" }
+                  },
+                  [_vm._v("Editar")]
+                )
+              ])
             ])
           })
         )
@@ -33510,16 +33523,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Perfil")]),
         _vm._v(" "),
         _c("th", { attrs: { colspan: "2" } }, [_vm._v("   ")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-        _vm._v("Editar")
       ])
     ])
   }

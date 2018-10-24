@@ -26,8 +26,8 @@
 			<td>{{ usuario.fecha_nacimiento }}</td>
 			<td>{{ usuario.fecha_ingreso }}</td>
 			<td>{{ usuario.estado }}</td>
-			<td>{{ roles.nombre }}</td>
-            <td><a class="btn btn-primary" :href="usuario.id + '/editar'">Editar</a></td>
+			<td>{{ usuario.role }}</td>
+            <td><a class="btn btn-primary" :href="'/usuarios/' + usuario.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>
       </table>

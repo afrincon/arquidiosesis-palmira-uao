@@ -33393,6 +33393,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -33427,7 +33428,110 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row", attrs: { id: "crud" } }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.name,
+          expression: "name"
+        }
+      ],
+      staticClass: "form-control",
+      attrs: { type: "text", name: "name" },
+      domProps: { value: _vm.name },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.name = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("table", { staticClass: "table table-hover table-striped" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.usuarios, function(usuario) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(usuario.id))]),
+              _vm._v(" "),
+              _c("td", [
+                _c("a", { attrs: { href: "/usuarios/" + usuario.id } }, [
+                  _vm._v(_vm._s(usuario.name))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(usuario.telefono))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(usuario.email))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(usuario.fecha_nacimiento))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(usuario.fecha_ingreso))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(usuario.estado))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(usuario.rol))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { href: "/usuarios/" + usuario.id + "/editar" }
+                  },
+                  [_vm._v("Editar")]
+                )
+              ])
+            ])
+          })
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Correo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha nacimiento")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha ingreso")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Perfil")]),
+        _vm._v(" "),
+        _c("th", { attrs: { colspan: "2" } }, [_vm._v("   ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

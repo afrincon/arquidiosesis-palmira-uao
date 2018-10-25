@@ -26,7 +26,7 @@
 			<td>{{ usuario.fecha_nacimiento }}</td>
 			<td>{{ usuario.fecha_ingreso }}</td>
 			<td>{{ usuario.estado }}</td>
-			<td v-for=" usuario.roles in roles">{{ roles.nombre }}</td>
+			<td>{{ usuario.rol }}</td>
             <td><a class="btn btn-primary" :href="'/usuarios/' + usuario.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>
@@ -34,6 +34,7 @@
     </div>
   </div>
 </template>
+
 
 
 <script>

@@ -86,6 +86,7 @@
 		<label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
 		<div class="col-sm-6">
 			<select class="form-control" id="selectEstado" name="estado" value="{{ $User->estado }}">
+				<option value="">Seleccione</option>
 				<option value="Activo">Activo</option>
 				<option value="Inactivo">Inactivo</option>
 			</select>
@@ -97,6 +98,7 @@
 		<label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
 		<div class="col-sm-6">
 			<select class="form-control" id="selectPerfil" name="perfil" value="{{ $User->perfil }}">
+				<option value="">Seleccione</option>
 				<option value="2">Administrador</option>
 				<option value="1">Usuario</option>
 			</select>
@@ -114,3 +116,9 @@
 	</div>
 </div>
 {{ Form::close() }}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+	$( document ).ready(function() {
+		$("option[value='{{ $User->perfil }}']").attr('selected','selected');
+	});
+</script>

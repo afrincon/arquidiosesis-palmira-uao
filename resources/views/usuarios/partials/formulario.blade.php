@@ -69,7 +69,7 @@
     <div class="form-group row">
       <label for="inputFecnaci" class="col-sm-3 col-form-label">Fecha nacimiento</label>
       <div class="col-sm-6">
-        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci" id="fecha_nacimiento" autofocus value="{{ old('fecha_nacimiento') }}" max="<?php echo date("Y-m-d");?>">
+        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci" autofocus value="{{ old('fecha_nacimiento') }}" max="<?php echo date("Y-m-d");?>">
       </div>
 
       @if($errors->has('fecha_nacimiento'))

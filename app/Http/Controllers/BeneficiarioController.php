@@ -32,9 +32,7 @@ class BeneficiarioController extends Controller
     }
     public function create() {
         $users = User::all('id','name');
-        #dd($users);
-        $tipoDocumento = tipo_documento::all();
-        return view('beneficiarios.create',compact('users','tipoDocumento'));
+        #dd($users);e',compact('users','tipoDocumento'));
     }
 
    // function store(){
@@ -43,17 +41,19 @@ class BeneficiarioController extends Controller
        
         $data = request()->validate([
 
-               'documento' =>[ Rule::unique('beneficiarios')->where(function ($query) use ($request){
-                return $query->where('id_tipo_documento', $request->id_tipo_documento);
-            })],
-            'id_tipo_documento' => 'required',
-			'nombre' => 'required',
-			'apellido' => 'required',
-			'estado' => 'required',
-			'direccion' =>  'required',
-            'telefono' => 'required|max:10',
-            'clasificacion' => 'required',
-            //user' => 'required',
+            // $tipoDocumento = tipo_documento::all();
+            //         return view('beneficiarios.creat
+            //               'documento' =>[ Rule::unique('beneficiarios')->where(function ($query) use ($request){
+            //                return $query->where('id_tipo_documento', $request->id_tipo_documento)
+            //            })],
+            //            'id_tipo_documento' => 'required',
+            //			'nombre' => 'required',
+            //			'apellido' => 'required',
+            //			'estado' => 'required',
+            //			'direccion' =>  'required',
+            //            'telefono' => 'required|max:10',
+            //            'clasificacion' => 'required',
+            //            //user' => 'required',
 
 
         ]);
@@ -103,5 +103,15 @@ class BeneficiarioController extends Controller
     public function show($id){
         #dd($id);   
         return view('beneficiarios.show', ['beneficiario' => beneficiario::findOrFail($id)]);
+    }
+
+    public function searchBeneficiarios(Request $request) {
+        $beneficiarios = Beneficiario::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        return response()->json($beneficiarios);
+    }
+
+    public function getBeneficiarios(Request $request){
+        $beneficiarios = Beneficiario::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        return response()->json($beneficiarios);
     }
 }

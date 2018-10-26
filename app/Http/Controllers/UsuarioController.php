@@ -25,8 +25,8 @@ class UsuarioController extends Controller
         
     }
 
-    public function create() 
-		$usuarios = Usuario::paginate();
+    public function create(){ 
+		$usuarios = User::paginate();
         #$request->user()->authorizeRoles(['admin']);
         $usuarios = User::all('id','name');
         return view('usuarios.create',compact('usuarios'));

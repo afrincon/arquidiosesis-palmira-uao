@@ -32,7 +32,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 #Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/ayudas/{id}/validar', 'AyudaController@validarFecha');
+Route::get('/ayudas/validar', 'AyudaController@validarFecha');
 
 Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
 Route::get('/usuarios/informacion', 'UsuarioController@searchUser');

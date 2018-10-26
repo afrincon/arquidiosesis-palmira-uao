@@ -18,3 +18,32 @@
     </div>
 @endsection
 <!--Creacion de registros-->
+
+<script>
+	function ValidError(){
+		var beneid = $("#inputBeneficiario").val();
+		
+		if(beneid === ""){
+			swal("Debe seleccionar un beneficiario!", "", "error");	
+			$('.swal-button--confirm').click(function(){
+				$("#btnguardar").attr("disabled");//desabilita boton
+				$("#inputBeneficiario").focus();
+			});		
+		}else{		
+			$.ajax({
+				url: "{{ url('ayudas/validar') }}", 
+				dataType:'json',  // tipo de datos que te envia el archivo que se ejecuto                              
+				method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
+				data: {'id':beneid}, //parametros GET o POST
+				success: function (data) {		
+					console.log(data);
+					swal("La ultima ayuda del beneficiario fue en: "+data.fecha_ayuda, "", "warning");	
+					$('.swal-button--confirm').click(function(){
+						$("#inputBeneficiario").focus();
+					});	
+					$("#btnguardar").removeAttr("disabled");//habilita boton
+				}
+			});
+		}
+	}
+</script>

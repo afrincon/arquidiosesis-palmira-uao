@@ -25,7 +25,8 @@ class UsuarioController extends Controller
         
     }
 
-    public function create() {
+    public function create(){ 
+		$usuarios = User::paginate();
         #$request->user()->authorizeRoles(['admin']);
         $usuarios = User::all('id','name');
         return view('usuarios.create',compact('usuarios'));
@@ -101,12 +102,14 @@ class UsuarioController extends Controller
     }	
 	
     public function searchUser(Request $request) {
-        $User = User::where('name', 'like', '%'.$request->input('name').'%')->get();        
+        $User = User::where('name', 'like', '%'.$request->input('name').'%')->get();
+		$User->load('roles');
         return response()->json($User);
     }
 
     public function getUsuarios(Request $request){
-        $User = User::where('name', 'like', '%'.$request->input('name').'%')->get();
+        $User = Usuario::where('name', 'like', '%'.$request->input('name').'%')->get();
+		$User->load('roles');
         return response()->json($User);
     }	
 }

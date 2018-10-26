@@ -33420,6 +33420,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var url = 'usuarios/informacion';
             axios.get(url, { params: { name: this.name } }).then(function (response) {
                 _this.usuarios = response.data;
+                console.log(_this.usuarios);
+                var array = _this.usuarios;
+                console.log(array[0].roles[0].nombre);
             });
         }
     }
@@ -33465,7 +33468,7 @@ var render = function() {
         _c(
           "tbody",
           _vm._l(_vm.usuarios, function(usuario) {
-            return _c("tr", [
+            return _c("tr", { key: usuario.id }, [
               _c("td", [_vm._v(_vm._s(usuario.id))]),
               _vm._v(" "),
               _c("td", [
@@ -33484,7 +33487,7 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(usuario.estado))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(usuario.rol))]),
+              _c("td", [_vm._v(_vm._s(usuario.roles[0].nombre))]),
               _vm._v(" "),
               _c("td", [
                 _c(

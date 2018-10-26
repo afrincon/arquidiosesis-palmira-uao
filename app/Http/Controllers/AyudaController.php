@@ -76,10 +76,10 @@ class AyudaController extends Controller
         return redirect()->route('ayudas.index')->with('success', 'La ayuda ha sido actualizada');;
     }
 
-    public function validarFecha($id){
-        $validacion = DB::table('ayudas')->where('id_beneficiario', '=', $id)->latest()->first();
-        #dd($validacion->fecha_ayuda);
-        return $validacion->fecha_ayuda;
+    public function validarFecha(){
+		$beneficiario = $_GET["id"];
+        $validacion = DB::table('ayudas')->where('id_beneficiario', '=', $beneficiario)->latest()->first();
+        echo json_encode($validacion);
     }
 
     public function show($id){

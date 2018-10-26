@@ -106,8 +106,11 @@
     </div>
 
     <div class="form-group col-sm-12 col-md-8">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary" onclick='msgedit()'>Guardar</button>
+           <!-- <button type="button" class="btn btn-primary"  onclick='msgedit()'>guardarm </button>-->
             <a class="btn btn-primary" href="{{ url('/beneficiarios') }}" role="button">Salir</a>
     </div>
   </div>
 </form>
+
+

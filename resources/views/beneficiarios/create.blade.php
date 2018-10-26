@@ -17,3 +17,21 @@
   </div>
 <div>
 @endsection
+<script>  
+	function msgedit(){
+    swal({
+      title: "Hay un beneficiario registrado con la misma direccion!",
+      text: "¿desea registrar este beneficiario con la misma direccion?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+      window.location.href = "{{ url('/beneficiarios/crear') }}"
+      } else {
+      $('inputDireccion').focus();
+      }
+    });
+  }
+</script>

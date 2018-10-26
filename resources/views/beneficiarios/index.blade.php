@@ -8,10 +8,14 @@
         <br/>
 
         <div class="col-4">
-            <a class="btn btn-primary" href="{{ url('/beneficiarios/crear') }}">Crear beneficiario</a>
+            <a class="btn btn-primary" href="{{ url('/beneficiarios/crear') }}" >Crear beneficiario</a>
+
         </div>
 
         @include('beneficiarios.partials.table')
     </div>
 </div>
+
+
+
 @endsection

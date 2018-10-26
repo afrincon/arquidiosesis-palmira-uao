@@ -1104,6 +1104,7 @@ Vue.component('example-component', __webpack_require__(38));
 Vue.component('iglesia', __webpack_require__(41));
 Vue.component('usuario', __webpack_require__(44));
 Vue.component('beneficiario', __webpack_require__(47));
+Vue.component('users-select', __webpack_require__(55));
 
 var app = new Vue({
   el: '#app'
@@ -33243,7 +33244,7 @@ var render = function() {
         _c(
           "tbody",
           _vm._l(_vm.iglesias, function(iglesia) {
-            return _c("tr", [
+            return _c("tr", { key: iglesia.id }, [
               _c("td", [_vm._v(_vm._s(iglesia.id))]),
               _vm._v(" "),
               _c("td", [
@@ -33787,6 +33788,187 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(56)
+/* template */
+var __vue_template__ = __webpack_require__(57)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/UsersAutoCompleteComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6d8350d8", Component.options)
+  } else {
+    hotAPI.reload("data-v-6d8350d8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      selected: 'Seleccione un parroco',
+      options: []
+    };
+  },
+
+  props: ['old'],
+  created: function created() {
+    this.getUser();
+    if (this.old.length === 0) {
+      this.selected = 'Seleccione un parroco';
+    } else {
+      this.selected = this.old;
+    }
+  },
+
+  methods: {
+    getUser: function getUser() {
+      var _this = this;
+
+      var url = '/obtenerparrocos';
+      axios.get(url).then(function (response) {
+        response.data.forEach(function (obj) {
+          _this.options.push({ text: obj.name, value: obj.id });
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "form-group row" }, [
+    _c(
+      "label",
+      { staticClass: "col-sm-3 col-form-label", attrs: { for: "inputUser" } },
+      [_vm._v("Parroco Asociado")]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-6" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selected,
+              expression: "selected"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { name: "user_id" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("input", { staticClass: "input", attrs: { type: "text" } }),
+          _vm._v(" "),
+          _c("option", { attrs: { selected: "", disabled: "" } }, [
+            _vm._v("Seleccione un parroco")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.options, function(option) {
+            return _c(
+              "option",
+              { key: option.value, domProps: { value: option.value } },
+              [_vm._v("\n          " + _vm._s(option.text) + "\n        ")]
+            )
+          })
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6d8350d8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

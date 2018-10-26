@@ -37,7 +37,7 @@ Route::get('/ayudas/{id}/validar', 'AyudaController@validarFecha');
 Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
 Route::get('/usuarios/informacion', 'UsuarioController@searchUser');
 Route::get('/beneficiarios/informacion', 'BeneficiarioController@searchBeneficiarios');
-
+Route::get('/obtenerparrocos', 'UsuarioController@getUsuarios');
 
 
 Route::resource('/iglesias', 'IglesiaController',

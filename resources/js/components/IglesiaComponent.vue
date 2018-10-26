@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="iglesia in iglesias">
+          <tr v-for="iglesia in iglesias" :key="iglesia.id">
             <td>{{ iglesia.id }}</td>            
             <td><a :href="'/iglesias/' + iglesia.id">{{ iglesia.nombre }}</a></td>
             <td>{{ iglesia.direccion }}</td>

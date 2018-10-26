@@ -48,25 +48,14 @@
         </span>
       @endif
     </div>
-    <div class="form-group row">
-      <label for="inputUser" class="col-sm-3 col-form-label">Parroco asociado</label>
-      <div class="col-sm-6">
-        <select class="form-control" id="selectUser" name="user_id" value="{{ old('user_id') }}">
-            <option value="">Seleccionar un usuario</option>
-          @foreach($users as $user)
-            <option value="{{ $user->id }}">{{ $user->name }}</option>
-          @endforeach
+    <users-select :old="'{{ old('user_id') }}'"></users-select>
+    @if($errors->has('user_id'))
+      <span class="help-block">
+        <strong>{{ $errors->first('user_id') }}</strong>
+      </span>
+    @endif
 
-        </select>
-      </div>
-      @if($errors->has('user'))
-        <span class="help-block">
-          <strong>{{ $errors->first('user') }}</strong>
-        </span>
-      @endif
-
-    </div>
-
+    
     <div class="form-group row">
       <label for="inputEstado" class="col-sm-3 col-form-label">Estado de la iglesia</label>
       <div class="col-sm-6">

@@ -102,12 +102,14 @@ class UsuarioController extends Controller
     }	
 	
     public function searchUser(Request $request) {
-        $User = User::where('name', 'like', '%'.$request->input('name').'%')->get();        
+        $User = User::where('name', 'like', '%'.$request->input('name').'%')->get();
+		$User->load('roles');
         return response()->json($User);
     }
 
     public function getUsuarios(Request $request){
         $User = Usuario::where('name', 'like', '%'.$request->input('name').'%')->get();
+		$User->load('roles');
         return response()->json($User);
     }	
 }

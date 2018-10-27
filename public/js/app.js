@@ -34091,10 +34091,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.get(this.url).then(function (response) {
-        /*console.log(response.data)*/
-        response.data.forEach(function (obj) {
-          _this.options.push({ text: obj.name, value: obj.id });
-        });
+        switch (_this.url) {
+          case '/beneficiarios/informacion':
+            response.data.forEach(function (obj) {
+              _this.options.push({ text: obj.nombre, value: obj.id_beneficiario });
+            });
+            break;
+          case '/obtenerparrocos':
+            response.data.forEach(function (obj) {
+              _this.options.push({ text: obj.name, value: obj.id });
+            });
+        }
       });
     }
   }

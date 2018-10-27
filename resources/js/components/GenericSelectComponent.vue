@@ -37,11 +37,17 @@
    methods: {
      getUser() {
         axios.get(this.url).then(response => {
-          /*console.log(response.data)*/
-          response.data.forEach(obj => {
-            this.options.push({ text: obj.name, value: obj.id })            
-          });
-          
+          switch (this.url) {
+            case '/beneficiarios/informacion':
+              response.data.forEach(obj => {
+                this.options.push({ text: obj.nombre, value: obj.id_beneficiario })            
+              });
+              break;
+            case '/obtenerparrocos' :
+              response.data.forEach(obj => {
+              this.options.push({ text: obj.name, value: obj.id })            
+              });
+          }          
         });
      }
    }

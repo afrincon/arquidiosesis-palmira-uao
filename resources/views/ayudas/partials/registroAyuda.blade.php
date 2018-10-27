@@ -20,19 +20,12 @@
           </select>
         </div>
       </div>
-      <!--<generic-select :old="'{{old('id_beneficiario')}}'" :propname="'id_beneficiario'" :url="'/beneficiarios/informacion'"></generic-select>-->
-      <div class="form-group row">
-        <label for="inputBeneficiario" class="col-sm-3 col-form-label">Identificacion del beneficiario</label>
-        <div class="col-sm-9">
-          <select class="form-control" id="inputBeneficiario" name="id_beneficiario" value="{{old('id_beneficiario')}}" >
-            <option value="">Seleccionar un beneficiario</option>
-            @foreach($beneficiarios as $beneficiario)
-              <option value="{{$beneficiario->id_beneficiario}}">{{$beneficiario->nombre}}</option>
-            @endforeach
-
-          </select>
-        </div>
-      </div>
+      <generic-select :old="'{{old('id_beneficiario')}}'" :propname="'id_beneficiario'" :url="'/beneficiarios/informacion'"></generic-select>
+      @if($errors->has('id_beneficiario'))
+      <span class="help-block">
+        <strong>{{ $errors->first('id_beneficiario') }}</strong>
+      </span>
+      @endif
       <div class="form-group row">
         <label for="inputIglesia" class="col-sm-3 col-form-label">Iglesia</label>
         <div class="col-sm-9">

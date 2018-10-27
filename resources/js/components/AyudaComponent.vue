@@ -20,9 +20,9 @@
                 <tr v-for="ayuda in ayudas" :key="ayuda.id_ayuda">
                     <td>{{ ayuda.id_ayuda }}</td>
                     <td>{{ ayuda.fecha_ayuda }}</td>
-                    <td>{{ ayuda.id_tipoayuda }}</td>
-                    <td>{{ ayuda.id_beneficiario }}</td>
-                    <td>{{ ayuda.id_iglesia }}</td>
+                    <td>{{ ayuda.tipo_ayuda.descripcion }}</td>
+                    <td>{{ ayuda.beneficiario.nombre }}</td>
+                    <td>{{ ayuda.iglesia.nombre }}</td>
                     <td>{{ ayuda.obsevaciones }}</td>
                     <td><a class="btn btn-primary" :href="ayuda.id_ayuda + '/editar'">Editar</a></td>
                 </tr>

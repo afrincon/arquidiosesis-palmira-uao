@@ -20,7 +20,7 @@
           </select>
         </div>
       </div>
-      <generic-select :old="'{{old('id_beneficiario')}}'" :propname="'id_beneficiario'" :url="'/beneficiarios/informacion'"></generic-select>
+      <generic-select :old="'{{old('id_beneficiario')}}'" :propname="'id_beneficiario'" :url="'/beneficiarios/informacion'" :label="'Benefiario'"></generic-select>
       @if($errors->has('id_beneficiario'))
       <span class="help-block">
         <strong>{{ $errors->first('id_beneficiario') }}</strong>

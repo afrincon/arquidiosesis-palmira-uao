@@ -106,10 +106,10 @@ class BeneficiarioController extends Controller
         return view('beneficiarios.show', ['beneficiario' => beneficiario::findOrFail($id)]);
     }
 
-    public function validarDireccion(){
-        $dir=$_GET["direccion"];
-
-        $validacion = DB::table('beneficiarios')->where('direccion', '=', $dir)->latest()->first();
+    public function validarDireccion(Request $request){
+        $direccion = $request->input('direccion');
+        
+        $validacion = DB::table('beneficiarios')->where('direccion', '=', $direccion)->latest()->first();
     
         echo json_encode($validacion);
     }

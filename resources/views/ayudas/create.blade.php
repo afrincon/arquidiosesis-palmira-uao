@@ -34,14 +34,16 @@
 				url: "{{ url('ayudas/validar') }}", 
 				dataType:'json',  // tipo de datos que te envia el archivo que se ejecuto                              
 				method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
-				data: {'id':beneid}, //parametros GET o POST
-				success: function (data) {		
-					console.log(data);
-					swal("La ultima ayuda del beneficiario fue en: "+data.fecha_ayuda, "", "warning");	
-					$('.swal-button--confirm').click(function(){
-						$("#inputBeneficiario").focus();
-					});	
-					$("#btnguardar").removeAttr("disabled");//habilita boton
+				data: {'id_beneficiario':beneid}, //parametros GET o POST
+				success: function (data) {	
+					//console.log(data)	
+					if(data) {
+						swal("La ultima ayuda del beneficiario fue en: "+data.fecha_ayuda, "", "warning");	
+						$('.swal-button--confirm').click(function(){
+							$("#inputBeneficiario").focus();
+						});	
+						$("#btnguardar").removeAttr("disabled");//habilita boton
+					}					
 				}
 			});
 		}

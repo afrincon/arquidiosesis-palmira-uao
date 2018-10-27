@@ -21,7 +21,7 @@
 
 <script>
 	function ValidError(){
-		var beneid = $("#inputBeneficiario").val();
+		var beneid = $("#beneficiario").val();
 		
 		if(beneid === ""){
 			swal("Debe seleccionar un beneficiario!", "", "error");	
@@ -36,7 +36,7 @@
 				method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
 				data: {'id_beneficiario':beneid}, //parametros GET o POST
 				success: function (data) {	
-					//console.log(data)
+					console.log(data)
 					if($.trim(data)){
 						swal("La ultima ayuda del beneficiario fue en: "+data.fecha_ayuda, "", "warning");	
 						$('.swal-button--confirm').click(function(){

@@ -34075,7 +34075,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
 
-  props: ['old', 'url', 'label', 'propname'],
+  props: ['old', 'url', 'label', 'propname', 'value_id'],
   created: function created() {
     console.log(this.propname);
     this.getUser();
@@ -34135,7 +34135,7 @@ var render = function() {
             }
           ],
           staticClass: "form-control",
-          attrs: { name: this.propname },
+          attrs: { name: this.propname, id: this.value_id },
           on: {
             change: function($event) {
               var $$selectedVal = Array.prototype.filter

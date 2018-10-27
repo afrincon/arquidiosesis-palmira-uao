@@ -2,7 +2,7 @@
   <div class="form-group row">
     <label for="inputUser" class="col-sm-3 col-form-label">{{this.label}}</label>  
     <div class="col-sm-6">      
-        <select v-model="selected" v-bind:name="this.propname" class="form-control">          
+        <select v-model="selected" v-bind:name="this.propname" class="form-control" v-bind:id="this.value_id">          
           <input type="text" class="input">
           <option selected disabled>Seleccione un parroco</option>
           <option v-for="option in options" v-bind:value="option.value" :key="option.value">
@@ -24,7 +24,7 @@
        ]
      }
    },
-   props: ['old', 'url', 'label', 'propname'],
+   props: ['old', 'url', 'label', 'propname', 'value_id'],
    created() {
      console.log(this.propname)
      this.getUser();

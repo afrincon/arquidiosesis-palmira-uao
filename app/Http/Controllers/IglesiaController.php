@@ -15,7 +15,7 @@ class IglesiaController extends Controller
     */
     public function __construct()
     {
-      #$this->middleware('auth');
+      $this->middleware('auth');
     }
 
     /**
@@ -38,9 +38,9 @@ class IglesiaController extends Controller
     public function store(){
 
         $data = request()->validate([
-            'nombre' => 'required|alpha',
+            'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|max:10|numeric',
+            'telefono' => 'required|numeric',
             'arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',
@@ -55,9 +55,8 @@ class IglesiaController extends Controller
 
     public function edit($id) {
         $iglesia = Iglesia::findOrFail($id);
-        #dd($iglesia);
-        $users = User::all('id','name');
-        return view('iglesias.edit', compact('iglesia','users'));
+        //dd($iglesia);
+        return view('iglesias.edit', compact('iglesia'));
     }
 
     public function update(Request $request,$id) {
@@ -82,7 +81,8 @@ class IglesiaController extends Controller
     }
 
     public function searchChurch(Request $request) {
-        $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();        
+        $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        $iglesias->load('user');    
         return response()->json($iglesias);
     }
 

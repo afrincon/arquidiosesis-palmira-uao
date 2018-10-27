@@ -55,16 +55,8 @@
       </span>
     @endif
 
+    <input type="hidden" name="estado" value="Activo">
     
-    <div class="form-group row">
-      <label for="inputEstado" class="col-sm-3 col-form-label">Estado de la iglesia</label>
-      <div class="col-sm-6">
-        <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
-            <option value="Activo">Activo</option>          
-            <option value="Inactivo">Inactivo</option>
-        </select>
-      </div>  
-
     </div>
 
     <div class="form-group col-sm-12 col-md-8">

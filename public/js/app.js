@@ -33175,6 +33175,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -33257,12 +33262,16 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(iglesia.telefono))]),
               _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(iglesia.arquidiocesis))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(iglesia.user.name))]),
+              _vm._v(" "),
               _c("td", [
                 _c(
                   "a",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { href: iglesia.id + "/editar" }
+                    attrs: { href: "/iglesias/" + iglesia.id + "/editar" }
                   },
                   [_vm._v("Editar")]
                 )
@@ -33281,13 +33290,19 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Dirección")]),
+        _c("th", [_vm._v("Dirección")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono")]),
+        _c("th", [_vm._v("Telefóno")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Arquidiocesis")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Parroco")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Estado")]),
         _vm._v(" "),
         _c("th", { attrs: { colspan: "2" } }, [_vm._v("   ")])
       ])

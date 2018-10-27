@@ -7,7 +7,7 @@
             <h1>No se encuentra autorizado para ingresar a esta opción</h1>
         </div>
         <div class="col-sm-12">
-            <a href="{{ url('/inicio') }}" class="btn btn-primary">Regresar</a>
+            <a href="{{ url('/') }}" class="btn btn-primary">Regresar</a>
         </div>
     </div>
 </div>

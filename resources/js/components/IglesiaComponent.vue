@@ -7,20 +7,25 @@
       <table class="table table-hover table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Dirección</th>  
-            <th scope="col">Teléfono</th>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Telefóno</th>
+            <th>Arquidiocesis</th>
+            <th>Parroco</th>
+            <th>Estado</th>
             <th colspan="2"> &nbsp; </th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="iglesia in iglesias" :key="iglesia.id">
-            <td>{{ iglesia.id }}</td>            
+            <td>{{ iglesia.id }}</td>
             <td><a :href="'/iglesias/' + iglesia.id">{{ iglesia.nombre }}</a></td>
-            <td>{{ iglesia.direccion }}</td>
-            <td>{{ iglesia.telefono }}</td>
-            <td><a class="btn btn-primary" :href="iglesia.id + '/editar'">Editar</a></td>
+            <td>{{ iglesia.direccion}}</td>
+            <td>{{ iglesia.telefono}}</td>
+            <td>{{ iglesia.arquidiocesis }}</td>
+            <td>{{ iglesia.user.name }}</td>
+            <td><a class="btn btn-primary" :href="'/iglesias/'+iglesia.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>
       </table>

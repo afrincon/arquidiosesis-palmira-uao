@@ -121,6 +121,7 @@ class BeneficiarioController extends Controller
 
     public function getBeneficiarios(Request $request){
         $beneficiario = DB::table('beneficiarios')->where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        $beneficiario->load('tipo_documento');
         return response()->json($beneficiario);
     }	
 }

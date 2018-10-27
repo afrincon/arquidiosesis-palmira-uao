@@ -26,25 +26,25 @@
 		method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
 		data: {'direccion':bendir}, //parametros GET o POST
 		success: function (data) {	
-			console.log(data);
-			if(data){
+			/*console.log(data);*/
+
+			if($.trim(data)){
 				swal({
-			  title: "Hay un beneficiario registrado con la misma direccion!",
-			  text: "¿desea registrar este beneficiario con la misma direccion?",
-			  icon: "warning",
-			  buttons: true,
-			  dangerMode: true,
-			})
-			.then((willDelete) => {
-			  if (willDelete) {
-				$('inputDireccion').focus();
-			  } else {
-			  $('inputDireccion').focus();
-			  }
-			});
-			$("#btnguardar").removeAttr("disabled");//habilita boton
-			}
-			$("#btnguardar").removeAttr("disabled");//habilita boton			
+					title: "Hay un beneficiario registrado con la misma direccion!",
+					text: "¿desea registrar este beneficiario con la misma direccion?",
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+				})
+				.then((willDelete) => {
+					if (willDelete) {
+					$('inputDireccion').focus();
+					} else {
+					$('inputDireccion').focus();
+					}
+				});
+				$("#btnguardar").removeAttr("disabled");//habilita boton
+			}		
 		}
 	});
   }

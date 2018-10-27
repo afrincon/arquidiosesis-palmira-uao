@@ -13,7 +13,6 @@
             <th>Telefóno</th>
             <th>Arquidiocesis</th>
             <th>Parroco</th>
-            <th>Estado</th>
             <th colspan="2"> &nbsp; </th>
           </tr>
         </thead>
@@ -25,7 +24,10 @@
             <td>{{ iglesia.telefono}}</td>
             <td>{{ iglesia.arquidiocesis }}</td>
             <td>{{ iglesia.user.name }}</td>
-            <td><a class="btn btn-primary" :href="'/iglesias/'+iglesia.id + '/editar'">Editar</a></td>
+            <td>
+                <a class="btn btn-primary" :href="'/iglesias/'+iglesia.id + '/editar'">Editar</a>
+                <a class="btn btn-primary" :href="'/consultar-ayudas/'+iglesia.id">Ver ayudas</a>    
+            </td>
           </tr>
         </tbody>
       </table>

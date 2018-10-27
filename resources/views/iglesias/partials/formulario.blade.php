@@ -48,7 +48,7 @@
         </span>
       @endif
     </div>
-    <users-select :old="'{{ old('user_id') }}'"></users-select>
+    <generic-select :old="'{{ old('user_id') }}'" :url="'/obtenerparrocos'" :label="'Parroco Asociado'" :propname="'user_id'"></generic-select>
     @if($errors->has('user_id'))
       <span class="help-block">
         <strong>{{ $errors->first('user_id') }}</strong>

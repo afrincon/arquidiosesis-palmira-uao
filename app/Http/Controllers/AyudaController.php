@@ -38,7 +38,7 @@ class AyudaController extends Controller
     public function store(){
         
         $data = request()->validate([
-            'fecha_ayuda' => 'required',
+            'fecha_ayuda' => 'required|date|after:yestarday',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',
@@ -66,7 +66,7 @@ class AyudaController extends Controller
 
         #dd($iglesia);
         $request->validate([
-            'fecha_ayuda' => 'required',
+            'fecha_ayuda' => 'required|after:yestarday',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',

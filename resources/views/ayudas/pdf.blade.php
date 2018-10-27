@@ -7,10 +7,10 @@
         <th scope="col">#</th>
         <th scope="col">Fecha</th>
         <th scope="col">Tipo de Ayuda</th>
-        <th scope="col">Beneficiario</th>
+        <th scope="col">Identificaccion Beneficiario</th>
+        <th scope="col">Nombre Beneficiario</th>
         <th scope="col">Iglesia</th>
         <th scope="col">Observaciones</th>
-        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +21,7 @@
           <td> {{ $ayuda->fecha_ayuda }}</td>
           <td> {{ $ayuda->tipoAyuda->descripcion }}</td>
           <td> {{ $ayuda->beneficiario->documento }} </td>
+          <td> {{ $ayuda->beneficiario->nombre }} </td>
           <td> {{ $ayuda->iglesia->nombre }} </td>
           <td> {{ $ayuda->observaciones }}</td>
           <

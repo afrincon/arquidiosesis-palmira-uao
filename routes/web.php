@@ -40,6 +40,7 @@ Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
 Route::get('/usuarios/informacion', 'UsuarioController@searchUser');
 Route::get('/beneficiarios/informacion', 'BeneficiarioController@searchBeneficiarios');
 Route::get('/obtenerparrocos', 'UsuarioController@getUsuarios');
+Route::get('/consultar-ayudas/{id}', 'IglesiaController@consultarAyudas');
 Route::get('descargar-ayudas', 'AyudaController@pdfAyudas')->name('ayudas.pdf');
 
 

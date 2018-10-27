@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Iglesia;
 use App\User;
+use App\ayuda;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class IglesiaController extends Controller
 {
@@ -89,5 +91,15 @@ class IglesiaController extends Controller
     public function getIglesias(Request $request){
         $iglesias = Iglesia::where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
         return response()->json($iglesias);
+    }
+
+    public function consultarAyudas($id){
+        $iglesia = Iglesia::findOrFail($id);
+        $ayudas = ayuda::where('id_iglesia', '=', $id)->get();
+        $ayudas->load('iglesia', 'beneficiario', 'tipoAyuda');
+
+        $pdf = PDF::loadView('ayudas.pdf', compact('ayudas'));
+
+        return $pdf->download('Ayudasiglesia'.$iglesia->nombre.'.pdf');
     }
 }

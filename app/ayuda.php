@@ -21,5 +21,4 @@ class ayuda extends Model
         return $this->hasOne('App\TipoAyuda', 'id', 'id_tipoayuda');
     }
 
-
 }

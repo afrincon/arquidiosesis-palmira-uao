@@ -42,6 +42,8 @@ Route::get('/beneficiarios/informacion', 'BeneficiarioController@searchBeneficia
 Route::get('/obtenerparrocos', 'UsuarioController@getUsuarios');
 Route::get('descargar-ayudas', 'AyudaController@pdfAyudas')->name('ayudas.pdf');
 
+Route::get('/ayudas/informacion', 'AyudaController@searchHelp');
+
 
 Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);

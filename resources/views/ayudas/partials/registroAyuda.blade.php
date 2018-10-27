@@ -5,7 +5,7 @@
       <div class="form-group row">
         <label for="inputFecha" class="col-sm-3 col-form-label">Fecha de entrega</label>
         <div class="col-sm-9">
-          <input type="date" class="form-control" name="fecha_ayuda" id="inputFecha" placeholder="Ingrese la fecha " autofocus value="{{ old('fecha_ayuda') }}" max="<?php echo date("Y-m-d");?>">
+          <input type="date" class="form-control" name="fecha_ayuda" id="inputFecha" placeholder="Ingrese la fecha " autofocus value="<?php echo date("Y-m-d");?>" max="<?php echo date("Y-m-d");?>">
         </div>
       </div>
       <div class="form-group row">

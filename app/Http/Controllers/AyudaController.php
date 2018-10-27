@@ -8,14 +8,13 @@ use App\iglesia;
 use App\TipoAyuda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade as PDF;
 use App\User;
 
 class AyudaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        #$this->middleware('auth');
     }
 
     public function index()
@@ -95,5 +94,15 @@ class AyudaController extends Controller
 
         return $pdf->download('listadoAyudas.pdf');
 
+    }
+
+    public function searchHelp(Request $request) {
+        $ayudas = Ayuda::where('id_beneficiario', 'like', '%'.$request->input('id_beneficiario').'%')->get();
+        return response()->json($ayudas);
+    }
+
+    public function getAyudas(Request $request){
+        $ayudas = Ayuda::where('id_beneficiario', 'like', '%'.$request->input('id_beneficiario').'%')->get();
+        return response()->json($ayudas);
     }
 }

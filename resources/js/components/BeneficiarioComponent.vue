@@ -1,4 +1,3 @@
-<script src="../app.js"></script>
 <template>
     <div id="crud" class="row">
         <input type="text" name="nombre" class="form-control" v-model="nombre">
@@ -7,7 +6,7 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#id--</th>
+                    <th scope="col">#</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Tipo de Documento</th>
@@ -21,8 +20,8 @@
                 </thead>
                 <tbody>
                 <tr v-for="beneficiario in beneficiarios">
-                    <td>{{ beneficiario.id }}</td>
-                    <td><a :href="'/beneficiarios/' + beneficiario.id">{{ beneficiario.nombre }}</a></td>
+                    <td>{{ beneficiario.id_beneficiario }}</td>
+                    <td><a :href="'/beneficiarios/' + beneficiario.id_beneficiario">{{ beneficiario.nombre }}</a></td>
                     <td>{{ beneficiario.apellido }}</td>
                     <td>{{ beneficiario.id_tipo_documento }}</td>
                     <td>{{ beneficiario.documento }}</td>
@@ -30,7 +29,7 @@
                     <td>{{ beneficiario.direccion }}</td>
                     <td>{{ beneficiario.estado }}</td>
                     <td>{{ beneficiario.clasificacion }}</td>
-                    <td><a class="btn btn-primary" :href="beneficiario.id + '/editar'">Editar</a></td>
+                    <td><a class="btn btn-primary" :href="'/beneficiarios/' + beneficiario.id_beneficiario + '/editar'">Editar</a></td>
                 </tr>
                 </tbody>
             </table>

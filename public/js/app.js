@@ -1076,7 +1076,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -1104,7 +1104,7 @@ Vue.component('example-component', __webpack_require__(38));
 Vue.component('iglesia', __webpack_require__(41));
 Vue.component('usuario', __webpack_require__(44));
 Vue.component('beneficiario', __webpack_require__(47));
-Vue.component('users-select', __webpack_require__(55));
+Vue.component('users-select', __webpack_require__(50));
 
 var app = new Vue({
   el: '#app'
@@ -33635,7 +33635,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -33706,12 +33705,16 @@ var render = function() {
           "tbody",
           _vm._l(_vm.beneficiarios, function(beneficiario) {
             return _c("tr", [
-              _c("td", [_vm._v(_vm._s(beneficiario.id))]),
+              _c("td", [_vm._v(_vm._s(beneficiario.id_beneficiario))]),
               _vm._v(" "),
               _c("td", [
                 _c(
                   "a",
-                  { attrs: { href: "/beneficiarios/" + beneficiario.id } },
+                  {
+                    attrs: {
+                      href: "/beneficiarios/" + beneficiario.id_beneficiario
+                    }
+                  },
                   [_vm._v(_vm._s(beneficiario.nombre))]
                 )
               ]),
@@ -33735,7 +33738,12 @@ var render = function() {
                   "a",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { href: beneficiario.id + "/editar" }
+                    attrs: {
+                      href:
+                        "/beneficiarios/" +
+                        beneficiario.id_beneficiario +
+                        "/editar"
+                    }
                   },
                   [_vm._v("Editar")]
                 )
@@ -33754,7 +33762,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#id--")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
         _vm._v(" "),
@@ -33788,24 +33796,14 @@ if (false) {
 
 /***/ }),
 /* 50 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -33844,7 +33842,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33899,7 +33897,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 57 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -33972,6 +33970,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-6d8350d8", module.exports)
   }
 }
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

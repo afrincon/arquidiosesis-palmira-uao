@@ -88,7 +88,8 @@
       <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
-          <option value="Activo">Activo</option>
+          <option value="">Seleccione</option>
+		  <option value="Activo">Activo</option>
           <option value="Inactivo">Inactivo</option>
         </select>
       </div>
@@ -98,7 +99,8 @@
       <label for="inputClasificacion" class="col-sm-3 col-form-label">Clasificacion</label>
       <div class="col-sm-6">
         <select class="form-control" id="selectClasificacion" name="clasificacion" value="{{ old('clasificacion') }}">
-          <option value="Vulnerable N-1">Vulnerable N-1</option>
+          <option value="">Seleccione</option>
+		  <option value="Vulnerable N-1">Vulnerable N-1</option>
           <option value="Vulnerable N-2">Vulnerable N-2</option>
           <option value="Vulnerable N-3">Vulnerable N-3</option>
         </select>

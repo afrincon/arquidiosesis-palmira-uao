@@ -113,4 +113,14 @@ class BeneficiarioController extends Controller
     
         echo json_encode($validacion);
     }
+	
+    public function searchBeneficiarios(Request $request) {
+        $beneficiario = DB::table('beneficiarios')->where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        return response()->json($beneficiario);
+    }
+
+    public function getBeneficiarios(Request $request){
+        $beneficiario = DB::table('beneficiarios')->where('nombre', 'like', '%'.$request->input('nombre').'%')->get();
+        return response()->json($beneficiario);
+    }	
 }

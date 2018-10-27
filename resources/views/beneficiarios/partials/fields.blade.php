@@ -89,7 +89,8 @@
             <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
             <div class="col-sm-6">
                 <select class="form-control" id="selectEstado" name="estado" value="{{ $beneficiario->estado }}">
-                    <option value="Activo">Activo</option>
+                    <option value="">Seleccione</option>
+					<option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                 </select>
             </div>
@@ -99,6 +100,7 @@
             <label for="inputClasificacion" class="col-sm-3 col-form-label">Clasificacion</label>
             <div class="col-sm-6">
                 <select class="form-control" id="selectClasificacion" name="clasificacion" value="{{ old('clasificacion') }}">
+					<option value="">Seleccione</option>
                     <option value="Vulnerable N-1">Vulnerable N-1</option>
                     <option value="Vulnerable N-2">Vulnerable N-2</option>
                     <option value="Vulnerable N-3">Vulnerable N-3</option>
@@ -106,9 +108,21 @@
             </div>
         </div>
 
-        <div class="form-group col-sm-12 col-md-8">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a class="btn btn-primary" href="{{ url('/beneficiarios') }}" role="button">Salir</a>
-        </div>
+		<div class="form-group row">
+			<div class="col-sm-6 col-md-6" align="right">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+			<div class="col-sm-6 col-md-6" align="left">
+				<a class="btn btn-primary" href="{{ url('/beneficiarios') }}" role="button">Salir</a>
+			</div>
+		</div>
     </div>
 </form>
+
+<script>
+	$( document ).ready(function() {
+		$("#selectId_tipo_documento option[value='{{ $beneficiario->id_tipo_documento }}']").attr('selected','selected');
+		$("#selectEstado option[value='{{ $beneficiario->estado }}']").attr('selected','selected');
+		$("#selectClasificacion option[value='{{ $beneficiario->clasificacion }}']").attr('selected','selected');
+	});
+</script>

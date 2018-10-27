@@ -98,6 +98,7 @@ class AyudaController extends Controller
 
     public function searchHelp(Request $request) {
         $ayudas = Ayuda::where('id_beneficiario', 'like', '%'.$request->input('id_beneficiario').'%')->get();
+        $ayudas->load('iglesia', 'beneficiario', 'tipoAyuda');
         return response()->json($ayudas);
     }
 

@@ -42,8 +42,9 @@
 						$('.swal-button--confirm').click(function(){
 							$("#inputBeneficiario").focus();
 						});	
-						$("#btnguardar").removeAttr("disabled");//habilita boton
-					}					
+						//$("#btnguardar").removeAttr("disabled");//habilita boton
+					}
+					$("#btnguardar").removeAttr("disabled");//habilita boton			
 				}
 			});
 		}

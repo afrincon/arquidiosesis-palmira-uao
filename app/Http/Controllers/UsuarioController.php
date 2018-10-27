@@ -27,8 +27,8 @@ class UsuarioController extends Controller
     {
         /*if(isset($request)) {
             return view('errors.401');
-        } else {
-            $request->user()->authorizeRoles(['admin']);*/
+        } else {*/
+            /*$request->user()->authorizeRoles(['admin']);*/
             $usuarios = User::all();
             return view('usuarios.index', compact('usuarios'));
         #}

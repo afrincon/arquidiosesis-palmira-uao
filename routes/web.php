@@ -40,13 +40,14 @@ Route::get('/iglesias/informacion', 'IglesiaController@searchChurch');
 Route::get('/usuarios/informacion', 'UsuarioController@searchUser');
 Route::get('/beneficiarios/informacion', 'BeneficiarioController@searchBeneficiarios');
 Route::get('/obtenerparrocos', 'UsuarioController@getUsuarios');
+Route::get('descargar-ayudas', 'AyudaController@pdfAyudas')->name('ayudas.pdf');
 
 
 Route::resource('/iglesias', 'IglesiaController',
         ['except' => ['destroy']]);
 
 Route::resource('/usuarios', 'UsuarioController',
-    ['except' => ['destroy']]);
+    ['except' => ['destroy']])->middleware('auth', 'role:admin');;
 
 Route::resource('/ayudas', 'AyudaController',
     ['except' => ['destroy']]);

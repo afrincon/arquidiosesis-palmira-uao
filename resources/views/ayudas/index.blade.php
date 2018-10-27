@@ -9,6 +9,9 @@
 
             <div class="col-4">
                 <a class="btn btn-primary" href="{{ url('/ayudas/crear') }}">Registrar ayuda</a>
+                <a href="{{ route('ayudas.pdf') }}" class="btn btn-sm btn-primary">
+                    Descargar ayudas en PDF
+                </a>
             </div>
 
             @include('ayudas.partials.tablaAyuda')

@@ -8,6 +8,7 @@ use App\iglesia;
 use App\TipoAyuda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\User;
 
 class AyudaController extends Controller
@@ -84,5 +85,14 @@ class AyudaController extends Controller
 
     public function show($id){
         return view('ayudas.show', ['iglesia' => Iglesia::findOrFail($id)]);
+    }
+
+    public function pdfAyudas() {
+        $ayudas = Ayuda::all();
+
+        $pdf = PDF::loadView('ayudas.pdf', compact('ayudas'));
+
+        return $pdf->download('listadoAyudas.pdf');
+
     }
 }

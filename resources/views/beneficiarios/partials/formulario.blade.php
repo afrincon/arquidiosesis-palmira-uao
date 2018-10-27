@@ -84,16 +84,7 @@
       @endif
     </div>
 
-    <div class="form-group row">
-      <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
-      <div class="col-sm-6">
-        <select class="form-control" id="selectEstado" name="estado" value="{{ old('estado') }}">
-          <option value="">Seleccione</option>
-		  <option value="Activo">Activo</option>
-          <option value="Inactivo">Inactivo</option>
-        </select>
-      </div>
-    </div>
+    <input type="hidden" name="estado" value="Activo">
 
     <div class="form-group row">
       <label for="inputClasificacion" class="col-sm-3 col-form-label">Clasificacion</label>

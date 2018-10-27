@@ -20,7 +20,7 @@
           </select>
         </div>
       </div>
-      <generic-select :old="'{{old('id_beneficiario')}}'" :propname="'id_beneficiario'" :url="'/beneficiarios/informacion'"></generic-select>
+      <!--<generic-select :old="'{{old('id_beneficiario')}}'" :propname="'id_beneficiario'" :url="'/beneficiarios/informacion'"></generic-select>-->
       <div class="form-group row">
         <label for="inputBeneficiario" class="col-sm-3 col-form-label">Identificacion del beneficiario</label>
         <div class="col-sm-9">

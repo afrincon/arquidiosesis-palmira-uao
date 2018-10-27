@@ -5,7 +5,7 @@
       <div class="form-group row">
         <label for="inputFecha" class="col-sm-3 col-form-label">Fecha de entrega</label>
         <div class="col-sm-9">
-          <input type="date" class="form-control" name="fecha_ayuda" id="inputFecha" placeholder="Ingrese la fecha " autofocus value="{{ old('fecha_ayuda') }}">
+          <input type="date" class="form-control" name="fecha_ayuda" id="inputFecha" placeholder="Ingrese la fecha " autofocus value="{{ old('fecha_ayuda') }}" max="<?php echo date("Y-m-d");?>">
         </div>
       </div>
       <div class="form-group row">
@@ -51,9 +51,18 @@
         </div>
       </div>
 
-      <div class="form-group col-sm-12 col-md-8">
-              <button type="submit" class="btn btn-primary">Guardar</button>
-              <a class="btn btn-primary" href="{{ url('/ayudas') }}" role="button">Salir</a>
+      <div class="row">
+			<div class="col-sm-4 col-md-4" align="right">
+				<button type="button" onclick="ValidError()" class="btn btn-primary">Validar</button>
+			</div>
+			
+			<div class="col-sm-4 col-md-4" align="center">
+				<button type="submit" id="btnguardar" class="btn btn-primary" disabled>Guardar</button>
+			</div>
+			
+			<div class="col-sm-4 col-md-4" align="left">				
+				<a class="btn btn-primary" href="{{ url('/ayudas') }}" role="button">Salir</a>
+			</div>
       </div>
 
     </div>

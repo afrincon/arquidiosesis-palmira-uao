@@ -10481,12 +10481,13 @@ a.text-dark:focus {
 }
 
 .background-app img {
-  margin: 0 auto;
+  margin: 13px auto;
 }
 
 .background-app .title {
   color: #fff;
   font-size: 2em;
+  margin: 25px 40px auto;
 }
 
 .principal {

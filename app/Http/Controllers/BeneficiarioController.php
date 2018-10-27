@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Validation\Rule;
 use Illiminate\Config\Repository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BeneficiarioController extends Controller
 {
@@ -103,5 +104,13 @@ class BeneficiarioController extends Controller
     public function show($id){
         #dd($id);   
         return view('beneficiarios.show', ['beneficiario' => beneficiario::findOrFail($id)]);
+    }
+
+    public function validarDireccion(){
+        $dir=$_GET["direccion"];
+
+        $validacion = DB::table('beneficiarios')->where('direccion', '=', $dir)->latest()->first();
+    
+        echo json_encode($validacion);
     }
 }

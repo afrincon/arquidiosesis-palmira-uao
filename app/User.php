@@ -39,16 +39,9 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function authorizeRoles($roles)
-    {
-        if ($this->hasAnyRole($roles)) {
-            return true;
-        }
-        abort(401, 'Esta acción no está autorizada.');
-    }
+    /* Method for user based roles login */
 
-    public function hasAnyRole($roles)
-    {
+    public function authorizeRoles($roles) {
         if (is_array($roles)) {
             foreach ($roles as $role) {
                 if ($this->hasRole($role)) {
@@ -66,10 +59,10 @@ class User extends Authenticatable
     public function hasRole($role)
     {
         if ($this->roles()->where('nombre', $role)->first()) {
-			//if ($this->roles()->where('estado', 'Activo')->first()) {
-				return true;
-			//}
+			return true;
         }
         return false;
     }
+
+    /* End or user based roles login */
 }

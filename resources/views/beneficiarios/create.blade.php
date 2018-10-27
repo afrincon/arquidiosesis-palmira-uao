@@ -19,7 +19,15 @@
 @endsection
 <script>  
 	function msgedit(){
-    swal({
+    var bendir=$('#inputDireccion').val();
+    $.ajax({
+				url: "{{ url('beneficiarios/validar') }}", 
+				dataType:'json',  // tipo de datos que te envia el archivo que se ejecuto                              
+				method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
+				data: {'direccion':bendir}, //parametros GET o POST
+				success: function (data) {		
+					console.log(data);
+          swal({
       title: "Hay un beneficiario registrado con la misma direccion!",
       text: "¿desea registrar este beneficiario con la misma direccion?",
       icon: "warning",
@@ -28,10 +36,15 @@
     })
     .then((willDelete) => {
       if (willDelete) {
-      window.location.href = "{{ url('/beneficiarios/crear') }}"
+        $('inputDireccion').focus();
       } else {
       $('inputDireccion').focus();
       }
     });
+          $("#btnguardar").removeAttr("disabled");//habilita boton
+        }
+
+			});
+    
   }
 </script>

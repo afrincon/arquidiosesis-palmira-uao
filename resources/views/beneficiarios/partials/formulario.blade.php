@@ -105,10 +105,16 @@
       </div>
     </div>
 
-    <div class="form-group col-sm-12 col-md-8">
-            <button type="submit" class="btn btn-primary" onclick='msgedit()'>Guardar</button>
-           <!-- <button type="button" class="btn btn-primary"  onclick='msgedit()'>guardarm </button>-->
+    <div class="row">
+      <div class="col-sm-4 col-md-4" align="right">
+            <button type="button" class="btn btn-primary"  onclick="msgedit()">Validar </button>
+      </div>
+      <div class="col-sm-4 col-md-4" align="center">
+            <button type="submit" id="btnguardar" class="btn btn-primary" disabled>Guardar</button> 
+      </div>
+      <div class="col-sm-4 col-md-4" align="left">
             <a class="btn btn-primary" href="{{ url('/beneficiarios') }}" role="button">Salir</a>
+      </div>
     </div>
   </div>
 </form>

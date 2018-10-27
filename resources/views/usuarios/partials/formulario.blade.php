@@ -69,7 +69,7 @@
     <div class="form-group row">
       <label for="inputFecnaci" class="col-sm-3 col-form-label">Fecha nacimiento</label>
       <div class="col-sm-6">
-        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci"  autofocus value="{{ old('fecha_nacimiento') }}">
+        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci" autofocus value="{{ old('fecha_nacimiento') }}" max="<?php echo date("Y-m-d");?>">
       </div>
 
       @if($errors->has('fecha_nacimiento'))
@@ -83,7 +83,7 @@
     <div class="form-group row">
       <label for="inputFecingre" class="col-sm-3 col-form-label">Fecha ingreso</label>
       <div class="col-sm-6">
-        <input type="date" class="form-control" name="fecha_ingreso" id="inputFecingre"  autofocus value="{{ old('fecha_ingreso') }}">
+        <input type="date" class="form-control" name="fecha_ingreso" id="inputFecingre"  autofocus value="{{ old('fecha_ingreso') }}" max="<?php echo date("Y-m-d");?>">
       </div>
 
       @if($errors->has('fecha_ingreso'))

@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="usuario in usuarios">
+          <tr v-for="usuario in usuarios" :key="usuario.id">		  
             <td>{{ usuario.id }}</td>            
             <td><a :href="'/usuarios/' + usuario.id">{{ usuario.name }}</a></td>
             <td>{{ usuario.telefono }}</td>
@@ -26,7 +26,7 @@
 			<td>{{ usuario.fecha_nacimiento }}</td>
 			<td>{{ usuario.fecha_ingreso }}</td>
 			<td>{{ usuario.estado }}</td>
-			<td>{{ usuario.role }}</td>
+			<td>{{ usuario.roles[0].nombre }}</td>
             <td><a class="btn btn-primary" :href="'/usuarios/' + usuario.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>
@@ -34,6 +34,7 @@
     </div>
   </div>
 </template>
+
 
 
 <script>
@@ -50,7 +51,7 @@
         watch: {
             name(after,before) {
                 console.log(this.name);
-                this.getUsuarios();
+                this.getUsuarios();				
             }
         },
         methods: {
@@ -58,6 +59,9 @@
                 var url = 'usuarios/informacion';                
                 axios.get(url, { params: { name: this.name }}).then(response => {
                     this.usuarios = response.data;
+					console.log(this.usuarios)
+					var array = this.usuarios;
+					console.log(array[0].roles[0].nombre)
                 });
             }
         }

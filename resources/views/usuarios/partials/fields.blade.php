@@ -57,7 +57,7 @@
     <div class="form-group row">
       <label for="inputFecnaci" class="col-sm-3 col-form-label">Fecha nacimiento</label>
       <div class="col-sm-6">
-        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci"  autofocus value="{{ $User->fecha_nacimiento }}">
+        <input type="date" class="form-control" name="fecha_nacimiento" id="inputFecnaci" autofocus value="{{ $User->fecha_nacimiento }}" max="<?php echo date("Y-m-d");?>">
       </div>
 
       @if($errors->has('fecha_nacimiento'))
@@ -71,7 +71,7 @@
     <div class="form-group row">
       <label for="inputFecingre" class="col-sm-3 col-form-label">Fecha ingreso</label>
       <div class="col-sm-6">
-        <input type="date" class="form-control" name="fecha_ingreso" id="inputFecingre"  autofocus value="{{ $User->fecha_ingreso }}">
+        <input type="date" class="form-control" name="fecha_ingreso" id="inputFecingre" autofocus value="{{ $User->fecha_ingreso }}" max="<?php echo date("Y-m-d");?>">
       </div>
 
       @if($errors->has('fecha_ingreso'))
@@ -86,6 +86,7 @@
 		<label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
 		<div class="col-sm-6">
 			<select class="form-control" id="selectEstado" name="estado" value="{{ $User->estado }}">
+				<option value="">Seleccione</option>
 				<option value="Activo">Activo</option>
 				<option value="Inactivo">Inactivo</option>
 			</select>
@@ -95,8 +96,9 @@
 
 	<div class="form-group row">
 		<label for="inputPerfil" class="col-sm-3 col-form-label">Perfil</label>
-		<div class="col-sm-6">
+		<div class="col-sm-6">		
 			<select class="form-control" id="selectPerfil" name="perfil" value="{{ $User->perfil }}">
+				<option value="">Seleccione</option>
 				<option value="2">Administrador</option>
 				<option value="1">Usuario</option>
 			</select>
@@ -114,3 +116,10 @@
 	</div>
 </div>
 {{ Form::close() }}
+
+<script>
+	$( document ).ready(function() {
+		$("#selectEstado option[value='{{ $User->estado }}']").attr('selected','selected');
+		$("#selectPerfil option[value='{{ $User->roles[0]['id'] }}']").attr('selected','selected');
+	});
+</script>

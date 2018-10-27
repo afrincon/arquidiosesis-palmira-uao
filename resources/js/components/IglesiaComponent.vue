@@ -1,4 +1,5 @@
-<template>  
+<script src="../app.js"></script>
+<template>
   <div id="crud" class="row">
     <input type="text" name="nombre" class="form-control" v-model="nombre">
     <br>
@@ -14,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="iglesia in iglesias">
+          <tr v-for="iglesia in iglesias" :key="iglesia.id">
             <td>{{ iglesia.id }}</td>            
             <td><a :href="'/iglesias/' + iglesia.id">{{ iglesia.nombre }}</a></td>
             <td>{{ iglesia.direccion }}</td>

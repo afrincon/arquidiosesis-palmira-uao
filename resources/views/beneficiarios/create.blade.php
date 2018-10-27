@@ -43,7 +43,8 @@
 			  }
 			});
 			$("#btnguardar").removeAttr("disabled");//habilita boton
-			}			
+			}
+			$("#btnguardar").removeAttr("disabled");//habilita boton			
 		}
 	});
   }

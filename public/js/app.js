@@ -1106,7 +1106,7 @@ Vue.component('usuario', __webpack_require__(44));
 Vue.component('beneficiario', __webpack_require__(47));
 Vue.component('users-select', __webpack_require__(50));
 Vue.component('generic-select', __webpack_require__(53));
-
+Vue.component('generic-select', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/IglesisasSelectComponent.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
 Vue.component('table-ayuda', __webpack_require__(56));
 var app = new Vue({
   el: '#app'
@@ -34357,7 +34357,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { href: ayuda.id_ayuda + "/editar" }
+                    attrs: { href: "/ayudas/" + ayuda.id_ayuda + "/editar" }
                   },
                   [_vm._v("Editar")]
                 )

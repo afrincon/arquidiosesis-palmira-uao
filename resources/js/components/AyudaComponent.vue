@@ -24,7 +24,7 @@
                     <td>{{ ayuda.beneficiario.nombre }}</td>
                     <td>{{ ayuda.iglesia.nombre }}</td>
                     <td>{{ ayuda.obsevaciones }}</td>
-                    <td><a class="btn btn-primary" :href="ayuda.id_ayuda + '/editar'">Editar</a></td>
+                    <td><a class="btn btn-primary" :href="'/ayudas/' + ayuda.id_ayuda + '/editar'">Editar</a></td>
                 </tr>
             </tbody>
         </table>

@@ -21,7 +21,7 @@ Vue.component('usuario', require('./components/UsuarioComponent.vue'));
 Vue.component('beneficiario', require('./components/BeneficiarioComponent.vue'));
 Vue.component('users-select', require('./components/UsersAutoCompleteComponent.vue'));
 Vue.component('generic-select', require('./components/GenericSelectComponent.vue'));
-
+Vue.component('generic-select', require('./components/IglesisasSelectComponent.vue'));
 Vue.component('table-ayuda', require('./components/AyudaComponent.vue'));
 const app = new Vue({
     el: '#app'

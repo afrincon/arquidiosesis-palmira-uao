@@ -37,5 +37,15 @@ class UserSeeder extends Seeder
         $user->fecha_ingreso = '2009-12-14';
         $user->save();
         $user->roles()->attach($role_admin);
+
+        $user = new User();
+        $user->name = 'Mauricio Medrano';
+        $user->telefono = "4026754";
+        $user->email = 'ramit.medrano@uao.edu.co';
+        $user->password = bcrypt('Holamundo123');
+        $user->fecha_nacimiento = '1994-10-01';
+        $user->fecha_ingreso = '2010-01-01';
+        $user->save();
+        $user->roles()->attach($role_admin);
     }
 }

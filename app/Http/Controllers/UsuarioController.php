@@ -25,7 +25,7 @@ class UsuarioController extends Controller
     }
 
     public function store() {
-        dd(request());
+        //dd(request());
         $data = request()->validate([
             'name' => 'required',
 			'telefono' => 'required',

@@ -24,7 +24,7 @@
             <td>{{ usuario.email }}</td>
             <td>{{ usuario.fecha_nacimiento }}</td>
             <td>{{ usuario.fecha_ingreso }}</td>
-            <td>{{ usuario.roles }}</td>
+            <td>{{ usuario.roles[0].description }}</td>
             <td><a class="button is-link is-rounded is-outlined" :href="'/usuarios/' + usuario.id + '/editar'">Editar</a></td>
           </tr>
         </tbody>

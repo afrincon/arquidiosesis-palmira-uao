@@ -1175,7 +1175,7 @@ Vue.component('tabla-iglesias', __webpack_require__(43));
 Vue.component('tabla-beneficiarios', __webpack_require__(46));
 Vue.component('tabla-ayudas', __webpack_require__(49));
 Vue.component('select-generico', __webpack_require__(52));
-Vue.component('lista-generica', __webpack_require__(63));
+Vue.component('lista-generica', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/GenericDataListComponent.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
 Vue.component('tiles-generico', __webpack_require__(55));
 
 var app = new Vue({
@@ -43618,7 +43618,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(usuario.fecha_ingreso))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(usuario.roles))]),
+                _c("td", [_vm._v(_vm._s(usuario.roles[0].description))]),
                 _vm._v(" "),
                 _c("td", [
                   _c(
@@ -44751,145 +44751,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(64)
-/* template */
-var __vue_template__ = __webpack_require__(65)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/GenericDataListComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-47159d95", Component.options)
-  } else {
-    hotAPI.reload("data-v-47159d95", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      parrocos: [],
-      user_id: null
-    };
-  },
-  created: function created() {
-    this.obtenerParrocos();
-  },
-
-  watch: {
-    user_id: function user_id(after, before) {
-      this.obtenerParrocos();
-    }
-  },
-  methods: {
-    obtenerParrocos: function obtenerParrocos() {
-      var _this = this;
-
-      var url = '/usuarios/obtenerlistadoparrocos';
-      axios.get(url, { params: { user_id: this.user_id } }).then(function (response) {
-        response.data.forEach(function (obj) {
-          _this.parrocos.push({ text: obj.name, value: obj.id });
-        });
-      });
-    }
-  }
-});
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("input", {
-      staticClass: "input",
-      attrs: { type: "text", list: "data-parrocos", name: _vm.user_id }
-    }),
-    _vm._v(" "),
-    _c(
-      "datalist",
-      { attrs: { id: "data-parrocos" } },
-      _vm._l(_vm.parrocos, function(parroco) {
-        return _c("option", {
-          key: parroco.id,
-          attrs: { label: parroco.text },
-          domProps: { value: parroco.value }
-        })
-      })
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-47159d95", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

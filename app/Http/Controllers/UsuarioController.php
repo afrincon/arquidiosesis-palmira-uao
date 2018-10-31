@@ -24,8 +24,7 @@ class UsuarioController extends Controller
         return view('admin.usuarios.create');
     }
 
-    public function store() {
-        dd(request());
+    public function store() {        
         $data = request()->validate([
             'name' => 'required',
 			'telefono' => 'required',

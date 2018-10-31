@@ -1175,6 +1175,7 @@ Vue.component('tabla-iglesias', __webpack_require__(43));
 Vue.component('tabla-beneficiarios', __webpack_require__(46));
 Vue.component('tabla-ayudas', __webpack_require__(49));
 Vue.component('select-generico', __webpack_require__(52));
+Vue.component('lista-generica', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/GenericDataListComponent.vue\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
 Vue.component('tiles-generico', __webpack_require__(55));
 
 var app = new Vue({

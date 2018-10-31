@@ -32,7 +32,7 @@ class IglesiaController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|numeric',
+            'telefono' => 'required|regex:/^[2][0-9]{6}$/|regex:/^[2][0-9]{6}$/',
             'id_arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',
@@ -53,10 +53,10 @@ class IglesiaController extends Controller
         $request->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|numeric',
+            'telefono' => 'required|phone:CO',
             'id_arquidiocesis' =>  'required',
             'user_id' => 'required',
-            'estado' => 'required',
+            'estado' => 'required',            
         ]);
         $iglesia = Iglesia::findOrFail($id);
         $iglesia->fill($request->all());

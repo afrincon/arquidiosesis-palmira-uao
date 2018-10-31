@@ -13,8 +13,4 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-<<<<<<< HEAD
    .browserSync('proyecto.test:8098');
-=======
-   .browserSync('proyecto.io:8080');
->>>>>>> 9634254d5633c363211b2ce6de5789fce1bb362e

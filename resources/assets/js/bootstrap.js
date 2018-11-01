@@ -107,6 +107,9 @@ window.$(document).on('click', '#confirmarDireccion', function(){
                             } 
                         });                       
                     }
+                    else {
+                        $('#btnBeneficiario').removeAttr('disabled');
+                    }
                 }
             });
         } else {                      

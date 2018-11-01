@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" class="input" list="data-parrocos" v-bind:name="user_id">
-    <datalist id="data-parrocos">
+    <input type="text" class="input" list="data-parrocos" name="user_id">
+    <datalist id="data-parrocos" >
       <!--<select class="select">-->
         <option v-for="parroco in parrocos"  v-bind:value="parroco.value" v-bind:label="parroco.text" v-bind:key="parroco.id">          
           
@@ -16,8 +16,7 @@
 export default {  
   data() {
     return {
-      parrocos : [],
-      user_id: null,      
+      parrocos : [],   
     }
   },
   created() {

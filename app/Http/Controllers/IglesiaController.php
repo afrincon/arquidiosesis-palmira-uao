@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Iglesia;
+use App\Ayuda;
 use App\Arquidiocesis;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class IglesiaController extends Controller
 {
@@ -34,7 +36,7 @@ class IglesiaController extends Controller
             'direccion' => 'required',
             'telefono' => [
                 'required',
-                'regex:/^[2][0-9]{6}$/',                
+                'regex:/^(2|30|31|32)[0-9]{6,8}$/',                
             ],
             'id_arquidiocesis' =>  'required',
             'user_id' => 'required',
@@ -94,5 +96,13 @@ class IglesiaController extends Controller
             $iglesias->load('arquidiocesis');
         }
         return response()->json($iglesias);
+    }
+
+    public function obtenerAyudas($id){        
+        $iglesia = Iglesia::findOrFail($id);
+        $ayuda = Ayuda::where('id_iglesia', '=', $id)->get();
+        //return view('admin.pdf.ayudas', compact('ayuda','iglesia'));
+        $pdf = PDF::loadView('admin.pdf.ayudas', compact('ayuda', 'iglesia'));
+        return $pdf->download('Ayudasiglesia'.$iglesia->nombre.'.pdf');
     }
 }

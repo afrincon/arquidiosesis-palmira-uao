@@ -28,7 +28,7 @@ class UsuarioController extends Controller
 		//dd(request());
         $data = request()->validate([
             'name' => 'required',
-			'telefono' => 'required',
+			'telefono' => 'required|numeric',
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'direccion' => 'required',

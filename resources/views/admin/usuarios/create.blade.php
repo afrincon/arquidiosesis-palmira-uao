@@ -3,7 +3,7 @@
 @section('content')
 <div class="column is-12">
   <div class="panel">
-    <p class="panel-heading">Creación de Usuarios</p>
+    <p class="panel-heading">Creación de usuarios</p>
     <div class="panel-block">
       <form class="long-form" action="{{ url('usuarios') }}" method="post">
         @csrf
@@ -19,7 +19,7 @@
         @endif
         <div class="field">
           <label for="nombre" class="label">Nombre</label>
-          <input type="text" name="name" class="input {{ $errors->has('name') ? ' is-danger' : '' }}" value="{{ old('name') }}" placeholder="Ingrese el nombre del parroco">
+          <input type="text" name="name" id="nombre" class="input {{ $errors->has('name') ? ' is-danger' : '' }}" value="{{ old('name') }}"placeholder="Ingrese el nombre">
           @if ($errors->has('name'))
             <p class="help is-danger">{{ $errors->first('name') }}</p>
           @endif
@@ -57,7 +57,7 @@
           <div class="column is-one-third">
             <div class="field">
               <label class="label">Teléfono</label>
-              <input type="text" name="telefono" class="input {{ $errors->has('telefono') ? ' is-danger' : '' }}" value="{{ old('telefono') }}" placeholder="Ingrese el numero teléfonico">
+              <input type="text" name="telefono" id="telefono" class="input {{ $errors->has('telefono') ? ' is-danger' : '' }}" value="{{ old('telefono') }}" placeholder="Ingrese el numero teléfonico">
               @if ($errors->has('telefono'))
                 <p class="help is-danger">{{ $errors->first('telefono') }}</p>
               @endif
@@ -101,4 +101,14 @@
     </div>   
   </div>
 </div>  
+<script>
+	$(document).ready(function() {
+		var tel = document.getElementById('telefono');
+		tel.onkeydown = function(e) {
+			if(!((e.keyCode > 95 && e.keyCode < 106) || (e.keyCode > 47 && e.keyCode < 58) || e.keyCode == 8)) {
+				return false;
+			}
+		}
+	});		
+</script>
 @endsection

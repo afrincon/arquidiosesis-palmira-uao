@@ -33,7 +33,7 @@ class UsuarioController extends Controller
             'password' => 'required',
             'direccion' => 'required',
 			'fecha_nacimiento' => 'required',
-			'fecha_ingreso' => 'required',
+			'fecha_ingreso' => 'required|date_greater_than:1952|before:mañana',
             'estado' => 'required',
 			'perfil' => 'required',
         ]);

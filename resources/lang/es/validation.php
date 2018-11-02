@@ -113,6 +113,7 @@ return [
     'uploaded'             => 'El campo :attribute no se pudo subir.',
     'url'                  => 'El formato del campo :attribute es inválido.',
     'phone'                 => 'El :attribute field es invalido.',
+    'date_greater_than'     => 'La fecha debe de ser mayor a 1952.',
 
     /*
     |--------------------------------------------------------------------------

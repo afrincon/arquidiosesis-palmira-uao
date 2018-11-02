@@ -58,7 +58,10 @@ class IglesiaController extends Controller
         $request->validate([
             'nombre' => 'required',
             'direccion' => 'required',
-            'telefono' => 'required|phone:CO',
+            'telefono' => [
+                'required',
+                'regex:/^(2|30|31|32)[0-9]{6,8}$/',                
+            ],
             'id_arquidiocesis' =>  'required',
             'user_id' => 'required',
             'estado' => 'required',            

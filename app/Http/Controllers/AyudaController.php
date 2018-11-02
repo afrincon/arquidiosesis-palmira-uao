@@ -24,7 +24,7 @@ class AyudaController extends Controller
 
     public function store(){
         $data = request()->validate([
-            'fecha_ayuda' => 'required|date_format:Y-m-d',
+            'fecha_ayuda' => 'required|date_format:Y-m-d|before:mañana|after:yesterday',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',
@@ -42,7 +42,7 @@ class AyudaController extends Controller
 
     public function update(Request $request, $id){
         $data = request()->validate([
-            'fecha_ayuda' => 'required|date|after:yestarday',
+            'fecha_ayuda' => 'required|date',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',
@@ -61,7 +61,7 @@ class AyudaController extends Controller
     }
 
     public function obtenerAyudas(Request $request){
-        $ayudas = Ayuda::where('id_beneficiario', 'like', '%'.$request->input('id_beneficiario').'%')->paginate(1);
+        $ayudas = Ayuda::where('id_beneficiario', 'like', '%'.$request->input('id_beneficiario').'%')->paginate(10);
         $ayudas->load('iglesia', 'beneficiario', 'tipoAyuda');        
         return response()->json([
             'paginate'  =>  [

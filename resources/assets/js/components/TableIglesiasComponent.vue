@@ -24,8 +24,7 @@
             <td>{{ iglesia.arquidiocesis.nombre }}</td>
             <td>{{ iglesia.user.name }}</td>
             <td>
-                <a class="button is-link is-rounded is-outlined" :href="'/iglesias/'+iglesia.id + '/editar'">Editar</a>
-                <a class="button is-link is-rounded is-outlined" :href="'/iglesias/obtenerlistadoayudas/'+iglesia.id">Ver ayudas</a>    
+                <a class="button is-link is-rounded is-outlined" :href="'/iglesias/'+iglesia.id + '/editar'">Editar</a>                
             </td>
           </tr>
         </tbody>

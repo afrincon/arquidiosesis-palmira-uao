@@ -43892,7 +43892,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -44031,17 +44030,6 @@ var render = function() {
                       attrs: { href: "/iglesias/" + iglesia.id + "/editar" }
                     },
                     [_vm._v("Editar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "button is-link is-rounded is-outlined",
-                      attrs: {
-                        href: "/iglesias/obtenerlistadoayudas/" + iglesia.id
-                      }
-                    },
-                    [_vm._v("Ver ayudas")]
                   )
                 ])
               ])

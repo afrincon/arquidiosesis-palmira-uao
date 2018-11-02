@@ -55,7 +55,20 @@
             <a href="{{ url('iglesias') }}" class="navbar-item">Iglesias</a>
             @if (Auth::user()->hasRole('admin'))
               <a href="{{ url('usuarios') }}" class="navbar-item">Usuarios</a>
-            @endif              
+            @endif
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Reportes
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Iglesias
+                </a>
+                <a class="navbar-item">
+                  Ayudas
+                </a>              
+              </div>
+            </div>            
           </div>
           <div class="navbar-end">
             <div class="navbar-item">          

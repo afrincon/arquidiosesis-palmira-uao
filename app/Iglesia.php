@@ -24,6 +24,6 @@ class Iglesia extends Model
 
     /* Relacion tabla ayudas */
     public function ayudas() {
-        return $this->belongsTo('App\ayuda');
+        return $this->belongsTo('App\ayuda', 'id', 'id_iglesia');
     }
 }

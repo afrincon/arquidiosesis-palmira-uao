@@ -31,6 +31,8 @@ Route::get('/beneficiarios/validardireccion', 'BeneficiarioController@validarDir
 Route::get('/ayudas/validarayuda', 'AyudaController@validarUltimaAyuda');
 Route::get('/ayudas/obtenerlistadoayudas', 'AyudaController@obtenerAyudas');
 Route::get('/ayudas/obtenertiposayudas', 'AyudaController@obtenerTipoAyuda');
+Route::get('/reportes/reporteporiglesia', 'ReporteController@reporteIglesia');
+Route::get('/reportes/generarreporte', 'ReporteController@listadoIglesias')->name('reporte-iglesias');
 
 Route::resource('/usuarios', 'UsuarioController',
     ['except' => ['destroy']])->middleware('auth', 'role:admin');

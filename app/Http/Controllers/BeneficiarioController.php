@@ -83,9 +83,19 @@ class BeneficiarioController extends Controller
         $beneficiarios = Beneficiario::where([
             ['nombre', 'like', '%'.$request->input('nombre').'%' ],
             ['estado', '=', 1],
-        ])->get();
+        ])->paginate(10);
         $beneficiarios->load('tipo_documento');
-        return response()->json($beneficiarios);
+        return response()->json([
+            'paginate' => [
+                'total'         =>  $beneficiarios->total(),
+                'current_page'  =>  $beneficiarios->currentPage(),
+                'per_page'      =>  $beneficiarios->perPage(),
+                'last_page'     =>  $beneficiarios->lastPage(),
+                'from '         =>  $beneficiarios->firstItem(),
+                'to'    =>  $beneficiarios->lastPage(),
+            ],
+            'beneficiarios' => $beneficiarios,
+        ]);
     }
 
     public function obtenerTipoDocumento(Request $request){

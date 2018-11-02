@@ -59,6 +59,7 @@ export default {
         'total': 0,
       },
       name: null,
+      offset: 3,
     }
   },
   created() {

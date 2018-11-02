@@ -43555,7 +43555,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'last_page': 0,
         'total': 0
       },
-      name: null
+      name: null,
+      offset: 3
     };
   },
   created: function created() {
@@ -44237,12 +44238,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       beneficiarios: [],
-      nombre: null
+      pagination: {
+        'current_page': 0,
+        'per_page': 0,
+        'first_item': 0,
+        'last_item': 0,
+        'last_page': 0,
+        'total': 0
+      },
+      nombre: null,
+      offset: 3
     };
   },
   created: function created() {
@@ -44254,14 +44275,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.getBeneficiarios();
     }
   },
+  computed: {
+    isActived: function isActived() {
+      return this.pagination.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+      var from = this.pagination.current_page - this.offset;
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+
+      var pagesArray = [];
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    }
+  },
   methods: {
-    getBeneficiarios: function getBeneficiarios() {
+    getBeneficiarios: function getBeneficiarios(page) {
       var _this = this;
 
-      var url = 'beneficiarios/obtenerlistadobeneficiarios';
+      var url = 'beneficiarios/obtenerlistadobeneficiarios?page=' + page;
       axios.get(url, { params: { nombre: this.nombre } }).then(function (response) {
-        _this.beneficiarios = response.data;
+        _this.beneficiarios = response.data.beneficiarios.data;
+        _this.pagination = response.data.paginate;
       });
+    },
+    changePage: function changePage(page) {
+      this.pagination.current_page = page;
+      this.getBeneficiarios(page);
     }
   }
 });
@@ -44355,6 +44408,71 @@ var render = function() {
                     [_vm._v("Editar")]
                   )
                 ])
+              ])
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "nav",
+        {
+          staticClass: "pagination",
+          attrs: { role: "navigation", "aria-label": "pagination" }
+        },
+        [
+          _vm.pagination.current_page > 1
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-previous",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page - 1)
+                    }
+                  }
+                },
+                [_vm._v("Anterior")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.pagination.current_page < _vm.pagination.last_page
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-next",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page + 1)
+                    }
+                  }
+                },
+                [_vm._v("Siguiente")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "pagination-list" },
+            _vm._l(_vm.pagesNumber, function(page) {
+              return _c("li", { key: page }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "pagination-link",
+                    class: [page == _vm.isActived ? "is-current" : ""],
+                    attrs: { "aria-label": "Goto page 1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.changePage(page)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            " + _vm._s(page) + "\n          ")]
+                )
               ])
             })
           )
@@ -44487,13 +44605,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       ayudas: [],
-      id_beneficiario: null
-
+      id_beneficiario: null,
+      pagination: {
+        'current_page': 0,
+        'per_page': 0,
+        'first_item': 0,
+        'last_item': 0,
+        'last_page': 0,
+        'total': 0
+      },
+      offset: 3
     };
   },
   created: function created() {
@@ -44505,13 +44642,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.getAyudas();
     }
   },
+  computed: {
+    isActived: function isActived() {
+      return this.pagination.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+      var from = this.pagination.current_page - this.offset;
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+
+      var pagesArray = [];
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    }
+  },
   methods: {
-    getAyudas: function getAyudas() {
+    getAyudas: function getAyudas(page) {
       var _this = this;
 
-      var url = 'ayudas/obtenerlistadoayudas';
+      var url = '/ayudas/obtenerlistadoayudas?page=' + page;
       axios.get(url, { params: { id_beneficiario: this.id_beneficiario } }).then(function (response) {
-        _this.ayudas = response.data;
+        _this.ayudas = response.data.ayudas.data;
+        _this.pagination = response.data.paginate;
       });
     },
 
@@ -44533,6 +44698,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           });
         }
       });
+    },
+    changePage: function changePage(page) {
+      this.pagination.current_page = page;
+      this.getAyudas(page);
     }
   }
 });
@@ -44616,6 +44785,71 @@ var render = function() {
                     [_vm._v("Anular")]
                   )
                 ])
+              ])
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "nav",
+        {
+          staticClass: "pagination",
+          attrs: { role: "navigation", "aria-label": "pagination" }
+        },
+        [
+          _vm.pagination.current_page > 1
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-previous",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page - 1)
+                    }
+                  }
+                },
+                [_vm._v("Anterior")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.pagination.current_page < _vm.pagination.last_page
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-next",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page + 1)
+                    }
+                  }
+                },
+                [_vm._v("Siguiente")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "pagination-list" },
+            _vm._l(_vm.pagesNumber, function(page) {
+              return _c("li", { key: page }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "pagination-link",
+                    class: [page == _vm.isActived ? "is-current" : ""],
+                    attrs: { "aria-label": "Goto page 1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.changePage(page)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            " + _vm._s(page) + "\n          ")]
+                )
               ])
             })
           )
@@ -44748,7 +44982,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.get(this.url).then(function (response) {
         switch (_this.url) {
           case '/beneficiarios/obtenerlistadobeneficiarios':
-            response.data.forEach(function (obj) {
+            response.data.beneficiarios.data.forEach(function (obj) {
               _this.options.push({ text: obj.nombre, value: obj.id_beneficiario });
             });
             break;
@@ -44773,7 +45007,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
             break;
           case '/iglesias/obtenerlistadoiglesias':
-            response.data.forEach(function (obj) {
+            response.data.iglesias.data.forEach(function (obj) {
               _this.options.push({ text: obj.nombre, value: obj.id });
             });
             break;

@@ -92,9 +92,20 @@ class UsuarioController extends Controller
         $users = User::where([
             ['name', 'like', '%'.$request->input('name').'%' ],
             ['estado', '=', 1],
-        ])->get();
+        ])->paginate(10);
         $users->load('roles');
-        return response()->json($users);
+        return response()->json([
+            'paginate' => [
+                'total'         =>  $users->total(),
+                'current_page'  =>  $users->currentPage(),
+                'per_page'      =>  $users->perPage(),
+                'last_page'     =>  $users->lastPage(),
+                'from '         =>  $users->firstItem(),
+                'to'            =>  $users->lastPage(),
+                                                        
+            ],
+            'usuarios'  =>  $users,
+        ]);
     }
 
     public function obtenerListadoRoles(){

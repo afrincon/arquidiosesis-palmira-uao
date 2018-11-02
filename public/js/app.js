@@ -43530,11 +43530,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       usuarios: [],
+      pagination: {
+        'current_page': 0,
+        'per_page': 0,
+        'first_item': 0,
+        'last_item': 0,
+        'last_page': 0,
+        'total': 0
+      },
       name: null
     };
   },
@@ -43547,15 +43567,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.getUsuarios();
     }
   },
+  computed: {
+    isActived: function isActived() {
+      return this.pagination.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+      var from = this.pagination.current_page - this.offset;
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+
+      var pagesArray = [];
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    }
+  },
   methods: {
-    getUsuarios: function getUsuarios() {
+    getUsuarios: function getUsuarios(page) {
       var _this = this;
 
-      var url = 'usuarios/obtenerlistadousuarios';
+      var url = '/usuarios/obtenerlistadousuarios?page=' + page;
       axios.get(url, { params: { name: this.name } }).then(function (response) {
-        _this.usuarios = response.data;
-        var array = _this.usuarios;
+        _this.usuarios = response.data.usuarios.data;
+        _this.pagination = response.data.paginate;
       });
+    },
+    changePage: function changePage(page) {
+      this.pagination.current_page = page;
+      this.getUsuarios(page);
     }
   }
 });
@@ -43632,6 +43683,71 @@ var render = function() {
                     [_vm._v("Editar")]
                   )
                 ])
+              ])
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "nav",
+        {
+          staticClass: "pagination",
+          attrs: { role: "navigation", "aria-label": "pagination" }
+        },
+        [
+          _vm.pagination.current_page > 1
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-previous",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page - 1)
+                    }
+                  }
+                },
+                [_vm._v("Anterior")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.pagination.current_page < _vm.pagination.last_page
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-next",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page + 1)
+                    }
+                  }
+                },
+                [_vm._v("Siguiente")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "pagination-list" },
+            _vm._l(_vm.pagesNumber, function(page) {
+              return _c("li", { key: page }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "pagination-link",
+                    class: [page == _vm.isActived ? "is-current" : ""],
+                    attrs: { "aria-label": "Goto page 1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.changePage(page)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            " + _vm._s(page) + "\n          ")]
+                )
               ])
             })
           )
@@ -43764,12 +43880,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       iglesias: [],
-      nombre: null
+      pagination: {
+        'current_page': 0,
+        'per_page': 0,
+        'first_item': 0,
+        'last_item': 0,
+        'last_page': 0,
+        'total': 0
+      },
+      nombre: null,
+      offset: 3
     };
   },
   created: function created() {
@@ -43781,14 +43918,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.getIglesias();
     }
   },
+  computed: {
+    isActived: function isActived() {
+      return this.pagination.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+      var from = this.pagination.current_page - this.offset;
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+
+      var pagesArray = [];
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    }
+  },
   methods: {
-    getIglesias: function getIglesias() {
+    getIglesias: function getIglesias(page) {
       var _this = this;
 
-      var url = 'iglesias/obtenerlistadoiglesias';
+      var url = '/iglesias/obtenerlistadoiglesias?page=' + page;
       axios.get(url, { params: { nombre: this.nombre } }).then(function (response) {
-        _this.iglesias = response.data;
+        _this.iglesias = response.data.iglesias.data;
+        _this.pagination = response.data.paginate;
       });
+    },
+    changePage: function changePage(page) {
+      this.pagination.current_page = page;
+      this.getIglesias(page);
     }
   }
 });
@@ -43874,6 +44043,71 @@ var render = function() {
                     [_vm._v("Ver ayudas")]
                   )
                 ])
+              ])
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "nav",
+        {
+          staticClass: "pagination",
+          attrs: { role: "navigation", "aria-label": "pagination" }
+        },
+        [
+          _vm.pagination.current_page > 1
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-previous",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page - 1)
+                    }
+                  }
+                },
+                [_vm._v("Anterior")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.pagination.current_page < _vm.pagination.last_page
+            ? _c(
+                "a",
+                {
+                  staticClass: "pagination-next",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changePage(_vm.pagination.current_page + 1)
+                    }
+                  }
+                },
+                [_vm._v("Siguiente")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "pagination-list" },
+            _vm._l(_vm.pagesNumber, function(page) {
+              return _c("li", { key: page }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "pagination-link",
+                    class: [page == _vm.isActived ? "is-current" : ""],
+                    attrs: { "aria-label": "Goto page 1" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.changePage(page)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            " + _vm._s(page) + "\n          ")]
+                )
               ])
             })
           )

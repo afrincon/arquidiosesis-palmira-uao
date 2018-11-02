@@ -87,18 +87,32 @@ class IglesiaController extends Controller
             $iglesias = Iglesia::where([
                 ['id', '=', $request->input('id') ],
                 ['estado', '=', 1],
-            ])->get();
+            ])->paginate(8);
             $iglesias->load('user');
             $iglesias->load('arquidiocesis');
         } else {
             $iglesias = Iglesia::where([
                 ['nombre', 'like', '%'.$request->input('nombre').'%' ],
                 ['estado', '=', 1],
-            ])->get();
+            ])->paginate(8);
             $iglesias->load('user');
             $iglesias->load('arquidiocesis');
+
         }
-        return response()->json($iglesias);
+        return response()->json(
+            [
+                'paginate' => [
+                    'total'         =>  $iglesias->total(),
+                    'current_page'  =>  $iglesias->currentPage(),
+                    'per_page'      =>  $iglesias->perPage(),
+                    'last_page'     =>  $iglesias->lastPage(),
+                    'from '         =>  $iglesias->firstItem(),
+                    'to'    =>  $iglesias->lastPage(),
+                                                            
+                ],
+                'iglesias' => $iglesias,
+            ]
+        );
     }
 
     public function obtenerAyudas($id){        

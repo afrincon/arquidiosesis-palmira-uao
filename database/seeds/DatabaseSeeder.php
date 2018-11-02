@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TiposDocumentoSeeder::class);
 
         // Carga dee los tipos de documento
-        $this->call(TiposAyudaSeeder::class);
+        $this->call(TiposAyudaSeeder::class);        
     }
 }

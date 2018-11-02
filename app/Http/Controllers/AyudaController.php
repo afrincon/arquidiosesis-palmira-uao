@@ -24,11 +24,11 @@ class AyudaController extends Controller
 
     public function store(){
         $data = request()->validate([
-            'fecha_ayuda' => 'required|date|after:yestarday',
+            'fecha_ayuda' => 'required|date_format:Y-m-d|after:ayer|before:mañana',
             'id_tipoayuda' => 'required',
             'id_beneficiario' =>  'required',
             'id_iglesia' => 'required',
-        ]);
+        ]);        
 
         $ayuda  = new Ayuda($data);        
         $ayuda->save();

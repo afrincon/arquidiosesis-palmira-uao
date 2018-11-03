@@ -32,7 +32,9 @@ Route::get('/ayudas/validarayuda', 'AyudaController@validarUltimaAyuda');
 Route::get('/ayudas/obtenerlistadoayudas', 'AyudaController@obtenerAyudas');
 Route::get('/ayudas/obtenertiposayudas', 'AyudaController@obtenerTipoAyuda');
 Route::get('/reportes/reporteporiglesia', 'ReporteController@reporteIglesia');
-Route::get('/reportes/generarreporte', 'ReporteController@listadoIglesias')->name('reporte-iglesias');
+Route::get('/reportes/reporteporbeneficiario', 'ReporteController@reporteBeneficiario');
+Route::get('/reportes/generarreporte', 'ReporteController@listadoIglesias')->name('reporte-iglesia');
+Route::get('/reportes/generarreporteb', 'ReporteController@listadoBeneficiarios')->name('reporte-beneficiario');
 
 Route::resource('/usuarios', 'UsuarioController',
     ['except' => ['destroy']])->middleware('auth', 'role:admin');

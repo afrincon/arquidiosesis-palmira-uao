@@ -18,6 +18,6 @@ class Beneficiario extends Model
 
     /* Relacion tabla ayudas */
     public function ayudas(){
-        return $this->belongsTo('App\ayuda');
+        return $this->belongsTo('App\ayuda','id_beneficiario', 'id_beneficiario');
     }
 }

@@ -74,44 +74,51 @@ window.$(document).on('click', '#confirmarDireccion', function(){
     var step2 = $("#step2").val();
     var step3 = $("#step3").val();
     var step4 = $("#step4").val();
+    var step5 = $("#step5").val();
     
     // Armar texto campo direccion
-    var address = step1.concat(' ', step2, ' #', step3, '-', step4);
+    var address = step1.concat(' ', step2, ' #', step3, '-', step4, ' ', step5);
 
     /* Validaciones a los input y al select */ 
     if(step1index !== 0){
         if(step2.length > 0 && step3.length > 0 && step4.length > 0) {
-            /* activar el input y asignar valor para que laravel lo pueda capturar */
-            $('#direccionBeneficiario').removeAttr("disabled");
-            $('#direccionBeneficiario').attr('readonly',true);
-            $('#direccionBeneficiario').val(address);
+            if ( $( "#direccionBeneficiario" ).length ) {
+                /* activar el input y asignar valor para que laravel lo pueda capturar */
+                $('#direccionBeneficiario').removeAttr("disabled");
+                $('#direccionBeneficiario').attr('readonly',true);
+                $('#direccionBeneficiario').val(address);
 
-            /*  peticion ajax para validar si la direccion existe en la base de datos */
-            $.ajax({
-                url: "/beneficiarios/validardireccion", 
-                dataType:'json',  // tipo de datos que te envia el archivo que se ejecuto                              
-                method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
-                data: {'direccion':address}, //parametros GET o POST 
-                success: function(response) {
-                    if(response === 1){
-                        swal({
-                            title: "Hay un beneficiario registrado con la misma direccion!",
-                            text: "¿desea registrar este beneficiario con la misma direccion?",
-                            icon: "warning",
-                            buttons: ["Volver", "Continuar"],
-                            dangerMode: true,
-                        })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                $('#btnBeneficiario').removeAttr('disabled');
-                            } 
-                        });                       
+                /*  peticion ajax para validar si la direccion existe en la base de datos */
+                $.ajax({
+                    url: "/beneficiarios/validardireccion", 
+                    dataType:'json',  // tipo de datos que te envia el archivo que se ejecuto                              
+                    method: "GET", // metodo por el cual vas a enviar los parametros GET o POST
+                    data: {'direccion':address}, //parametros GET o POST 
+                    success: function(response) {
+                        if(response === 1){
+                            swal({
+                                title: "Hay un beneficiario registrado con la misma direccion!",
+                                text: "¿desea registrar este beneficiario con la misma direccion?",
+                                icon: "warning",
+                                buttons: ["Volver", "Continuar"],
+                                dangerMode: true,
+                            })
+                            .then((willDelete) => {
+                                if (willDelete) {
+                                    $('#btnBeneficiario').removeAttr('disabled');
+                                } 
+                            });                       
+                        }
+                        else {
+                            $('#btnBeneficiario').removeAttr('disabled');
+                        }
                     }
-                    else {
-                        $('#btnBeneficiario').removeAttr('disabled');
-                    }
-                }
-            });
+                });
+            }
+            $('#inputDireccion').removeAttr("disabled");
+            $('#inputDireccion').attr('readonly',true);
+            $('#inputDireccion').val(address);
+            
         } else {                      
             window.swal('Debe de llenar completos los campos de la direccion');
         }

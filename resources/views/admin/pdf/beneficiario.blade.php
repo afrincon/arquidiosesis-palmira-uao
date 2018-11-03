@@ -7,11 +7,8 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-            Iglesia {{ $iglesia->nombre }}    
-        </h1>
-        <h2 class="subtitle">
-          Diocesis de palmira
-        </h2>      
+            Beneficiario: {{ $iglesia->nombre }}    
+        </h1>      
       </div>    
       <br><br><br>
       <p>{{ Carbon\Carbon::now(new DateTimeZone('America/Bogota')) }}</p>

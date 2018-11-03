@@ -61,11 +61,11 @@
                 Reportes
               </a>
               <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  Iglesias
+                <a class="navbar-item" href="{{ url('/reportes/reporteporiglesia') }}">
+                  Ayudas por iglesias
                 </a>
-                <a class="navbar-item">
-                  Ayudas
+                <a class="navbar-item" href="{{ url('/reportes/reporteporbeneficiario')}}">
+                  Ayudas por beneficiario
                 </a>              
               </div>
             </div>            

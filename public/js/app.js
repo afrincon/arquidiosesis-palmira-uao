@@ -45306,13 +45306,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.info = response.data;
             break;
           case '/iglesias/obtenerlistadoiglesias':
-            _this.info = response.data;
+            _this.info = response.data.iglesias.data;
             break;
           case '/beneficiarios/obtenerlistadobeneficiarios':
-            _this.info = response.data;
+            _this.info = response.data.beneficiarios.data;
             break;
           case '/ayudas/obtenerlistadoayudas':
-            _this.info = response.data;
+            _this.info = response.data.ayudas.data;
             break;
         }
       });

@@ -28,7 +28,7 @@
       <nav class="navbar is-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a href="/" class="navbar-item">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            Diocesis Palmira
           </a>
           <a class="navbar-burger burger" aria-label="menu" role="button" aria-expanded="false" data-target="navbarArquidiocesis">
             <span aria-hidden="true"></span>

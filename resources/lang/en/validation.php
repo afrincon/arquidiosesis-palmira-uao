@@ -113,7 +113,8 @@ return [
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
     'phone'                 => 'The :attribute field contains an invalid number.',
-    'date_greater_than'     => 'The date is greater than 1952.',
+    'date_greater_than'     => 'The date is greater than :attribute.',
+    'birthdate'             => ' the date is necesarry greater than 18 years',
 
     /*
     |--------------------------------------------------------------------------

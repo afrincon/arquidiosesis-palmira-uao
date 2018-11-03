@@ -114,6 +114,7 @@ return [
     'url'                  => 'El formato del campo :attribute es inválido.',
     'phone'                 => 'El :attribute field es invalido.',
     'date_greater_than'     => 'La fecha debe de ser mayor a 1952.',
+    'birthdate'             => 'Debe ser mayor de 18 años',
 
     /*
     |--------------------------------------------------------------------------

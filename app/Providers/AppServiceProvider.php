@@ -25,6 +25,14 @@ class AppServiceProvider extends ServiceProvider
             $inserted = Carbon::parse($value)->year;
             $since = $parameters[0];
             return $inserted >= $since && $inserted<= Carbon::now()->year;
+        }); 
+
+        Validator::extend('birthdate', function($attribute, $value, $parameters, $validator) {
+            $current = Carbon::now();
+            //dd($value > $current->subYear(105)->toDateString());
+            if($value < $current->subYear(18)->toDateString() ) {
+                    return $current->subYear(18)->toDateString();
+            }
         });
     }
 

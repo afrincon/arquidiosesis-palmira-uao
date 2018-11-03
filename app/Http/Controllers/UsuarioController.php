@@ -6,6 +6,7 @@ use App\User;
 use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 
 class UsuarioController extends Controller
@@ -32,11 +33,12 @@ class UsuarioController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'direccion' => 'required',
-			'fecha_nacimiento' => 'required',
-			'fecha_ingreso' => 'required|date_greater_than:1952|before:mañana',
+			'fecha_nacimiento' => 'required|birthdate',
+			'fecha_ingreso' => 'required|date_greater_than:1952',
             'estado' => 'required',
 			'perfil' => 'required',
         ]);
+
         $data['password'] = Hash::make(request()->input('password'));
         
         // Guardar usuario
@@ -59,7 +61,7 @@ class UsuarioController extends Controller
             'password' => '',
             'direccion' => 'required',
 			'fecha_nacimiento' => 'required',
-			'fecha_ingreso' => 'required|date_greater_than:1952|before:mañana',
+			'fecha_ingreso' => 'required|date_greater_than:1952',
             'estado' => 'required',
 			'perfil' => 'required',
         ]);

@@ -28,13 +28,13 @@ export default {
               this.info = response.data;
               break;
             case '/iglesias/obtenerlistadoiglesias':
-              this.info = response.data;
+              this.info = response.data.iglesias.data;
               break;
             case '/beneficiarios/obtenerlistadobeneficiarios':
-              this.info = response.data;
+              this.info = response.data.beneficiarios.data;
               break;
             case '/ayudas/obtenerlistadoayudas': 
-              this.info = response.data;              
+              this.info = response.data.ayudas.data;              
               break;
         }
       });

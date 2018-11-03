@@ -64,7 +64,7 @@
                   <input class="input" type="text" placeholder="Información adicional" id="step5">
               </div>              
               <div class="column">
-                  <a class="button is-primary" id="confirmarDireccion">Confirmar dirección</a>
+                  <a class="button is-info" id="confirmarDireccion">Confirmar dirección</a>
               </div>             
             </div>
           </div>

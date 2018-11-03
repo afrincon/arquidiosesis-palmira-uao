@@ -30,7 +30,6 @@ class IglesiaController extends Controller
     }
 
     public function store(){
-
         $data = request()->validate([
             'nombre' => 'required',
             'direccion' => 'required',

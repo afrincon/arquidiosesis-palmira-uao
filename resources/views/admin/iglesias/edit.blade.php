@@ -93,7 +93,10 @@
           <div class="column">
             <div class="field">
               <label class="label">Parroco</label>
-              <select-generico :old="'{{ old('user_id', $iglesia->user_id) }}'" :propname="'user_id'" :url="'/usuarios/obtenerlistadoparrocos'" :class_id="'select {{ $errors->has('user_id') ? ' is-danger' : '' }}'"></select-generico>
+              <div class="select">
+              <lista-generica :old="'{{ old('user_id', $iglesia->user_id) }}'" ></lista-generica>
+              </div>
+              
               @if ($errors->has('user_id'))
                 <p class="help is-danger">{{ $errors->first('user_id') }}</p>
               @endif

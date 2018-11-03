@@ -37,14 +37,18 @@
               @endif
             </div> 
           </div>
+          
           <div class="column">
             <div class="field">
-              <label for="nombre" class="label">Beneficiario</label>
-              <select-generico :old="'{{old('id_beneficiario')}}'" :value_id="'selectBeneficiario'" :propname="'id_beneficiario'" :url="'/beneficiarios/obtenerlistadobeneficiarios'" :class_id="'select {{ $errors->has('id_beneficiario') ? ' is-danger' : '' }}'"></select-generico>
+              <label class="label">Beneficiario</label>
+              <div class="select">
+              <lista-beneficiarios></lista-beneficiarios>
+              </div>
+              
               @if ($errors->has('id_beneficiario'))
                 <p class="help is-danger">{{ $errors->first('id_beneficiario') }}</p>
               @endif
-            </div>            
+            </div>
           </div>
           <div class="column">
             <div class="field">
@@ -55,6 +59,7 @@
               @endif
             </div>
           </div>
+          
         </div> 
         
         <div class="field">

@@ -19,8 +19,14 @@ export default {
       parrocos : [],   
     }
   },
+  props: ['old'],
   created() {
     this.obtenerParrocos();
+    if(this.old.length === 0) {
+       this.selected = 'Seleccione una opción'
+     } else {
+       this.selected = this.old
+     }
   },
   watch: {
     user_id(after,before) {

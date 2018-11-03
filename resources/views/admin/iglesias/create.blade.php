@@ -93,7 +93,10 @@
           <div class="column">
             <div class="field">
               <label class="label">Parroco</label>
+              <div class="select">
               <lista-generica></lista-generica>
+              </div>
+              
               @if ($errors->has('user_id'))
                 <p class="help is-danger">{{ $errors->first('user_id') }}</p>
               @endif

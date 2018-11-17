@@ -77,6 +77,12 @@ class AyudaController extends Controller
         ]);
     }
 
+    public function obtenerTilesAyudas(){
+        $ayudas = Ayuda::all();
+        $ayudas->load('iglesia', 'beneficiario', 'tipoAyuda');        
+        return response()->json($ayudas);
+    }
+
     public function obtenerTipoAyuda(){
         $tipo = TipoAyuda::all();
         return response()->json($tipo);

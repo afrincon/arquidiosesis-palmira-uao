@@ -98,6 +98,12 @@ class BeneficiarioController extends Controller
         ]);
     }
 
+    public function tilesBeneficiarios(){
+        $beneficiarios = Beneficiario::all();
+        $beneficiarios->load('tipo_documento');
+        return response()->json($beneficiarios);
+    }
+
     public function obtenerTipoDocumento(Request $request){
         $tipos = TiposDocumento::all();
         return response()->json($tipos);

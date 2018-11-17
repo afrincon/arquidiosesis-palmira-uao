@@ -114,6 +114,13 @@ class IglesiaController extends Controller
         );
     }
 
+    public function tilesIglesias(){
+        $iglesias = Iglesia::all();
+        $iglesias->load('user');
+        $iglesias->load('arquidiocesis');
+        return response()->json($iglesias);
+    }
+
     public function obtenerAyudas($id){        
         $iglesia = Iglesia::findOrFail($id);
         $ayuda = Ayuda::where('id_iglesia', '=', $id)->get();

@@ -27,14 +27,14 @@ export default {
             case '/usuarios/obtenerlistadoparrocos':
               this.info = response.data;
               break;
-            case '/iglesias/obtenerlistadoiglesias':
-              this.info = response.data.iglesias.data;
+            case '/iglesias/obtenertilesiglesias':
+              this.info = response.data;
               break;
-            case '/beneficiarios/obtenerlistadobeneficiarios':
-              this.info = response.data.beneficiarios.data;
+            case '/beneficiarios/obtenertilesbeneficiarios':
+              this.info = response.data;
               break;
-            case '/ayudas/obtenerlistadoayudas': 
-              this.info = response.data.ayudas.data;              
+            case '/ayudas/obtenertilesayudas':
+              this.info = response.data;              
               break;
         }
       });

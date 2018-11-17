@@ -93,6 +93,7 @@ class UsuarioController extends Controller
     public function obtenerListadoUsuarios(Request $request){
         $users = User::where([
             ['name', 'like', '%'.$request->input('name').'%' ],
+            ['id', '>', 1],
             ['estado', '=', 1],
         ])->paginate(10);
         $users->load('roles');

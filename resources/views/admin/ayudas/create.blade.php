@@ -42,7 +42,7 @@
             <div class="field">
               <label class="label">Beneficiario</label>
               <div class="select">
-              <lista-beneficiarios></lista-beneficiarios>
+              <lista-beneficiarios :value_id="'selectBeneficiario'"></lista-beneficiarios>
               </div>
               
               @if ($errors->has('id_beneficiario'))

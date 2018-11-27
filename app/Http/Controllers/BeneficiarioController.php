@@ -99,7 +99,9 @@ class BeneficiarioController extends Controller
     }
 
     public function tilesBeneficiarios(){
-        $beneficiarios = Beneficiario::all();
+        $beneficiarios = Beneficiario::where([            
+            ['estado', '=', 1],
+        ])->get();
         $beneficiarios->load('tipo_documento');
         return response()->json($beneficiarios);
     }

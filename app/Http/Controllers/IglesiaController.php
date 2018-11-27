@@ -114,12 +114,18 @@ class IglesiaController extends Controller
         );
     }
 
+    /* Cargar informacion a tiles del dashboard */
+
     public function tilesIglesias(){
-        $iglesias = Iglesia::all();
+        $iglesias = Iglesia::where([            
+            ['estado', '=', 1],
+        ])->get();
         $iglesias->load('user');
         $iglesias->load('arquidiocesis');
         return response()->json($iglesias);
     }
+
+    /* Obtener ayudas y enviarlas a pdf */
 
     public function obtenerAyudas($id){        
         $iglesia = Iglesia::findOrFail($id);

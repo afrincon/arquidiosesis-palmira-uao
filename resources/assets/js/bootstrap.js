@@ -128,8 +128,10 @@ window.$(document).on('click', '#confirmarDireccion', function(){
     
 });
 
+/* validacion de beneficiario en ayuda */
+
 window.$(document).on('change', '#selectBeneficiario', function(){
-    var beneficiario = $('#selectBeneficiario option:selected').val();
+    var beneficiario = $('#selectBeneficiario').val();
 
     $.ajax({
         url: "/ayudas/validarayuda",
@@ -142,7 +144,7 @@ window.$(document).on('change', '#selectBeneficiario', function(){
                 console.log(response);
                 swal({
                     title: "Encontramos una ayuda brindada",
-                    text: 'La ultima ayuda entregada fue el ' + response.fecha_ayuda,
+                    text: 'La ultima ayuda entregada fue el ' + response.fecha_ayuda + 'en la iglesia: ' + response.iglesia.nombre,
                     icon: "warning",
                     button: "Aceptar",
                 });
@@ -156,3 +158,32 @@ window.$(document).on('change', '#selectBeneficiario', function(){
         }  
     });
 });
+
+
+/*Hamburger mobile*/
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+  
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+  
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+  
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+  
+        });
+      });
+    }
+  
+  });
